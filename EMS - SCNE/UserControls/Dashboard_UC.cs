@@ -85,17 +85,17 @@ namespace EMS___SCNE.UserControls
             if (currentTime.Hour >= 5 && currentTime.Hour < 12)
             {
                 // Good morning
-                greatingslable.Text = "Good morning";
+                greatingslable.Text = "Good Morning";
             }
             else if (currentTime.Hour >= 12 && currentTime.Hour < 18)
             {
                 // Good afternoon
-                greatingslable.Text = "Good afternoon";
+                greatingslable.Text = "Good Afternoon";
             }
             else
             {
                 // Good evening
-                greatingslable.Text = "Good evening";
+                greatingslable.Text = "Good Evening";
             }
         }
 
@@ -118,6 +118,11 @@ namespace EMS___SCNE.UserControls
         {
             
             
+        }
+
+        private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -128,5 +128,10 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuLabel1_Click_1(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

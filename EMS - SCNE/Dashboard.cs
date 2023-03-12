@@ -150,5 +150,66 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            Leave_UC LeaveUC = new Leave_UC(); // Create an instance of the Attendence_UC user control
+            LeaveUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
+            bunifuPanel7.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
+            bunifuPanel7.Controls.Add(LeaveUC); // Add the Attendence_UC user control to the bunifuPanel7
+        }
+
+        private void dashboard_UC1_Load_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            Profile_UC profileuc = new Profile_UC(); // Create an instance of the Attendence_UC user control
+            profileuc.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
+            bunifuPanel7.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
+            bunifuPanel7.Controls.Add(profileuc); // Add the Attendence_UC user control to the bunifuPanel7
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

@@ -33,5 +33,16 @@ namespace EMS___SCNE.Properties {
                 return ((string)(this["EMS_SCNEConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=testsavidu;Persist Security Info=True;Us" +
+            "er ID=lakshitha;Password=123456")]
+        public string testsaviduConnectionString {
+            get {
+                return ((string)(this["testsaviduConnectionString"]));
+            }
+        }
     }
 }
