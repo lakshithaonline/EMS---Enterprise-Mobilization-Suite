@@ -120,6 +120,13 @@
   <metadata name="kryptonPalette1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="ComponentFactory.Krypton.Toolkit" name="ComponentFactory.Krypton.Toolkit, Version=4.6.0.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e" />
+  <data name="kryptonPalette1.ButtonSpecs.FormClose.Orientation" type="ComponentFactory.Krypton.Toolkit.PaletteButtonOrientation, ComponentFactory.Krypton.Toolkit">
+    <value>Inherit</value>
+  </data>
+  <data name="kryptonPalette1.ButtonSpecs.FormClose.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Inherit</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="kryptonPalette1.ButtonSpecs.FormMax.ImageStates.ImageCheckedPressed" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -133,6 +140,18 @@
         2Ieo9dB5nzRTvQ7AJEu0SShiQLiVytKg6Xp4owNwiH0F37xMZ9AsTPUjny/+AdutjgKe+s6AAAAAAElF
         TkSuQmCC
 </value>
+  </data>
+  <data name="kryptonPalette1.ButtonSpecs.FormMax.Orientation" type="ComponentFactory.Krypton.Toolkit.PaletteButtonOrientation, ComponentFactory.Krypton.Toolkit">
+    <value>Inherit</value>
+  </data>
+  <data name="kryptonPalette1.ButtonSpecs.FormMax.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Inherit</value>
+  </data>
+  <data name="kryptonPalette1.ButtonSpecs.FormMin.Orientation" type="ComponentFactory.Krypton.Toolkit.PaletteButtonOrientation, ComponentFactory.Krypton.Toolkit">
+    <value>Inherit</value>
+  </data>
+  <data name="kryptonPalette1.ButtonSpecs.FormMin.Style" type="ComponentFactory.Krypton.Toolkit.PaletteButtonStyle, ComponentFactory.Krypton.Toolkit">
+    <value>Inherit</value>
   </data>
   <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>155, 17</value>
@@ -158,52 +177,6 @@
   <data name="bunifuPanel6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;labledate.Name" xml:space="preserve">
-    <value>labledate</value>
-  </data>
-  <data name="&gt;&gt;labledate.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuLabel, Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;labledate.Parent" xml:space="preserve">
-    <value>bunifuPanel6</value>
-  </data>
-  <data name="&gt;&gt;labledate.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;labletime.Name" xml:space="preserve">
-    <value>labletime</value>
-  </data>
-  <data name="&gt;&gt;labletime.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuLabel, Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;labletime.Parent" xml:space="preserve">
-    <value>bunifuPanel6</value>
-  </data>
-  <data name="&gt;&gt;labletime.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="bunifuPanel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>920, 0</value>
-  </data>
-  <data name="bunifuPanel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>332, 139</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="bunifuPanel6.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel6.Name" xml:space="preserve">
-    <value>bunifuPanel6</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel6.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuPanel, Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel6.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="labledate.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; margin: auto; padding-top: 1px;font-family: 'Segoe UI'; font-size: 15.75pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: center; }</value>
   </data>
@@ -219,6 +192,7 @@
   <data name="labledate.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 31</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="labledate.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -273,6 +247,27 @@
   <data name="&gt;&gt;labletime.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="bunifuPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>920, 0</value>
+  </data>
+  <data name="bunifuPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>332, 139</value>
+  </data>
+  <data name="bunifuPanel6.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel6.Name" xml:space="preserve">
+    <value>bunifuPanel6</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel6.Type" xml:space="preserve">
+    <value>Bunifu.UI.WinForms.BunifuPanel, Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="bunifuPanel5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAArkAAACLCAYAAABlc4E7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -296,87 +291,6 @@
   </data>
   <data name="bunifuPanel5.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
-  </data>
-  <data name="&gt;&gt;linkLabel2.Name" xml:space="preserve">
-    <value>linkLabel2</value>
-  </data>
-  <data name="&gt;&gt;linkLabel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;linkLabel2.Parent" xml:space="preserve">
-    <value>bunifuPanel5</value>
-  </data>
-  <data name="&gt;&gt;linkLabel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;linkLabel1.Name" xml:space="preserve">
-    <value>linkLabel1</value>
-  </data>
-  <data name="&gt;&gt;linkLabel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;linkLabel1.Parent" xml:space="preserve">
-    <value>bunifuPanel5</value>
-  </data>
-  <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel2.Name" xml:space="preserve">
-    <value>bunifuLabel2</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel2.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuLabel, Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel2.Parent" xml:space="preserve">
-    <value>bunifuPanel5</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel1.Name" xml:space="preserve">
-    <value>bunifuLabel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel1.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuLabel, Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel1.Parent" xml:space="preserve">
-    <value>bunifuPanel5</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;guna2PictureBox1.Name" xml:space="preserve">
-    <value>guna2PictureBox1</value>
-  </data>
-  <data name="&gt;&gt;guna2PictureBox1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2PictureBox, Guna.UI2, Version=2.0.0.1, Culture=neutral, PublicKeyToken=ad275b4be6718d4b</value>
-  </data>
-  <data name="&gt;&gt;guna2PictureBox1.Parent" xml:space="preserve">
-    <value>bunifuPanel5</value>
-  </data>
-  <data name="&gt;&gt;guna2PictureBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="bunifuPanel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 0</value>
-  </data>
-  <data name="bunifuPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>697, 139</value>
-  </data>
-  <data name="bunifuPanel5.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel5.Name" xml:space="preserve">
-    <value>bunifuPanel5</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel5.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuPanel, Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel5.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="linkLabel2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3055,6 +2969,27 @@
   <data name="&gt;&gt;guna2PictureBox1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="bunifuPanel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 0</value>
+  </data>
+  <data name="bunifuPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>697, 139</value>
+  </data>
+  <data name="bunifuPanel5.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel5.Name" xml:space="preserve">
+    <value>bunifuPanel5</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel5.Type" xml:space="preserve">
+    <value>Bunifu.UI.WinForms.BunifuPanel, Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel5.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="bunifuPanel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAANMAAAKpCAYAAAAmIRlXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -3098,125 +3033,40 @@
   <data name="bunifuPanel1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
-  <data name="&gt;&gt;bunifuButton5.Name" xml:space="preserve">
-    <value>bunifuButton5</value>
+  <data name="bunifuButton6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAHoAAAAXCAYAAADEM1tgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEdSURBVGhD7Zo/igIxFIdT2s3LeoC1tPQk1nuEbTyL4Bn2
+        CjYySUqPYG2xLKyIKOyKTobxJf4tcoHk/QIfgbwwzcdvBuY99bp8rT9aq603esN7B/Lj6o6W7PLzpvW5
+        OldRLNpq35r0A0BGsENv6a81tGK3g5tmpYJkCC4PH3ZD686995Q3bxNv6JC6CPKnqenI+wxpFgAH+ZsT
+        Tf+pIigLTnS6AMoCooUA0UKAaCFAtBAgWggQLQSIFgJECwGihQDRQgj/uptUAZSFCs3p2LcExcJh3vOr
+        m6ZNjVQXS2xB01yF6QM2/pO8BLKH3e4e40QnV4344JeTfU5dBhkSkmz0tln0x1HyfcUBQae/WDgGETKH
+        HYZPse1cf3i1q9QFTYVmz/UeuCwAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="&gt;&gt;bunifuButton5.Type" xml:space="preserve">
+  <data name="bunifuButton6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt, style=Bold</value>
+  </data>
+  <data name="bunifuButton6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 57</value>
+  </data>
+  <data name="bunifuButton6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 23</value>
+  </data>
+  <data name="bunifuButton6.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;bunifuButton6.Name" xml:space="preserve">
+    <value>bunifuButton6</value>
+  </data>
+  <data name="&gt;&gt;bunifuButton6.Type" xml:space="preserve">
     <value>Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
   </data>
-  <data name="&gt;&gt;bunifuButton5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bunifuButton6.Parent" xml:space="preserve">
     <value>bunifuPanel1</value>
   </data>
-  <data name="&gt;&gt;bunifuButton5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bunifuButton6.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton4.Name" xml:space="preserve">
-    <value>bunifuButton4</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton4.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton4.Parent" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel4.Name" xml:space="preserve">
-    <value>bunifuLabel4</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel4.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuLabel, Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel4.Parent" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel3.Name" xml:space="preserve">
-    <value>bunifuLabel3</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel3.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuLabel, Bunifu.UI.WinForms.BunifuLabel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel3.Parent" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuLabel3.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;bunifuPictureBox1.Name" xml:space="preserve">
-    <value>bunifuPictureBox1</value>
-  </data>
-  <data name="&gt;&gt;bunifuPictureBox1.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuPictureBox, Bunifu.UI.WinForms.BunifuPictureBox, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuPictureBox1.Parent" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuPictureBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton3.Name" xml:space="preserve">
-    <value>bunifuButton3</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton3.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton3.Parent" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton3.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton2.Name" xml:space="preserve">
-    <value>bunifuButton2</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton2.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton2.Parent" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton2.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton1.Name" xml:space="preserve">
-    <value>bunifuButton1</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton1.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuButton.BunifuButton, Bunifu.UI.WinForms.BunifuButton, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton1.Parent" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuButton1.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="bunifuPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="bunifuPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="bunifuPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 681</value>
-  </data>
-  <data name="bunifuPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel1.Name" xml:space="preserve">
-    <value>bunifuPanel1</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel1.Type" xml:space="preserve">
-    <value>Bunifu.UI.WinForms.BunifuPanel, Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bunifuPanel1.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="bunifuButton5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3231,7 +3081,7 @@
 </value>
   </data>
   <data name="bunifuButton5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
   <data name="bunifuButton5.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 617</value>
@@ -3252,7 +3102,7 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuButton5.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="bunifuButton4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3269,7 +3119,7 @@
 </value>
   </data>
   <data name="bunifuButton4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
   <data name="bunifuButton4.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 125</value>
@@ -3290,7 +3140,7 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuButton4.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="bunifuLabel4.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI Semibold'; font-size: 9.75pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
@@ -3299,7 +3149,7 @@
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
   <data name="bunifuLabel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 35</value>
+    <value>74, 34</value>
   </data>
   <data name="bunifuLabel4.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>No</value>
@@ -3323,7 +3173,7 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuLabel4.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="bunifuLabel3.BaseStylesheet" xml:space="preserve">
     <value>#bunifu-label { padding: 0px; font-family: 'Segoe UI'; font-size: 9.75pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(0, 0, 0); text-align: left; }</value>
@@ -3356,7 +3206,7 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuLabel3.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="bunifuPictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -4726,7 +4576,7 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuPictureBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="bunifuButton3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4743,7 +4593,7 @@
 </value>
   </data>
   <data name="bunifuButton3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
   <data name="bunifuButton3.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 493</value>
@@ -4764,7 +4614,7 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuButton3.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="bunifuButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4781,7 +4631,7 @@
 </value>
   </data>
   <data name="bunifuButton2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
   <data name="bunifuButton2.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 368</value>
@@ -4802,7 +4652,7 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuButton2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="bunifuButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4819,7 +4669,7 @@
 </value>
   </data>
   <data name="bunifuButton1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
+    <value>Calibri, 12pt, style=Bold</value>
   </data>
   <data name="bunifuButton1.Location" type="System.Drawing.Point, System.Drawing">
     <value>49, 245</value>
@@ -4840,7 +4690,31 @@
     <value>bunifuPanel1</value>
   </data>
   <data name="&gt;&gt;bunifuButton1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
+  </data>
+  <data name="bunifuPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="bunifuPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="bunifuPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 681</value>
+  </data>
+  <data name="bunifuPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel1.Name" xml:space="preserve">
+    <value>bunifuPanel1</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel1.Type" xml:space="preserve">
+    <value>Bunifu.UI.WinForms.BunifuPanel, Bunifu.UI.WinForms.BunifuPanel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;bunifuPanel1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="bunifuPanel7.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4909,6 +4783,27 @@
   </data>
   <data name="bunifuPanel7.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
+  </data>
+  <data name="dashboard_UC1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 8</value>
+  </data>
+  <data name="dashboard_UC1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1035, 556</value>
+  </data>
+  <data name="dashboard_UC1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dashboard_UC1.Name" xml:space="preserve">
+    <value>dashboard_UC1</value>
+  </data>
+  <data name="&gt;&gt;dashboard_UC1.Type" xml:space="preserve">
+    <value>EMS___SCNE.UserControls.Dashboard_UC, EMS - SCNE, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;dashboard_UC1.Parent" xml:space="preserve">
+    <value>bunifuPanel7</value>
+  </data>
+  <data name="&gt;&gt;dashboard_UC1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="bunifuPanel7.Location" type="System.Drawing.Point, System.Drawing">
     <value>217, 117</value>

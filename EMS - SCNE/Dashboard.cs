@@ -1,5 +1,15 @@
-﻿using System;
+﻿using ComponentFactory.Krypton.Toolkit;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 using System.Windows.Forms;
+using EMS___SCNE.UserControls;
 
 namespace EMS___SCNE
 {
@@ -13,7 +23,7 @@ namespace EMS___SCNE
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void bunifuPanel1_Click(object sender, EventArgs e)
@@ -48,17 +58,17 @@ namespace EMS___SCNE
             if (currentTime.Hour >= 5 && currentTime.Hour < 12)
             {
                 // Good morning
-              //greatingslable.Text = "Good morning";
+                //greatingslable.Text = "Good morning";
             }
             else if (currentTime.Hour >= 12 && currentTime.Hour < 18)
             {
                 // Good afternoon
-              //greatingslable.Text = "Good afternoon";
+                //greatingslable.Text = "Good afternoon";
             }
             else
             {
                 // Good evening
-               //greatingslable.Text = "Good evening";
+                //greatingslable.Text = "Good evening";
             }
 
         }
@@ -90,7 +100,10 @@ namespace EMS___SCNE
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-           
+            Attendence_UC attendenceUC = new Attendence_UC(); // Create an instance of the Attendence_UC user control
+            attendenceUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
+            bunifuPanel7.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
+            bunifuPanel7.Controls.Add(attendenceUC); // Add the Attendence_UC user control to the bunifuPanel7
 
         }
 
@@ -117,7 +130,10 @@ namespace EMS___SCNE
 
         private void bunifuButton4_Click(object sender, EventArgs e)
         {
-            
+            Dashboard_UC dashboardUC = new Dashboard_UC(); // Create an instance of the Attendence_UC user control
+            dashboardUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
+            bunifuPanel7.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
+            bunifuPanel7.Controls.Add(dashboardUC); // Add the Attendence_UC user control to the bunifuPanel7
         }
 
         private void dashboard_UC1_Load(object sender, EventArgs e)
