@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ComponentFactory.Krypton.Toolkit;
 
 namespace EMS___SCNE
 {
-    public partial class Dashboard : KryptonForm
+    public partial class Attendence_UC : UserControl
     {
-        public Dashboard()
+        public Attendence_UC()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
