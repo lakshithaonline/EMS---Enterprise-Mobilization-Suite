@@ -37,6 +37,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.Licensing.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.1.5.3">
+      <HintPath>..\..\..\..\Desktop\New folder\BUNIFU TOOLS\BUNIFU TOOLS\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
@@ -119,14 +122,19 @@
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -144,11 +152,6 @@
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="testsaviduDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>testsaviduDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Profile_UC.cs">
       <SubType>UserControl</SubType>
@@ -220,17 +223,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="testsaviduDataSet.xsc">
-      <DependentUpon>testsaviduDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="testsaviduDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>testsaviduDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="testsaviduDataSet.xss">
-      <DependentUpon>testsaviduDataSet.xsd</DependentUpon>
-    </None>
     <None Include="_EMS_SCNEDataSet.xsc">
       <DependentUpon>_EMS_SCNEDataSet.xsd</DependentUpon>
     </None>

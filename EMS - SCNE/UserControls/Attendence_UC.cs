@@ -7,6 +7,9 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
 using ExcelDataReader;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 
 
@@ -14,9 +17,24 @@ namespace EMS___SCNE
 {
     public partial class Attendence_UC : UserControl
     {
+
+        private string dbConnectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+        private SqlConnection connection;
+
+
         public Attendence_UC()
         {
             InitializeComponent();
+
+            // Set up database connection
+            connection = new SqlConnection(dbConnectionString);
+            connection.Open();
+
+            // Set up combobox options
+            bunifuDropdown2.Items.Add("Late Check In");
+            bunifuDropdown2.Items.Add("Early Check-Out");
+            bunifuDropdown2.Items.Add("Absent");
+
         }
 
         private void bunifuLabel1_Click(object sender, System.EventArgs e)
@@ -26,97 +44,95 @@ namespace EMS___SCNE
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // create a Panel control
-            var panel = new Panel();
-
-            // set the panel's size and location
-            panel.Size = new Size(400, 300);
-            panel.Location = new Point(10, 10);
-
-            // create a BunifuDataGridView control
-            var dgv = new BunifuDataGridView();
-
-            // set the DataGridView's size and location
-            dgv.Size = new Size(390, 290);
-            dgv.Location = new Point(5, 5);
-
-            // add the DataGridView to the panel
-            panel.Controls.Add(dgv);
-
-            // set the panel's BorderStyle and BorderRadius
-            panel.BorderStyle = BorderStyle.FixedSingle;
-            //panel.BorderRadius = 10;
-
-            // add the panel to the form
-            Controls.Add(panel);
+            
 
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            openFileDialog1.Filter = "Excel files (*.xls;*.xlsx)|*.xls;*.xlsx|All files (*.*)|*.*";
+            openFileDialog1.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
 
         }
 
-        private void bunifuButton1_Click(object sender, System.EventArgs e)
+        public void bunifuButton1_Click(object sender, System.EventArgs e)
         {
-            // Create a new instance of the OpenFileDialog component
+            // Show the Open File dialog
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Excel Files|*.xlsx;*.xls;*.xlsm";
-            openFileDialog1.Title = "Select an Excel File";
-
-            // Show the OpenFileDialog box and wait for the user to select a file
+            openFileDialog1.Filter = "CSV Files|*.csv";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Get the file path and name
-                string filePath = openFileDialog1.FileName;
+                // Get the path to the selected file
+                string csvFilePath = openFileDialog1.FileName;
 
-                // Set up the connection string to the SQL Server database
-                string connectionString = "Server=yourServerName;Database=yourDatabaseName;Trusted_Connection=True;";
-
-                // Set up the SQL INSERT statement
-                string insertSql = "INSERT INTO YourTableName (Column1, Column2, Column3) VALUES (@Value1, @Value2, @Value3);";
-
-                // Create a new instance of the ExcelDataReader component to read the data from the Excel file
-                using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+                // Read the data from the CSV file
+                DataTable dataTable = new DataTable();
+                using (StreamReader reader = new StreamReader(csvFilePath))
                 {
-                    using (var reader = ExcelReaderFactory.CreateReader(stream))
+                    string[] headers = reader.ReadLine().Split(',');
+                    foreach (string header in headers)
                     {
-                        // Read the data from the Excel file
-                        var dataSet = reader.AsDataSet();
-                        var dataTable = dataSet.Tables[0];
-
-                        // Open a connection to the SQL Server database
-                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        dataTable.Columns.Add(header);
+                    }
+                    while (!reader.EndOfStream)
+                    {
+                        string[] fields = reader.ReadLine().Split(',');
+                        DataRow dataRow = dataTable.NewRow();
+                        for (int i = 0; i < headers.Length; i++)
                         {
-                            connection.Open();
-
-                            // Loop through each row in the DataTable and insert it into the database
-                            foreach (DataRow row in dataTable.Rows)
-                            {
-                                using (SqlCommand command = new SqlCommand(insertSql, connection))
-                                {
-                                    // Set the parameter values for the SQL INSERT statement
-                                    command.Parameters.AddWithValue("@Value1", row[0].ToString());
-                                    command.Parameters.AddWithValue("@Value2", row[1].ToString());
-                                    command.Parameters.AddWithValue("@Value3", row[2].ToString());
-
-                                    // Execute the SQL INSERT statement
-                                    command.ExecuteNonQuery();
-                                }
-                            }
+                            dataRow[i] = fields[i];
                         }
+                        dataTable.Rows.Add(dataRow);
                     }
                 }
 
-                // Display a message to the user indicating that the import was successful
-                MessageBox.Show("Import complete.");
+                // Set up the connection to the database and insert the data
+                string dbConnectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+                using (SqlConnection dbConnection = new SqlConnection(dbConnectionString))
+                {
+                    dbConnection.Open();
+
+                    // Loop through the rows of the DataTable and insert each row into the database
+                    foreach (DataRow dataRow in dataTable.Rows)
+                    {
+                        SqlCommand sqlCommand = new SqlCommand();
+                        sqlCommand.Connection = dbConnection;
+                        sqlCommand.CommandType = CommandType.Text;
+                        sqlCommand.CommandText = "INSERT INTO Attendance (UserID, Name, Department, Date, [Check_In_Time], [Check_Out_Time], [Total_Hours_Worked], EnrollID, DeviceID, Place, VerifyMode) " +
+                            "VALUES (@UserID, @Name, @Department, @Date, @Check_In_Time, @Check_Out_Time, @Total_Hours_Worked, @EnrollID, @DeviceID, @Place, @VerifyMode)";
+
+                        // Add parameters for the values to insert
+                        sqlCommand.Parameters.AddWithValue("@UserID", dataRow["UserID"]);
+                        sqlCommand.Parameters.AddWithValue("@Name", dataRow["Name"]);
+                        sqlCommand.Parameters.AddWithValue("@Department", dataRow["Department"]);
+                        sqlCommand.Parameters.AddWithValue("@Date", dataRow["Date"]);
+                        sqlCommand.Parameters.AddWithValue("@Check_In_Time", dataRow["Check_In_Time"]);
+                        sqlCommand.Parameters.AddWithValue("@Check_Out_Time", dataRow["Check_Out_Time"]);
+                        sqlCommand.Parameters.AddWithValue("@Total_Hours_Worked", dataRow["Total_Hours_Worked"]);
+                        sqlCommand.Parameters.AddWithValue("@EnrollID", dataRow["EnrollID"]);
+                        sqlCommand.Parameters.AddWithValue("@DeviceID", dataRow["DeviceID"]);
+                        sqlCommand.Parameters.AddWithValue("@Place", dataRow["Place"]);
+                        sqlCommand.Parameters.AddWithValue("@VerifyMode", dataRow["VerifyMode"]);
+
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                }
+
+                // Display a message box to indicate that the import was successful
+                MessageBox.Show("Import complete!");
             }
         }
 
         private void Attendence_UC_Load(object sender, System.EventArgs e)
         {
+            string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+            SqlConnection connection = new SqlConnection(connectionString);
 
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Attendance", connection);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            bunifuDataGridView1.DataSource = dataTable;
         }
 
         private void fileSystemWatcher1_Changed(object sender, FileSystemEventArgs e)
@@ -130,6 +146,170 @@ namespace EMS___SCNE
         }
 
         private void bunifuLabel1_Click_1(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void bunifuTextBox1_TextChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton1_Click_1(object sender, System.EventArgs e)
+        {
+            /*
+
+            // Get selected filter values
+            string attendanceType = bunifuDropdown2.SelectedItem.ToString();
+            DateTime selectedDate = bunifuDatePicker2.Value.Date;
+
+            // Set up SQL query based on selected filter values
+            string sqlQuery = "";
+            switch (attendanceType)
+            {
+                case "Late Check In":
+                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date = @Date AND Check_In_Time > '09:00:00'";
+                    break;
+                case "Early Check-Out":
+                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date = @Date AND Total_Hours_Worked < 8";
+                    break;
+                case "Absent":
+                    sqlQuery = "SELECT Employees.UserID, Employees.Name, Employees.Department, @Date AS Date FROM Employees WHERE Employees.UserID NOT IN (SELECT Attendance.UserID FROM Attendance WHERE Date = @Date)";
+                    break;
+            }
+
+            // Execute query and display results
+            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Date", selectedDate);
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    bunifuDataGridView1.DataSource = dataTable;
+                }
+
+            } */
+
+            /*
+            // Get selected filter values
+            string attendanceType = bunifuDropdown2.SelectedItem.ToString();
+            DateTime selectedDate = bunifuDatePicker2.Value.Date;
+            string employeeID = bunifuTextBox1.Text.Trim();
+
+            // Set up SQL query based on selected filter values
+            string sqlQuery = "";
+            switch (attendanceType)
+            {
+                case "Late Check In":
+                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date = @Date AND Check_In_Time > '09:00:00'";
+                    break;
+                case "Early Check-Out":
+                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date = @Date AND Total_Hours_Worked < 8";
+                    break;
+                case "Absent":
+                    sqlQuery = "SELECT Employees.UserID, Employees.Name, Employees.Department, @Date AS Date FROM Employees WHERE Employees.UserID NOT IN (SELECT Attendance.UserID FROM Attendance WHERE Date = @Date)";
+                    break;
+            }
+
+            // Add employee ID filter if specified
+            if (!string.IsNullOrEmpty(employeeID))
+            {
+                sqlQuery += " AND UserID = @UserID";
+            }
+
+            // Execute query and display results
+            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+            {
+                command.Parameters.AddWithValue("@Date", selectedDate);
+                if (!string.IsNullOrEmpty(employeeID))
+                {
+                    command.Parameters.AddWithValue("@UserID", employeeID);
+                }
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    bunifuDataGridView1.DataSource = dataTable;
+                }
+
+
+            }*/
+
+            // Get selected filter values
+            string attendanceType = bunifuDropdown2.SelectedItem.ToString();
+            DateTime startDate = bunifuDatePicker2.Value.Date;
+            DateTime endDate = bunifuDatePicker1.Value.Date;
+            string employeeID = bunifuTextBox1.Text.Trim();
+
+            // Set up SQL query based on selected filter values
+            string sqlQuery = "";
+            switch (attendanceType)
+            {
+                case "Late Check In":
+                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND Check_In_Time > '09:00:00'";
+                    break;
+                case "Early Check-Out":
+                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND Total_Hours_Worked < 8";
+                    break;
+                case "Absent":
+                    sqlQuery = "SELECT UserID, Name, Department, Date FROM Absent_emp WHERE Date BETWEEN @StartDate AND @EndDate ";
+                    break;
+
+
+            }
+
+            // Add employee ID filter if specified
+            if (!string.IsNullOrEmpty(employeeID))
+            {
+                sqlQuery += " AND UserID = @UserID";
+            }
+
+            // Execute query and display results
+            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+            {
+                command.Parameters.AddWithValue("@StartDate", startDate);
+                command.Parameters.AddWithValue("@EndDate", endDate);
+                if (!string.IsNullOrEmpty(employeeID))
+                {
+                    command.Parameters.AddWithValue("@UserID", employeeID);
+                }
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    bunifuDataGridView1.DataSource = dataTable;
+                }
+            }
+
+
+        }
+
+        private void kryptonComboBox2_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+                    
+        }
+
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void bunifuDatePicker2_ValueChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void bunifuDropdown2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuDatePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }
