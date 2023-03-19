@@ -4862,6 +4862,33 @@
   <data name="bunifuPanel7.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="bunifuDataGridView1.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <metadata name="_EMS_SCNEDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>242, 17</value>
+  </metadata>
+  <data name="bunifuDataGridView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 406</value>
+  </data>
+  <data name="bunifuDataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>695, 119</value>
+  </data>
+  <data name="bunifuDataGridView1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;bunifuDataGridView1.Name" xml:space="preserve">
+    <value>bunifuDataGridView1</value>
+  </data>
+  <data name="&gt;&gt;bunifuDataGridView1.Type" xml:space="preserve">
+    <value>Bunifu.UI.WinForms.BunifuDataGridView, Bunifu.UI.WinForms.BunifuDataGridView, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9</value>
+  </data>
+  <data name="&gt;&gt;bunifuDataGridView1.Parent" xml:space="preserve">
+    <value>bunifuPanel7</value>
+  </data>
+  <data name="&gt;&gt;bunifuDataGridView1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="dashboard_UC1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -4881,7 +4908,7 @@
     <value>bunifuPanel7</value>
   </data>
   <data name="&gt;&gt;dashboard_UC1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="bunifuPanel7.Location" type="System.Drawing.Point, System.Drawing">
     <value>217, 125</value>
@@ -4904,6 +4931,12 @@
   <data name="&gt;&gt;bunifuPanel7.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="absentempBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>400, 17</value>
+  </metadata>
+  <metadata name="absent_empTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>591, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -4936,6 +4969,24 @@
   </data>
   <data name="&gt;&gt;timer1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;_EMS_SCNEDataSet.Name" xml:space="preserve">
+    <value>_EMS_SCNEDataSet</value>
+  </data>
+  <data name="&gt;&gt;_EMS_SCNEDataSet.Type" xml:space="preserve">
+    <value>EMS___SCNE._EMS_SCNEDataSet, _EMS_SCNEDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;absentempBindingSource.Name" xml:space="preserve">
+    <value>absentempBindingSource</value>
+  </data>
+  <data name="&gt;&gt;absentempBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;absent_empTableAdapter.Name" xml:space="preserve">
+    <value>absent_empTableAdapter</value>
+  </data>
+  <data name="&gt;&gt;absent_empTableAdapter.Type" xml:space="preserve">
+    <value>EMS___SCNE._EMS_SCNEDataSetTableAdapters.Absent_empTableAdapter, _EMS_SCNEDataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Dashboard</value>

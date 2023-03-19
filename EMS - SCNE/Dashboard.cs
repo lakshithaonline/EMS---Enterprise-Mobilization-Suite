@@ -23,6 +23,8 @@ namespace EMS___SCNE
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_EMS_SCNEDataSet.Absent_emp' table. You can move, or remove it, as needed.
+            this.absent_empTableAdapter.Fill(this._EMS_SCNEDataSet.Absent_emp);
 
         }
 

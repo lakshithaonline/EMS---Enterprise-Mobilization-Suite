@@ -10,6 +10,8 @@ using ExcelDataReader;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Drawing.Printing;
+
 
 
 
@@ -20,7 +22,7 @@ namespace EMS___SCNE
 
         private string dbConnectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
         private SqlConnection connection;
-
+        private object printDocument1;
 
         public Attendence_UC()
         {
@@ -157,86 +159,7 @@ namespace EMS___SCNE
 
         private void bunifuButton1_Click_1(object sender, System.EventArgs e)
         {
-            /*
-
-            // Get selected filter values
-            string attendanceType = bunifuDropdown2.SelectedItem.ToString();
-            DateTime selectedDate = bunifuDatePicker2.Value.Date;
-
-            // Set up SQL query based on selected filter values
-            string sqlQuery = "";
-            switch (attendanceType)
-            {
-                case "Late Check In":
-                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date = @Date AND Check_In_Time > '09:00:00'";
-                    break;
-                case "Early Check-Out":
-                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date = @Date AND Total_Hours_Worked < 8";
-                    break;
-                case "Absent":
-                    sqlQuery = "SELECT Employees.UserID, Employees.Name, Employees.Department, @Date AS Date FROM Employees WHERE Employees.UserID NOT IN (SELECT Attendance.UserID FROM Attendance WHERE Date = @Date)";
-                    break;
-            }
-
-            // Execute query and display results
-            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-            {
-                command.Parameters.AddWithValue("@Date", selectedDate);
-
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    bunifuDataGridView1.DataSource = dataTable;
-                }
-
-            } */
-
-            /*
-            // Get selected filter values
-            string attendanceType = bunifuDropdown2.SelectedItem.ToString();
-            DateTime selectedDate = bunifuDatePicker2.Value.Date;
-            string employeeID = bunifuTextBox1.Text.Trim();
-
-            // Set up SQL query based on selected filter values
-            string sqlQuery = "";
-            switch (attendanceType)
-            {
-                case "Late Check In":
-                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date = @Date AND Check_In_Time > '09:00:00'";
-                    break;
-                case "Early Check-Out":
-                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date = @Date AND Total_Hours_Worked < 8";
-                    break;
-                case "Absent":
-                    sqlQuery = "SELECT Employees.UserID, Employees.Name, Employees.Department, @Date AS Date FROM Employees WHERE Employees.UserID NOT IN (SELECT Attendance.UserID FROM Attendance WHERE Date = @Date)";
-                    break;
-            }
-
-            // Add employee ID filter if specified
-            if (!string.IsNullOrEmpty(employeeID))
-            {
-                sqlQuery += " AND UserID = @UserID";
-            }
-
-            // Execute query and display results
-            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-            {
-                command.Parameters.AddWithValue("@Date", selectedDate);
-                if (!string.IsNullOrEmpty(employeeID))
-                {
-                    command.Parameters.AddWithValue("@UserID", employeeID);
-                }
-
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    bunifuDataGridView1.DataSource = dataTable;
-                }
-
-
-            }*/
+         
 
             // Get selected filter values
             string attendanceType = bunifuDropdown2.SelectedItem.ToString();
@@ -255,7 +178,7 @@ namespace EMS___SCNE
                     sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND Total_Hours_Worked < 8";
                     break;
                 case "Absent":
-                    sqlQuery = "SELECT UserID, Name, Department, Date FROM Absent_emp WHERE Date BETWEEN @StartDate AND @EndDate ";
+                    sqlQuery = "SELECT UserID, Name, Department, Date, Position FROM Absent_emp WHERE Date BETWEEN @StartDate AND @EndDate ";
                     break;
 
 
@@ -312,6 +235,37 @@ namespace EMS___SCNE
         private void bunifuDatePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            // Create a Bitmap object for the DataGridView control
+            Bitmap bm = new Bitmap(this.bunifuDataGridView1.Width, this.bunifuDataGridView1.Height);
+
+            // Draw the DataGridView control to the Bitmap object
+            this.bunifuDataGridView1.DrawToBitmap(bm, new Rectangle(0, 0, this.bunifuDataGridView1.Width, this.bunifuDataGridView1.Height));
+
+            // Set the origin of the printing area
+            Point origin = new Point(100, 100);
+
+            // Draw the Bitmap object to the printing area
+            e.Graphics.DrawImage(bm, origin);
+        }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            // Create the PrintDocument and PrintPreviewDialog objects
+            PrintDocument pd = new PrintDocument();
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+
+            // Set the PrintPage event handler for the PrintDocument
+            pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+
+            // Set the document to print
+            ppd.Document = pd;
+
+            // Display the Print Preview Dialog
+            ppd.ShowDialog();
         }
     }
 }

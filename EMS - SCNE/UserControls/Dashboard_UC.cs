@@ -4,11 +4,14 @@ using Bunifu.UI.WinForms;
 using System.Reflection.Emit;
 using System.Windows.Forms;
 using static Bunifu.UI.WinForms.BunifuLabel;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace EMS___SCNE.UserControls
 {
     public partial class Dashboard_UC : UserControl
     {
+
         public Dashboard_UC()
         {
             InitializeComponent();
@@ -33,6 +36,81 @@ namespace EMS___SCNE.UserControls
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            //display absent employees
+            string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Absent_emp", connection);
+
+            DataTable dataTable = new DataTable();
+            adapter.Fill(dataTable);
+
+            bunifuDataGridView2.DataSource = dataTable;
+
+
+            //display the best employee in month
+            {
+                SqlCommand cmd = new SqlCommand("sp_GetTopEmployees", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                bunifuDataGridView1.DataSource = dt;
+            }
+
+            //display employee count
+            {
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
+                connection.Open();
+                int employeeCount = (int)cmd.ExecuteScalar();
+                connection.Close();
+
+                bunifuLabel2.Text = employeeCount.ToString();
+            }
+
+            //display monthly attendence (without absents)
+            {
+                SqlCommand cmd = new SqlCommand("sp_GetMonthlyAttendanceCount", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                int monthlyAttendanceCount = (int)cmd.ExecuteScalar();
+
+                bunifuLabel8.Text = monthlyAttendanceCount.ToString();
+
+                connection.Close();
+            }
+
+            //display the monthly late attendence
+            {
+                SqlCommand cmd = new SqlCommand("sp_GetLateAttendanceCount", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                int lateAttendanceCount = (int)cmd.ExecuteScalar();
+
+                bunifuLabel10.Text = lateAttendanceCount.ToString();
+
+                connection.Close();
+            }
+            //display the monthly absent employees 
+            {
+                SqlCommand cmd = new SqlCommand("sp_GetAbsentEmployeeCountMonthly", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+                int absentEmployeeCount = (int)cmd.ExecuteScalar();
+                
+
+                bunifuLabel12.Text = absentEmployeeCount.ToString();
+
+                connection.Close();
+            }
+
 
         }
 
@@ -63,7 +141,7 @@ namespace EMS___SCNE.UserControls
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void bunifuCircleProgress1_ProgressChanged(object sender, Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs e)
@@ -121,6 +199,26 @@ namespace EMS___SCNE.UserControls
         }
 
         private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuDataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void bunifuLabel2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void bunifuLabel10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel12_Click(object sender, EventArgs e)
         {
 
         }
