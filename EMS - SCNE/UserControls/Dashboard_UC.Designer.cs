@@ -72,6 +72,9 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuPanel9 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel18 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel17 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel16 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel13 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel14 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuDataGridView2 = new Bunifu.UI.WinForms.BunifuDataGridView();
@@ -622,6 +625,9 @@ namespace EMS___SCNE.UserControls
             this.bunifuPanel9.BorderColor = System.Drawing.Color.Black;
             this.bunifuPanel9.BorderRadius = 10;
             this.bunifuPanel9.BorderThickness = 1;
+            this.bunifuPanel9.Controls.Add(this.bunifuLabel18);
+            this.bunifuPanel9.Controls.Add(this.bunifuLabel17);
+            this.bunifuPanel9.Controls.Add(this.bunifuLabel16);
             this.bunifuPanel9.Controls.Add(this.bunifuLabel13);
             this.bunifuPanel9.Controls.Add(this.bunifuLabel14);
             this.bunifuPanel9.Location = new System.Drawing.Point(584, 249);
@@ -630,20 +636,66 @@ namespace EMS___SCNE.UserControls
             this.bunifuPanel9.Size = new System.Drawing.Size(170, 100);
             this.bunifuPanel9.TabIndex = 28;
             // 
+            // bunifuLabel18
+            // 
+            this.bunifuLabel18.AllowParentOverrides = false;
+            this.bunifuLabel18.AutoEllipsis = false;
+            this.bunifuLabel18.CursorType = null;
+            this.bunifuLabel18.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel18.Location = new System.Drawing.Point(95, 70);
+            this.bunifuLabel18.Name = "bunifuLabel18";
+            this.bunifuLabel18.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel18.Size = new System.Drawing.Size(8, 19);
+            this.bunifuLabel18.TabIndex = 30;
+            this.bunifuLabel18.Text = "0";
+            this.bunifuLabel18.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel18.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel17
+            // 
+            this.bunifuLabel17.AllowParentOverrides = false;
+            this.bunifuLabel17.AutoEllipsis = false;
+            this.bunifuLabel17.CursorType = null;
+            this.bunifuLabel17.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel17.Location = new System.Drawing.Point(16, 70);
+            this.bunifuLabel17.Name = "bunifuLabel17";
+            this.bunifuLabel17.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel17.Size = new System.Drawing.Size(63, 19);
+            this.bunifuLabel17.TabIndex = 29;
+            this.bunifuLabel17.Text = "Monthly:";
+            this.bunifuLabel17.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel17.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel16
+            // 
+            this.bunifuLabel16.AllowParentOverrides = false;
+            this.bunifuLabel16.AutoEllipsis = false;
+            this.bunifuLabel16.CursorType = null;
+            this.bunifuLabel16.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel16.Location = new System.Drawing.Point(16, 42);
+            this.bunifuLabel16.Name = "bunifuLabel16";
+            this.bunifuLabel16.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel16.Size = new System.Drawing.Size(53, 19);
+            this.bunifuLabel16.TabIndex = 28;
+            this.bunifuLabel16.Text = "Annuel:";
+            this.bunifuLabel16.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel16.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // bunifuLabel13
             // 
             this.bunifuLabel13.AllowParentOverrides = false;
             this.bunifuLabel13.AutoEllipsis = false;
             this.bunifuLabel13.CursorType = null;
-            this.bunifuLabel13.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel13.Location = new System.Drawing.Point(16, 49);
+            this.bunifuLabel13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel13.Location = new System.Drawing.Point(95, 42);
             this.bunifuLabel13.Name = "bunifuLabel13";
             this.bunifuLabel13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel13.Size = new System.Drawing.Size(22, 26);
+            this.bunifuLabel13.Size = new System.Drawing.Size(8, 19);
             this.bunifuLabel13.TabIndex = 27;
-            this.bunifuLabel13.Text = "10";
+            this.bunifuLabel13.Text = "0";
             this.bunifuLabel13.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel13.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel13.Click += new System.EventHandler(this.bunifuLabel13_Click);
             // 
             // bunifuLabel14
             // 
@@ -654,9 +706,9 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel14.Location = new System.Drawing.Point(16, 13);
             this.bunifuLabel14.Name = "bunifuLabel14";
             this.bunifuLabel14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel14.Size = new System.Drawing.Size(116, 23);
+            this.bunifuLabel14.Size = new System.Drawing.Size(144, 23);
             this.bunifuLabel14.TabIndex = 27;
-            this.bunifuLabel14.Text = "Leave Request";
+            this.bunifuLabel14.Text = "Daily Leave States";
             this.bunifuLabel14.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel14.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
@@ -823,7 +875,6 @@ namespace EMS___SCNE.UserControls
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel7;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel8;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel5;
-        private Bunifu.UI.WinForms.BunifuDataGridView bunifuDataGridView1;
         private System.Windows.Forms.BindingSource eMSSCNEDataSetBindingSource;
         private _EMS_SCNEDataSet _EMS_SCNEDataSet;
         private System.Windows.Forms.Timer timer1;
@@ -843,9 +894,13 @@ namespace EMS___SCNE.UserControls
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel10;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private Bunifu.UI.WinForms.BunifuDataGridView bunifuDataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn departmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn1;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel17;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel16;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel18;
     }
 }

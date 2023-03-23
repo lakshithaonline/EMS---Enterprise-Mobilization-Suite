@@ -101,29 +101,29 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="ComponentFactory.Krypton.Design">
+      <HintPath>..\..\..\..\Desktop\EMS\EMS-backup\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Docking">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Docking.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Docking.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Navigator">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Navigator.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Navigator.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Ribbon">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Ribbon.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Toolkit">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Workspace">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Workspace.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\ComponentFactory.Krypton.Workspace.dll</HintPath>
     </Reference>
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
-    </Reference>
-    <Reference Include="Guna.UI">
-      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI2.dll</HintPath>
@@ -186,9 +186,11 @@
     </Compile>
     <EmbeddedResource Include="Dashboard.en.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

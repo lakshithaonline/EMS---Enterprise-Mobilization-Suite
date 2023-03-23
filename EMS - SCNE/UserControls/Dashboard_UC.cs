@@ -6,11 +6,13 @@ using System.Windows.Forms;
 using static Bunifu.UI.WinForms.BunifuLabel;
 using System.Data.SqlClient;
 using System.Data;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace EMS___SCNE.UserControls
 {
     public partial class Dashboard_UC : UserControl
     {
+        string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
 
         public Dashboard_UC()
         {
@@ -70,9 +72,9 @@ namespace EMS___SCNE.UserControls
                 bunifuLabel2.Text = employeeCount.ToString();
             }
 
-            //display monthly attendence (without absents)
+            //display daily attendence (without absents)
             {
-                SqlCommand cmd = new SqlCommand("sp_GetMonthlyAttendanceCount", connection);
+                SqlCommand cmd = new SqlCommand("sp_GetDailyAttendanceCount", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 connection.Open();
@@ -84,9 +86,9 @@ namespace EMS___SCNE.UserControls
                 connection.Close();
             }
 
-            //display the monthly late attendence
+            //display the daily late attendence
             {
-                SqlCommand cmd = new SqlCommand("sp_GetLateAttendanceCount", connection);
+                SqlCommand cmd = new SqlCommand("sp_GetDailyLateAttendanceCount", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 connection.Open();
@@ -97,9 +99,9 @@ namespace EMS___SCNE.UserControls
 
                 connection.Close();
             }
-            //display the monthly absent employees 
+            //display the daily absent employees 
             {
-                SqlCommand cmd = new SqlCommand("sp_GetAbsentEmployeeCountMonthly", connection);
+                SqlCommand cmd = new SqlCommand("sp_GetDailyAbsentEmployeeCount", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 connection.Open();
@@ -111,6 +113,35 @@ namespace EMS___SCNE.UserControls
                 connection.Close();
             }
 
+            //display the annual leave that avalable for current date
+            string storedProcedureName = "GetDaily_Annuelleave_requests";
+
+            using (SqlConnection connection1 = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(storedProcedureName, connection1))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                connection1.Open();
+
+                int annualdailyCount = (int)command.ExecuteScalar();
+
+                bunifuLabel13.Text = annualdailyCount.ToString();
+            }
+
+            //display the monthly leave that avalable for current date
+            string storedProcedureName1 = "GetDaily_Monthlyleave_requests";
+
+            using (SqlConnection connection1 = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(storedProcedureName1, connection1))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                connection1.Open();
+
+                int monthlydailyCount = (int)command.ExecuteScalar();
+
+                bunifuLabel18.Text = monthlydailyCount.ToString();
+            }
 
         }
 
@@ -220,6 +251,17 @@ namespace EMS___SCNE.UserControls
 
         private void bunifuLabel12_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void bunifuDataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel13_Click(object sender, EventArgs e)
+        {
+        
 
         }
     }

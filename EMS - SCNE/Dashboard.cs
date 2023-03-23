@@ -19,14 +19,36 @@ namespace EMS___SCNE
         {
             InitializeComponent();
             timer1.Enabled = true;
+
+            //resize
+          //  Resize += Form1_Resize;
+          //  Load += Form1_Load;
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_EMS_SCNEDataSet.sp_GetTopEmployees' table. You can move, or remove it, as needed.
+            this.sp_GetTopEmployeesTableAdapter.Fill(this._EMS_SCNEDataSet.sp_GetTopEmployees);
             // TODO: This line of code loads data into the '_EMS_SCNEDataSet.Absent_emp' table. You can move, or remove it, as needed.
             this.absent_empTableAdapter.Fill(this._EMS_SCNEDataSet.Absent_emp);
 
         }
+        /*
+        private void Form1_Resize(object sender, EventArgs e)
+    {
+        if (WindowState == FormWindowState.Minimized)
+        {
+            // Undock the panel
+            bunifuPanel1.Dock = DockStyle.None;
+        }
+        else
+        {
+            // Dock the panel to the left
+            bunifuPanel1.Dock = DockStyle.Left;
+        }
+    }*/
 
         private void bunifuPanel1_Click(object sender, EventArgs e)
         {
@@ -100,7 +122,7 @@ namespace EMS___SCNE
 
         }
 
-        private void bunifuButton1_Click(object sender, EventArgs e)
+        private void bunifuButton1_Click_2(object sender, EventArgs e)
         {
             Attendence_UC attendenceUC = new Attendence_UC(); // Create an instance of the Attendence_UC user control
             attendenceUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
@@ -115,7 +137,7 @@ namespace EMS___SCNE
 
         }
 
-        private void bunifuButton5_Click(object sender, EventArgs e)
+        private void bunifuButton5_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -130,7 +152,7 @@ namespace EMS___SCNE
 
         }
 
-        private void bunifuButton4_Click(object sender, EventArgs e)
+        private void bunifuButton4_Click_1(object sender, EventArgs e)
         {
             Dashboard_UC dashboardUC = new Dashboard_UC(); // Create an instance of the Attendence_UC user control
             dashboardUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
@@ -153,7 +175,7 @@ namespace EMS___SCNE
 
         }
 
-        private void bunifuButton2_Click(object sender, EventArgs e)
+        private void bunifuButton2_Click_1(object sender, EventArgs e)
         {
             Leave_UC LeaveUC = new Leave_UC(); // Create an instance of the Attendence_UC user control
             LeaveUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
@@ -166,7 +188,7 @@ namespace EMS___SCNE
 
         }
 
-        private void bunifuButton3_Click(object sender, EventArgs e)
+        private void bunifuButton3_Click_1(object sender, EventArgs e)
         {
             Profile_UC profileuc = new Profile_UC(); // Create an instance of the Attendence_UC user control
             profileuc.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
@@ -210,6 +232,26 @@ namespace EMS___SCNE
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dashboard_UC1_Load_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel1_Click_1(object sender, EventArgs e)
         {
 
         }
