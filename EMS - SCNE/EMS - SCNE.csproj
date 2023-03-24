@@ -125,6 +125,9 @@
     <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI2.dll</HintPath>
     </Reference>
@@ -254,6 +257,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mc-yellw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\construction-workers-sunset.jpg" />
+    <None Include="Resources\construction-workers-sunset1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,12 +42,27 @@ namespace EMS___SCNE.UserControls
             string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
             SqlConnection connection = new SqlConnection(connectionString);
 
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Absent_emp", connection);
 
-            DataTable dataTable = new DataTable();
-            adapter.Fill(dataTable);
+            connection.Open();
+            DateTime currentDate = DateTime.Today;
 
-            bunifuDataGridView2.DataSource = dataTable;
+            // Create a SQL query to get the absent employees for the current date
+            string query = "SELECT UserID, Name, Position, Department FROM Absent_emp WHERE Date = @date";
+
+            // Create a SqlCommand object with the query and parameter
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                cmd.Parameters.AddWithValue("@date", currentDate);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+              
+                bunifuDataGridView2.DataSource = dataTable;
+            }
+            
+            connection.Close();
 
 
             //display the best employee in month
@@ -142,6 +157,61 @@ namespace EMS___SCNE.UserControls
 
                 bunifuLabel18.Text = monthlydailyCount.ToString();
             }
+
+            //display the employees in gender vice
+            string maleGender = "M";
+            string femaleGender = "F";
+
+            try
+            {
+                
+                {
+                    connection.Open();
+
+                    SqlCommand cmdMale = new SqlCommand("SELECT dbo.GetGenderCount(@gender)", connection);
+                    cmdMale.Parameters.AddWithValue("@gender", maleGender);
+                    int maleCount = (int)cmdMale.ExecuteScalar();
+
+                    SqlCommand cmdFemale = new SqlCommand("SELECT dbo.GetGenderCount(@gender)", connection);
+                    cmdFemale.Parameters.AddWithValue("@gender", femaleGender);
+                    int femaleCount = (int)cmdFemale.ExecuteScalar();
+
+                    bunifuLabel4.Text = "Male: " + maleCount.ToString();
+                    bunifuLabel3.Text = "Female: " + femaleCount.ToString();
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+
+            // Retrieve the daily attendance count of employees
+
+            {
+                SqlCommand command = new SqlCommand("sp_GetDailyAttendanceCount", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                int attendanceCount = (int)command.ExecuteScalar();
+                connection.Close();
+
+                // Retrieve the total number of employees
+                command = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
+                connection.Open();
+                int employeeCount = (int)command.ExecuteScalar();
+                connection.Close();
+
+                // Calculate the percentage of attendance
+                double attendancePercentage = (double)attendanceCount / employeeCount * 100;
+
+                // Display the attendance percentage in BunifuCircleProgress control
+                bunifuCircleProgress1.Value = (int)attendancePercentage;
+                bunifuCircleProgress1.Text = attendancePercentage.ToString("0.00") + "%";
+            }
+
+            string message = "Absents for: " + DateTime.Now.ToString("MM/dd/yyyy");
+            bunifuLabel15.Text = message;
 
         }
 
@@ -262,6 +332,16 @@ namespace EMS___SCNE.UserControls
         private void bunifuLabel13_Click(object sender, EventArgs e)
         {
         
+
+        }
+
+        private void bunifuPanel9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel19_Click(object sender, EventArgs e)
+        {
 
         }
     }

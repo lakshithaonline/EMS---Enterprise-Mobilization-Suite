@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System;
 using System.Windows.Forms;
 using EMS___SCNE.UserControls;
+using Bunifu.UI.WinForms;
 
 namespace EMS___SCNE
 {
@@ -34,21 +35,26 @@ namespace EMS___SCNE
             // TODO: This line of code loads data into the '_EMS_SCNEDataSet.Absent_emp' table. You can move, or remove it, as needed.
             this.absent_empTableAdapter.Fill(this._EMS_SCNEDataSet.Absent_emp);
 
+           
+            Guna.UI2.WinForms.Guna2Elipse elipse = new Guna.UI2.WinForms.Guna2Elipse();
+            elipse.BorderRadius = 10;
+            elipse.TargetControl = gunaTransfarantPictureBox1;
+
+            Guna.UI2.WinForms.Guna2Elipse elipse1 = new Guna.UI2.WinForms.Guna2Elipse();
+            elipse1.BorderRadius = 10;
+            elipse1.TargetControl = gunaTransfarantPictureBox2;
+
+            Guna.UI2.WinForms.Guna2Elipse elipse2 = new Guna.UI2.WinForms.Guna2Elipse();
+            elipse2.BorderRadius = 10;
+            elipse2.TargetControl = gunaTransfarantPictureBox3;
+
+           
+
+
+
+
         }
-        /*
-        private void Form1_Resize(object sender, EventArgs e)
-    {
-        if (WindowState == FormWindowState.Minimized)
-        {
-            // Undock the panel
-            bunifuPanel1.Dock = DockStyle.None;
-        }
-        else
-        {
-            // Dock the panel to the left
-            bunifuPanel1.Dock = DockStyle.Left;
-        }
-    }*/
+
 
         private void bunifuPanel1_Click(object sender, EventArgs e)
         {
@@ -72,7 +78,7 @@ namespace EMS___SCNE
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            labletime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            bunifuLabel1.Text = DateTime.Now.ToString("hh:mm:ss tt");
             labledate.Text = DateTime.Now.ToString("MM/dd/yyyy");
 
             // Get the current time
@@ -95,11 +101,6 @@ namespace EMS___SCNE
                 //greatingslable.Text = "Good evening";
             }
 
-        }
-
-        private void bunifuLabel1_Click_1(object sender, EventArgs e)
-        {
-            timer1.Start();
         }
 
         private void bunifuLabel1_Click_2(object sender, EventArgs e)
@@ -252,6 +253,31 @@ namespace EMS___SCNE
         }
 
         private void bunifuPanel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboard_UC1_Load_4(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaTransfarantPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaTransfarantPictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaTransfarantPictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel1_Click_1(object sender, EventArgs e)
         {
 
         }
