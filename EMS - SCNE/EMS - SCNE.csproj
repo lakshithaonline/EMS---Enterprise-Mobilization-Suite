@@ -156,6 +156,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LeaveHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\LeaveHistory.Designer.cs">
+      <DependentUpon>LeaveHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Profile_UC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Dashboard_UC.resx">
       <DependentUpon>Dashboard_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\LeaveHistory.resx">
+      <DependentUpon>LeaveHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Leave_UC.resx">
       <DependentUpon>Leave_UC.cs</DependentUpon>

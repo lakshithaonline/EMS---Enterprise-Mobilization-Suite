@@ -281,5 +281,13 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuButton7_Click(object sender, EventArgs e)
+        {
+            LeaveHistory attendenceUC = new LeaveHistory(); // Create an instance of the Attendence_UC user control
+            attendenceUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
+            bunifuPanel7.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
+            bunifuPanel7.Controls.Add(attendenceUC); // Add the Attendence_UC user control to the bunifuPanel7
+        }
     }
 }

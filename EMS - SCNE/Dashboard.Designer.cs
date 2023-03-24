@@ -47,7 +47,6 @@
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.gunaTransfarantPictureBox3 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
             this.bunifuButton5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -66,14 +65,14 @@
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaTransfarantPictureBox2 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.labledate = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.labledate = new Bunifu.UI.WinForms.BunifuLabel();
+            this.gunaTransfarantPictureBox3 = new Guna.UI.WinForms.GunaTransfarantPictureBox();
             this.dashboard_UC1 = new EMS___SCNE.UserControls.Dashboard_UC();
             ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.absentempBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetTopEmployeesBindingSource)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).BeginInit();
             this.bunifuPanel7.SuspendLayout();
@@ -81,6 +80,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox2)).BeginInit();
             this.bunifuPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -113,19 +113,15 @@
             // 
             // kryptonPalette
             // 
-            this.kryptonPalette.BasePaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Office2010Blue;
             this.kryptonPalette.FormStyles.FormMain.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.kryptonPalette.FormStyles.FormMain.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.kryptonPalette.FormStyles.FormMain.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPalette.FormStyles.FormMain.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
             | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
             this.kryptonPalette.FormStyles.FormMain.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
-            this.kryptonPalette.FormStyles.FormMain.StateCommon.Border.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPalette.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
             this.kryptonPalette.HeaderStyles.HeaderForm.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.kryptonPalette.HeaderStyles.HeaderForm.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
-            this.kryptonPalette.HeaderStyles.HeaderForm.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.Inherit;
             this.kryptonPalette.HeaderStyles.HeaderForm.StateCommon.ButtonEdgeInset = 10;
             this.kryptonPalette.HeaderStyles.HeaderForm.StateCommon.Content.Padding = new System.Windows.Forms.Padding(10, -1, -1, -1);
             // 
@@ -185,19 +181,6 @@
             this.bunifuLabel4.Text = "HR Department";
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel4.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // gunaTransfarantPictureBox3
-            // 
-            this.gunaTransfarantPictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.gunaTransfarantPictureBox3.BaseColor = System.Drawing.Color.Black;
-            this.gunaTransfarantPictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaTransfarantPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox3.Image")));
-            this.gunaTransfarantPictureBox3.Location = new System.Drawing.Point(0, 0);
-            this.gunaTransfarantPictureBox3.Name = "gunaTransfarantPictureBox3";
-            this.gunaTransfarantPictureBox3.Size = new System.Drawing.Size(344, 125);
-            this.gunaTransfarantPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.gunaTransfarantPictureBox3.TabIndex = 1;
-            this.gunaTransfarantPictureBox3.TabStop = false;
             // 
             // bunifuButton5
             // 
@@ -467,6 +450,7 @@
             this.bunifuButton7.TextMarginLeft = 0;
             this.bunifuButton7.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButton7.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton7.Click += new System.EventHandler(this.bunifuButton7_Click);
             // 
             // bunifuButton2
             // 
@@ -978,10 +962,11 @@
             // 
             this.gunaTransfarantPictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.gunaTransfarantPictureBox2.BaseColor = System.Drawing.Color.Black;
+            this.gunaTransfarantPictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gunaTransfarantPictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox2.Image")));
             this.gunaTransfarantPictureBox2.Location = new System.Drawing.Point(0, 0);
             this.gunaTransfarantPictureBox2.Name = "gunaTransfarantPictureBox2";
-            this.gunaTransfarantPictureBox2.Size = new System.Drawing.Size(697, 125);
+            this.gunaTransfarantPictureBox2.Size = new System.Drawing.Size(699, 127);
             this.gunaTransfarantPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.gunaTransfarantPictureBox2.TabIndex = 1;
             this.gunaTransfarantPictureBox2.TabStop = false;
@@ -1005,22 +990,6 @@
             this.bunifuPanel2.TabIndex = 1;
             this.bunifuPanel2.Click += new System.EventHandler(this.bunifuPanel2_Click_2);
             // 
-            // labledate
-            // 
-            this.labledate.AllowParentOverrides = false;
-            this.labledate.AutoEllipsis = false;
-            this.labledate.Cursor = System.Windows.Forms.Cursors.Default;
-            this.labledate.CursorType = System.Windows.Forms.Cursors.Default;
-            this.labledate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.labledate.Location = new System.Drawing.Point(116, 83);
-            this.labledate.Name = "labledate";
-            this.labledate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labledate.Size = new System.Drawing.Size(45, 31);
-            this.labledate.TabIndex = 5;
-            this.labledate.Text = "Date";
-            this.labledate.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labledate.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
             // bunifuLabel1
             // 
             this.bunifuLabel1.AllowParentOverrides = false;
@@ -1037,6 +1006,35 @@
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             this.bunifuLabel1.Click += new System.EventHandler(this.bunifuLabel1_Click_1);
+            // 
+            // labledate
+            // 
+            this.labledate.AllowParentOverrides = false;
+            this.labledate.AutoEllipsis = false;
+            this.labledate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.labledate.CursorType = System.Windows.Forms.Cursors.Default;
+            this.labledate.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.labledate.Location = new System.Drawing.Point(116, 83);
+            this.labledate.Name = "labledate";
+            this.labledate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labledate.Size = new System.Drawing.Size(45, 31);
+            this.labledate.TabIndex = 5;
+            this.labledate.Text = "Date";
+            this.labledate.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labledate.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // gunaTransfarantPictureBox3
+            // 
+            this.gunaTransfarantPictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.gunaTransfarantPictureBox3.BaseColor = System.Drawing.Color.Black;
+            this.gunaTransfarantPictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaTransfarantPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("gunaTransfarantPictureBox3.Image")));
+            this.gunaTransfarantPictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.gunaTransfarantPictureBox3.Name = "gunaTransfarantPictureBox3";
+            this.gunaTransfarantPictureBox3.Size = new System.Drawing.Size(344, 125);
+            this.gunaTransfarantPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.gunaTransfarantPictureBox3.TabIndex = 1;
+            this.gunaTransfarantPictureBox3.TabStop = false;
             // 
             // dashboard_UC1
             // 
@@ -1075,7 +1073,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.spGetTopEmployeesBindingSource)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             this.bunifuPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox1)).EndInit();
             this.bunifuPanel7.ResumeLayout(false);
@@ -1085,6 +1082,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox2)).EndInit();
             this.bunifuPanel2.ResumeLayout(false);
             this.bunifuPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaTransfarantPictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
