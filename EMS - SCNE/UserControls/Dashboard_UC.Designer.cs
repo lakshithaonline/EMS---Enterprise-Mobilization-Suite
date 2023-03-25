@@ -84,6 +84,14 @@ namespace EMS___SCNE.UserControls
             this.bunifuPanel11 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel8 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel12 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel16 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel23 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuPanel15 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel22 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuPanel14 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel21 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuPanel13 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel20 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel19 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel3.SuspendLayout();
             this.bunifuPanel4.SuspendLayout();
@@ -102,6 +110,10 @@ namespace EMS___SCNE.UserControls
             this.bunifuPanel11.SuspendLayout();
             this.bunifuPanel8.SuspendLayout();
             this.bunifuPanel12.SuspendLayout();
+            this.bunifuPanel16.SuspendLayout();
+            this.bunifuPanel15.SuspendLayout();
+            this.bunifuPanel14.SuspendLayout();
+            this.bunifuPanel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuPanel3
@@ -126,11 +138,11 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel8.AllowParentOverrides = false;
             this.bunifuLabel8.AutoEllipsis = false;
             this.bunifuLabel8.CursorType = null;
-            this.bunifuLabel8.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel8.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel8.Location = new System.Drawing.Point(12, 49);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel8.Size = new System.Drawing.Size(11, 26);
+            this.bunifuLabel8.Size = new System.Drawing.Size(12, 29);
             this.bunifuLabel8.TabIndex = 26;
             this.bunifuLabel8.Text = "0";
             this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -173,11 +185,11 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel10.AllowParentOverrides = false;
             this.bunifuLabel10.AutoEllipsis = false;
             this.bunifuLabel10.CursorType = null;
-            this.bunifuLabel10.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel10.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel10.Location = new System.Drawing.Point(16, 49);
             this.bunifuLabel10.Name = "bunifuLabel10";
             this.bunifuLabel10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel10.Size = new System.Drawing.Size(11, 26);
+            this.bunifuLabel10.Size = new System.Drawing.Size(12, 29);
             this.bunifuLabel10.TabIndex = 27;
             this.bunifuLabel10.Text = "0";
             this.bunifuLabel10.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -289,7 +301,7 @@ namespace EMS___SCNE.UserControls
             this.bunifuCircleProgress1.AnimationSpeed = 1;
             this.bunifuCircleProgress1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCircleProgress1.CircleMargin = 10;
-            this.bunifuCircleProgress1.Font = new System.Drawing.Font("Calibri", 45F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCircleProgress1.Font = new System.Drawing.Font("Calibri", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCircleProgress1.ForeColor = System.Drawing.Color.Black;
             this.bunifuCircleProgress1.IsPercentage = false;
             this.bunifuCircleProgress1.LineProgressThickness = 10;
@@ -298,12 +310,12 @@ namespace EMS___SCNE.UserControls
             this.bunifuCircleProgress1.Name = "bunifuCircleProgress1";
             this.bunifuCircleProgress1.ProgressAnimationSpeed = 200;
             this.bunifuCircleProgress1.ProgressBackColor = System.Drawing.Color.White;
-            this.bunifuCircleProgress1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(190)))), ((int)(((byte)(17)))));
+            this.bunifuCircleProgress1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
             this.bunifuCircleProgress1.ProgressColor2 = System.Drawing.Color.Transparent;
             this.bunifuCircleProgress1.ProgressEndCap = Bunifu.UI.WinForms.BunifuCircleProgress.CapStyles.Triangle;
             this.bunifuCircleProgress1.ProgressFillStyle = Bunifu.UI.WinForms.BunifuCircleProgress.FillStyles.Solid;
             this.bunifuCircleProgress1.ProgressStartCap = Bunifu.UI.WinForms.BunifuCircleProgress.CapStyles.Flat;
-            this.bunifuCircleProgress1.SecondaryFont = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCircleProgress1.SecondaryFont = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCircleProgress1.Size = new System.Drawing.Size(150, 150);
             this.bunifuCircleProgress1.SubScriptColor = System.Drawing.Color.Black;
             this.bunifuCircleProgress1.SubScriptMargin = new System.Windows.Forms.Padding(5, -20, 0, 0);
@@ -312,9 +324,10 @@ namespace EMS___SCNE.UserControls
             this.bunifuCircleProgress1.SuperScriptMargin = new System.Windows.Forms.Padding(5, 20, 0, 0);
             this.bunifuCircleProgress1.SuperScriptText = "%";
             this.bunifuCircleProgress1.TabIndex = 16;
-            this.bunifuCircleProgress1.Text = "0";
+            this.bunifuCircleProgress1.Text = "30";
             this.bunifuCircleProgress1.TextMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.bunifuCircleProgress1.ValueByTransition = 0;
+            this.bunifuCircleProgress1.Value = 30;
+            this.bunifuCircleProgress1.ValueByTransition = 30;
             this.bunifuCircleProgress1.ValueMargin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.bunifuCircleProgress1.ProgressChanged += new System.EventHandler<Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs>(this.bunifuCircleProgress1_ProgressChanged);
             // 
@@ -418,11 +431,11 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel12.AllowParentOverrides = false;
             this.bunifuLabel12.AutoEllipsis = false;
             this.bunifuLabel12.CursorType = null;
-            this.bunifuLabel12.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel12.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel12.Location = new System.Drawing.Point(12, 51);
             this.bunifuLabel12.Name = "bunifuLabel12";
             this.bunifuLabel12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel12.Size = new System.Drawing.Size(11, 26);
+            this.bunifuLabel12.Size = new System.Drawing.Size(12, 29);
             this.bunifuLabel12.TabIndex = 28;
             this.bunifuLabel12.Text = "0";
             this.bunifuLabel12.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -438,15 +451,15 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel11.Location = new System.Drawing.Point(12, 13);
             this.bunifuLabel11.Name = "bunifuLabel11";
             this.bunifuLabel11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel11.Size = new System.Drawing.Size(57, 23);
+            this.bunifuLabel11.Size = new System.Drawing.Size(117, 23);
             this.bunifuLabel11.TabIndex = 28;
-            this.bunifuLabel11.Text = "Absent";
+            this.bunifuLabel11.Text = "Early Checkout";
             this.bunifuLabel11.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel11.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuPanel7
             // 
-            this.bunifuPanel7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuPanel7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
             this.bunifuPanel7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel7.BackgroundImage")));
             this.bunifuPanel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuPanel7.BorderColor = System.Drawing.Color.Black;
@@ -781,7 +794,7 @@ namespace EMS___SCNE.UserControls
             this.bunifuDataGridView1.RowHeadersVisible = false;
             this.bunifuDataGridView1.RowTemplate.Height = 40;
             this.bunifuDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuDataGridView1.Size = new System.Drawing.Size(238, 341);
+            this.bunifuDataGridView1.Size = new System.Drawing.Size(238, 388);
             this.bunifuDataGridView1.TabIndex = 27;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Orange;
             this.bunifuDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
@@ -800,7 +813,7 @@ namespace EMS___SCNE.UserControls
             // 
             // bunifuPanel11
             // 
-            this.bunifuPanel11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuPanel11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
             this.bunifuPanel11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel11.BackgroundImage")));
             this.bunifuPanel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bunifuPanel11.BorderColor = System.Drawing.Color.Black;
@@ -836,12 +849,138 @@ namespace EMS___SCNE.UserControls
             this.bunifuPanel12.BorderColor = System.Drawing.Color.Black;
             this.bunifuPanel12.BorderRadius = 10;
             this.bunifuPanel12.BorderThickness = 1;
+            this.bunifuPanel12.Controls.Add(this.bunifuPanel16);
+            this.bunifuPanel12.Controls.Add(this.bunifuPanel15);
+            this.bunifuPanel12.Controls.Add(this.bunifuPanel14);
+            this.bunifuPanel12.Controls.Add(this.bunifuPanel13);
             this.bunifuPanel12.Controls.Add(this.bunifuLabel19);
             this.bunifuPanel12.Location = new System.Drawing.Point(35, 332);
             this.bunifuPanel12.Name = "bunifuPanel12";
             this.bunifuPanel12.ShowBorders = true;
             this.bunifuPanel12.Size = new System.Drawing.Size(719, 44);
             this.bunifuPanel12.TabIndex = 30;
+            // 
+            // bunifuPanel16
+            // 
+            this.bunifuPanel16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
+            this.bunifuPanel16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel16.BackgroundImage")));
+            this.bunifuPanel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel16.BorderColor = System.Drawing.Color.Black;
+            this.bunifuPanel16.BorderRadius = 0;
+            this.bunifuPanel16.BorderThickness = 1;
+            this.bunifuPanel16.Controls.Add(this.bunifuLabel23);
+            this.bunifuPanel16.Location = new System.Drawing.Point(568, 7);
+            this.bunifuPanel16.Name = "bunifuPanel16";
+            this.bunifuPanel16.ShowBorders = true;
+            this.bunifuPanel16.Size = new System.Drawing.Size(112, 29);
+            this.bunifuPanel16.TabIndex = 34;
+            // 
+            // bunifuLabel23
+            // 
+            this.bunifuLabel23.AllowParentOverrides = false;
+            this.bunifuLabel23.AutoEllipsis = false;
+            this.bunifuLabel23.CursorType = null;
+            this.bunifuLabel23.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel23.Location = new System.Drawing.Point(7, 6);
+            this.bunifuLabel23.Name = "bunifuLabel23";
+            this.bunifuLabel23.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel23.Size = new System.Drawing.Size(68, 18);
+            this.bunifuLabel23.TabIndex = 31;
+            this.bunifuLabel23.Text = "KAMATHA: ";
+            this.bunifuLabel23.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel23.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuPanel15
+            // 
+            this.bunifuPanel15.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
+            this.bunifuPanel15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel15.BackgroundImage")));
+            this.bunifuPanel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel15.BorderColor = System.Drawing.Color.Black;
+            this.bunifuPanel15.BorderRadius = 0;
+            this.bunifuPanel15.BorderThickness = 1;
+            this.bunifuPanel15.Controls.Add(this.bunifuLabel22);
+            this.bunifuPanel15.Location = new System.Drawing.Point(444, 7);
+            this.bunifuPanel15.Name = "bunifuPanel15";
+            this.bunifuPanel15.ShowBorders = true;
+            this.bunifuPanel15.Size = new System.Drawing.Size(112, 29);
+            this.bunifuPanel15.TabIndex = 33;
+            // 
+            // bunifuLabel22
+            // 
+            this.bunifuLabel22.AllowParentOverrides = false;
+            this.bunifuLabel22.AutoEllipsis = false;
+            this.bunifuLabel22.CursorType = null;
+            this.bunifuLabel22.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel22.Location = new System.Drawing.Point(7, 6);
+            this.bunifuLabel22.Name = "bunifuLabel22";
+            this.bunifuLabel22.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel22.Size = new System.Drawing.Size(68, 18);
+            this.bunifuLabel22.TabIndex = 31;
+            this.bunifuLabel22.Text = "KAMATHA: ";
+            this.bunifuLabel22.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel22.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuPanel14
+            // 
+            this.bunifuPanel14.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
+            this.bunifuPanel14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel14.BackgroundImage")));
+            this.bunifuPanel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel14.BorderColor = System.Drawing.Color.Black;
+            this.bunifuPanel14.BorderRadius = 0;
+            this.bunifuPanel14.BorderThickness = 1;
+            this.bunifuPanel14.Controls.Add(this.bunifuLabel21);
+            this.bunifuPanel14.Location = new System.Drawing.Point(319, 7);
+            this.bunifuPanel14.Name = "bunifuPanel14";
+            this.bunifuPanel14.ShowBorders = true;
+            this.bunifuPanel14.Size = new System.Drawing.Size(112, 29);
+            this.bunifuPanel14.TabIndex = 32;
+            // 
+            // bunifuLabel21
+            // 
+            this.bunifuLabel21.AllowParentOverrides = false;
+            this.bunifuLabel21.AutoEllipsis = false;
+            this.bunifuLabel21.CursorType = null;
+            this.bunifuLabel21.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel21.Location = new System.Drawing.Point(9, 6);
+            this.bunifuLabel21.Name = "bunifuLabel21";
+            this.bunifuLabel21.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel21.Size = new System.Drawing.Size(73, 18);
+            this.bunifuLabel21.TabIndex = 31;
+            this.bunifuLabel21.Text = "Villa ANNA:";
+            this.bunifuLabel21.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel21.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuPanel13
+            // 
+            this.bunifuPanel13.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
+            this.bunifuPanel13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel13.BackgroundImage")));
+            this.bunifuPanel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel13.BorderColor = System.Drawing.Color.Black;
+            this.bunifuPanel13.BorderRadius = 0;
+            this.bunifuPanel13.BorderThickness = 1;
+            this.bunifuPanel13.Controls.Add(this.bunifuLabel20);
+            this.bunifuPanel13.Location = new System.Drawing.Point(205, 7);
+            this.bunifuPanel13.Name = "bunifuPanel13";
+            this.bunifuPanel13.ShowBorders = true;
+            this.bunifuPanel13.Size = new System.Drawing.Size(101, 29);
+            this.bunifuPanel13.TabIndex = 27;
+            this.bunifuPanel13.Click += new System.EventHandler(this.bunifuPanel13_Click);
+            // 
+            // bunifuLabel20
+            // 
+            this.bunifuLabel20.AllowParentOverrides = false;
+            this.bunifuLabel20.AutoEllipsis = false;
+            this.bunifuLabel20.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel20.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel20.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel20.Location = new System.Drawing.Point(7, 6);
+            this.bunifuLabel20.Name = "bunifuLabel20";
+            this.bunifuLabel20.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel20.Size = new System.Drawing.Size(49, 18);
+            this.bunifuLabel20.TabIndex = 31;
+            this.bunifuLabel20.Text = "The SIX:";
+            this.bunifuLabel20.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel20.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuLabel19
             // 
@@ -852,9 +991,9 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel19.Location = new System.Drawing.Point(16, 10);
             this.bunifuLabel19.Name = "bunifuLabel19";
             this.bunifuLabel19.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel19.Size = new System.Drawing.Size(75, 23);
+            this.bunifuLabel19.Size = new System.Drawing.Size(172, 23);
             this.bunifuLabel19.TabIndex = 26;
-            this.bunifuLabel19.Text = "Live Sites";
+            this.bunifuLabel19.Text = "Live Sites Attendance";
             this.bunifuLabel19.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel19.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             this.bunifuLabel19.Click += new System.EventHandler(this.bunifuLabel19_Click);
@@ -906,6 +1045,14 @@ namespace EMS___SCNE.UserControls
             this.bunifuPanel8.ResumeLayout(false);
             this.bunifuPanel12.ResumeLayout(false);
             this.bunifuPanel12.PerformLayout();
+            this.bunifuPanel16.ResumeLayout(false);
+            this.bunifuPanel16.PerformLayout();
+            this.bunifuPanel15.ResumeLayout(false);
+            this.bunifuPanel15.PerformLayout();
+            this.bunifuPanel14.ResumeLayout(false);
+            this.bunifuPanel14.PerformLayout();
+            this.bunifuPanel13.ResumeLayout(false);
+            this.bunifuPanel13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -960,5 +1107,13 @@ namespace EMS___SCNE.UserControls
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel8;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel12;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel19;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel13;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel20;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel15;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel22;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel14;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel21;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel16;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel23;
     }
 }

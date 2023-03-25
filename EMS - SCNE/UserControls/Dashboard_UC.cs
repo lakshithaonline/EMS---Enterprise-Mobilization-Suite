@@ -87,6 +87,7 @@ namespace EMS___SCNE.UserControls
                 bunifuLabel2.Text = employeeCount.ToString();
             }
 
+            /*
             //display daily attendence (without absents)
             {
                 SqlCommand cmd = new SqlCommand("sp_GetDailyAttendanceCount", connection);
@@ -99,8 +100,30 @@ namespace EMS___SCNE.UserControls
                 bunifuLabel8.Text = monthlyAttendanceCount.ToString();
 
                 connection.Close();
+            }*/
+
+            //display daily attendance (without absents)
+            {
+                SqlCommand cmd = new SqlCommand("sp_GetDailyAttendanceCount", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                int dailyAttendanceCount = (int)cmd.ExecuteScalar();
+
+                // Get total number of employees
+                SqlCommand cmdTotalEmployees = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
+                int totalEmployees = (int)cmdTotalEmployees.ExecuteScalar();
+
+                // Calculate percentage
+                double percentage = (double)dailyAttendanceCount / totalEmployees * 100;
+
+                bunifuLabel8.Text = string.Format("{0:F0}%", percentage);
+
+                connection.Close();
             }
 
+            /*
             //display the daily late attendence
             {
                 SqlCommand cmd = new SqlCommand("sp_GetDailyLateAttendanceCount", connection);
@@ -113,10 +136,33 @@ namespace EMS___SCNE.UserControls
                 bunifuLabel10.Text = lateAttendanceCount.ToString();
 
                 connection.Close();
-            }
-            //display the daily absent employees 
+            }*/
+
+            //display the daily late attendance
             {
-                SqlCommand cmd = new SqlCommand("sp_GetDailyAbsentEmployeeCount", connection);
+                SqlCommand cmd = new SqlCommand("sp_GetDailyLateAttendanceCount", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+
+                int lateAttendanceCount = (int)cmd.ExecuteScalar();
+
+                // Get total number of employees
+                SqlCommand cmdTotalEmployees = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
+                int totalEmployees = (int)cmdTotalEmployees.ExecuteScalar();
+
+                // Calculate percentage
+                double percentage = (double)lateAttendanceCount / totalEmployees * 100;
+
+                bunifuLabel10.Text = string.Format("{0:F0}%", percentage);
+
+                connection.Close();
+            }
+
+            /*
+            //display the daily Early Check out employees 
+            {
+                SqlCommand cmd = new SqlCommand("sp_GetDailyEarlyCheckOutCount", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 connection.Open();
@@ -126,9 +172,31 @@ namespace EMS___SCNE.UserControls
                 bunifuLabel12.Text = absentEmployeeCount.ToString();
 
                 connection.Close();
+            }*/
+
+            //display the daily Early Check out employees 
+            {
+                SqlCommand cmd = new SqlCommand("sp_GetDailyEarlyCheckOutCount", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                connection.Open();
+                int earlyCheckOutCount = (int)cmd.ExecuteScalar();
+
+                // Get total number of employees
+                SqlCommand cmdTotalEmployees = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
+                int totalEmployees = (int)cmdTotalEmployees.ExecuteScalar();
+
+                // Calculate percentage
+                double percentage = (double)earlyCheckOutCount / totalEmployees * 100;
+
+                bunifuLabel12.Text = string.Format("{0:F0}%", percentage);
+
+                connection.Close();
             }
 
-            //display the annual leave that avalable for current date
+
+
+            //display who has got the annual leave for current date
             string storedProcedureName = "GetDaily_Annuelleave_requests";
 
             using (SqlConnection connection1 = new SqlConnection(connectionString))
@@ -143,7 +211,7 @@ namespace EMS___SCNE.UserControls
                 bunifuLabel13.Text = annualdailyCount.ToString();
             }
 
-            //display the monthly leave that avalable for current date
+            //display who has got the monthly leave for current date
             string storedProcedureName1 = "GetDaily_Monthlyleave_requests";
 
             using (SqlConnection connection1 = new SqlConnection(connectionString))
@@ -186,7 +254,6 @@ namespace EMS___SCNE.UserControls
                 MessageBox.Show("Error: " + ex.Message);
             }
 
-
             // Retrieve the daily attendance count of employees
 
             {
@@ -210,8 +277,41 @@ namespace EMS___SCNE.UserControls
                 bunifuCircleProgress1.Text = attendancePercentage.ToString("0.00") + "%";
             }
 
-            string message = "Absents for: " + DateTime.Now.ToString("MM/dd/yyyy");
-            bunifuLabel15.Text = message;
+            //absent table titel
+            {
+                string message = "Absents for: " + DateTime.Now.ToString("MM/dd/yyyy");
+                bunifuLabel15.Text = message;
+            }
+            
+
+            // Execute sp_GetDailyAttendanceCount_ByPlace for lobby
+            {
+
+                SqlCommand cmd1 = new SqlCommand("sp_GetDailyAttendanceCount_ByPlace", connection);
+                cmd1.CommandType = CommandType.StoredProcedure;
+                cmd1.Parameters.AddWithValue("@Place", "lobby");
+
+                connection.Open();
+                int lobbyAttendanceCount = (int)cmd1.ExecuteScalar();
+                connection.Close();
+
+                bunifuLabel20.Text = "The SIX: " + lobbyAttendanceCount.ToString();
+
+            }
+
+            // Execute sp_GetDailyAttendanceCount_ByPlace for Main Office  (Use a copy of this same code to excecute another Place, Just mention the place whatever you want in @place, "enter hear")
+            {
+                SqlCommand cmd2 = new SqlCommand("sp_GetDailyAttendanceCount_ByPlace", connection);
+                cmd2.CommandType = CommandType.StoredProcedure;
+                cmd2.Parameters.AddWithValue("@Place", "Main Office");
+
+                connection.Open();
+                int mainOfficeAttendanceCount = (int)cmd2.ExecuteScalar();
+                connection.Close();
+
+                bunifuLabel21.Text = "Villa ANNA: " + mainOfficeAttendanceCount.ToString();
+
+            }
 
         }
 
@@ -242,12 +342,13 @@ namespace EMS___SCNE.UserControls
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+           
+
         }
 
         private void bunifuCircleProgress1_ProgressChanged(object sender, Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs e)
         {
-
+           
         }
 
         private void greatingslable_Click(object sender, EventArgs e)
@@ -341,6 +442,16 @@ namespace EMS___SCNE.UserControls
         }
 
         private void bunifuLabel19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuGradientPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel13_Click(object sender, EventArgs e)
         {
 
         }
