@@ -43,63 +43,35 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuColorTransition">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuColorTransition.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuGauge">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuGauge.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuGradientPanel">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuGradientPanel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPanel">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuShadowPanel">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuShadowPanel.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuTransition">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu_UI_v1.5.3, Version=1.5.3.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
     <Reference Include="ComponentFactory.Krypton.Design">
       <HintPath>..\..\..\..\Desktop\EMS\EMS-backup\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Design.dll</HintPath>
@@ -129,7 +101,7 @@
       <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\lakshithaonline\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />

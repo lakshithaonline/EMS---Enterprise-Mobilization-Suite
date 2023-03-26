@@ -189,48 +189,85 @@ namespace EMS___SCNE
         private void bunifuButton1_Click_1(object sender, EventArgs e)
         {
 
-                int userID = int.Parse(bunifuTextBox133.Text);
-
-                if (bunifuDropdown3.SelectedItem.ToString() == "Monthly Leaves")
+            int? userID = null;
+            if (!string.IsNullOrEmpty(bunifuTextBox133.Text))
+            {
+                if (!int.TryParse(bunifuTextBox133.Text, out int result))
                 {
-                    int year = bunifuDatePicker3.Value.Year;
-                    int month = bunifuDatePicker3.Value.Month;
-
-                    DataTable table = new DataTable();
-                    string query = "SELECT * FROM Monthly_leave WHERE UserID = @UserID AND year = @year AND month = @month";
-                    using (SqlConnection connection = new SqlConnection(connString))
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        command.Parameters.AddWithValue("@UserID", userID);
-                        command.Parameters.AddWithValue("@year", year);
-                        command.Parameters.AddWithValue("@month", month);
-                        adapter.Fill(table);
-                    }
-
-                    bunifuDataGridView2.DataSource = table;
+                    MessageBox.Show("Invalid user ID entered.");
+                    return;
                 }
-                else if (bunifuDropdown3.SelectedItem.ToString() == "Annual Leaves")
+                userID = result;
+            }
+
+            if (bunifuDropdown3.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a leave type.");
+                return;
+            }
+
+            if (bunifuDropdown3.SelectedItem.ToString() == "Monthly Leaves")
+            {
+                if (bunifuDatePicker3.Value == null)
                 {
-                    int year = bunifuDatePicker3.Value.Year;
-
-                    DataTable table = new DataTable();
-                    string query = "SELECT * FROM Annual_leave WHERE UserId = @UserID AND year = @year";
-                    using (SqlConnection connection = new SqlConnection(connString))
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        command.Parameters.AddWithValue("@UserID", userID);
-                        command.Parameters.AddWithValue("@year", year);
-                        adapter.Fill(table);
-
-                    }
-
-                    bunifuDataGridView2.DataSource = table;
-
+                    MessageBox.Show("Please select a month.");
+                    return;
                 }
+                int year = bunifuDatePicker3.Value.Year;
+                int month = bunifuDatePicker3.Value.Month;
+
+                DataTable table = new DataTable();
+                string query = "SELECT * FROM Monthly_leave WHERE year = @year AND month = @month";
+                if (userID.HasValue)
+                {
+                    query += " AND UserID = @UserID";
+                }
+                using (SqlConnection connection = new SqlConnection(connString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    command.Parameters.AddWithValue("@year", year);
+                    command.Parameters.AddWithValue("@month", month);
+                    if (userID.HasValue)
+                    {
+                        command.Parameters.AddWithValue("@UserID", userID.Value);
+                    }
+                    adapter.Fill(table);
+                }
+
+                bunifuDataGridView2.DataSource = table;
+            }
+            else if (bunifuDropdown3.SelectedItem.ToString() == "Annual Leaves")
+            {
+                if (bunifuDatePicker3.Value == null)
+                {
+                    MessageBox.Show("Please select a year.");
+                    return;
+                }
+                int year = bunifuDatePicker3.Value.Year;
+
+                DataTable table = new DataTable();
+                string query = "SELECT * FROM Annual_leave WHERE year = @year";
+                if (userID.HasValue)
+                {
+                    query += " AND UserId = @UserID";
+                }
+                using (SqlConnection connection = new SqlConnection(connString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    command.Parameters.AddWithValue("@year", year);
+                    if (userID.HasValue)
+                    {
+                        command.Parameters.AddWithValue("@UserID", userID.Value);
+                    }
+                    adapter.Fill(table);
+                }
+
+                bunifuDataGridView2.DataSource = table;
 
             }
+        }
 
             private void bunifuDataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
