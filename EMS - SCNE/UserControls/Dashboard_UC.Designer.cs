@@ -981,6 +981,7 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel20.Text = "The SIX:";
             this.bunifuLabel20.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel20.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel20.Click += new System.EventHandler(this.bunifuLabel20_Click);
             // 
             // bunifuLabel19
             // 

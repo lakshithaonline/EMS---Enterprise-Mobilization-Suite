@@ -455,5 +455,10 @@ namespace EMS___SCNE.UserControls
         {
 
         }
+
+        private void bunifuLabel20_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

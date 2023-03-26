@@ -289,5 +289,15 @@ namespace EMS___SCNE
             bunifuPanel7.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
             bunifuPanel7.Controls.Add(attendenceUC); // Add the Attendence_UC user control to the bunifuPanel7
         }
+
+        private void bunifuLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
