@@ -426,7 +426,7 @@
             this.bunifuDatePicker3.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.bunifuDatePicker3.LeftTextMargin = 5;
             this.bunifuDatePicker3.Location = new System.Drawing.Point(542, 126);
-            this.bunifuDatePicker3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuDatePicker3.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuDatePicker3.MinimumSize = new System.Drawing.Size(4, 32);
             this.bunifuDatePicker3.Name = "bunifuDatePicker3";
             this.bunifuDatePicker3.Size = new System.Drawing.Size(128, 32);
@@ -553,7 +553,7 @@
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox133.OnIdleState = stateProperties4;
-            this.bunifuTextBox133.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifuTextBox133.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox133.PasswordChar = '\0';
             this.bunifuTextBox133.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox133.PlaceholderText = "Enter ID";
@@ -650,7 +650,7 @@
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox6.OnIdleState = stateProperties8;
-            this.bunifuTextBox6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifuTextBox6.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox6.PasswordChar = '\0';
             this.bunifuTextBox6.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox6.PlaceholderText = "Enter Reason";
@@ -832,7 +832,7 @@
             stateProperties12.ForeColor = System.Drawing.Color.Empty;
             stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox5.OnIdleState = stateProperties12;
-            this.bunifuTextBox5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifuTextBox5.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox5.PasswordChar = '\0';
             this.bunifuTextBox5.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox5.PlaceholderText = "Enter Month";
@@ -1110,7 +1110,7 @@
             stateProperties16.ForeColor = System.Drawing.Color.Empty;
             stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox3.OnIdleState = stateProperties16;
-            this.bunifuTextBox3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifuTextBox3.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox3.PasswordChar = '\0';
             this.bunifuTextBox3.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox3.PlaceholderText = "Enter Year";
@@ -1202,7 +1202,7 @@
             stateProperties20.ForeColor = System.Drawing.Color.Empty;
             stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox2.OnIdleState = stateProperties20;
-            this.bunifuTextBox2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifuTextBox2.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox2.PasswordChar = '\0';
             this.bunifuTextBox2.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox2.PlaceholderText = "Enter ID";
@@ -1278,7 +1278,7 @@
             stateProperties24.ForeColor = System.Drawing.Color.Empty;
             stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox1.OnIdleState = stateProperties24;
-            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox1.PasswordChar = '\0';
             this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox1.PlaceholderText = "Enter Leave Count";

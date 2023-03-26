@@ -13,8 +13,8 @@ namespace EMS___SCNE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new SuperAdmin());
-            Application.Run(new Dashboard());
+            Application.Run(new SuperAdmin());
+            //Application.Run(new Dashboard());
         }
     }
 }

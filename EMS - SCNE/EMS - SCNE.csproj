@@ -141,6 +141,24 @@
     <Compile Include="SuperAdmin.Designer.cs">
       <DependentUpon>SuperAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls - SuperAdmin\Dashboard_superadmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls - SuperAdmin\Dashboard_superadmin.Designer.cs">
+      <DependentUpon>Dashboard_superadmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls - SuperAdmin\Employee_superadmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls - SuperAdmin\Employee_superadmin.Designer.cs">
+      <DependentUpon>Employee_superadmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls - SuperAdmin\Settings_Superadmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls - SuperAdmin\Settings_Superadmin.Designer.cs">
+      <DependentUpon>Settings_Superadmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LeaveHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -199,6 +217,15 @@
     </Compile>
     <EmbeddedResource Include="SuperAdmin.resx">
       <DependentUpon>SuperAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls - SuperAdmin\Dashboard_superadmin.resx">
+      <DependentUpon>Dashboard_superadmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls - SuperAdmin\Employee_superadmin.resx">
+      <DependentUpon>Employee_superadmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls - SuperAdmin\Settings_Superadmin.resx">
+      <DependentUpon>Settings_Superadmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Attendence_UC.resx">
       <DependentUpon>Attendence_UC.cs</DependentUpon>
