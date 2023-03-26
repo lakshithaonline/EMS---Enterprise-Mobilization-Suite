@@ -11,6 +11,8 @@ using System;
 using System.Windows.Forms;
 using EMS___SCNE.UserControls;
 using Bunifu.UI.WinForms;
+using System.Data.SqlClient;
+using System.IO;
 
 namespace EMS___SCNE
 {
@@ -259,7 +261,7 @@ namespace EMS___SCNE
 
         private void dashboard_UC1_Load_4(object sender, EventArgs e)
         {
-
+ 
         }
 
         private void gunaTransfarantPictureBox1_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.VisualBasic.ApplicationServices;
 
+
 namespace EMS___SCNE.UserControls
 {
     public partial class Dashboard_UC : UserControl
@@ -23,8 +24,10 @@ namespace EMS___SCNE.UserControls
                 this.ClientRectangle.Y,
                 this.ClientRectangle.Width,
                 this.ClientRectangle.Height
+
                 )
             );
+          
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -38,8 +41,8 @@ namespace EMS___SCNE.UserControls
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            //display absent employees
-            string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+
+            //display absent employee
             SqlConnection connection = new SqlConnection(connectionString);
 
 
@@ -253,7 +256,8 @@ namespace EMS___SCNE.UserControls
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-
+            
+           /*
             // Retrieve the daily attendance count of employees
 
             {
@@ -269,13 +273,15 @@ namespace EMS___SCNE.UserControls
                 int employeeCount = (int)command.ExecuteScalar();
                 connection.Close();
 
+
                 // Calculate the percentage of attendance
                 double attendancePercentage = (double)attendanceCount / employeeCount * 100;
 
                 // Display the attendance percentage in BunifuCircleProgress control
                 bunifuCircleProgress1.Value = (int)attendancePercentage;
                 bunifuCircleProgress1.Text = attendancePercentage.ToString("0.00") + "%";
-            }
+            }*/
+       
 
             //absent table titel
             {
@@ -348,6 +354,7 @@ namespace EMS___SCNE.UserControls
 
         private void bunifuCircleProgress1_ProgressChanged(object sender, Bunifu.UI.WinForms.BunifuCircleProgress.ProgressChangedEventArgs e)
         {
+            
            
         }
 
@@ -358,7 +365,30 @@ namespace EMS___SCNE.UserControls
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            SqlConnection connection = new SqlConnection(connectionString);
+            {
+                SqlCommand command = new SqlCommand("sp_GetDailyAttendanceCount", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+                int attendanceCount = (int)command.ExecuteScalar();
+                connection.Close();
+
+                // Retrieve the total number of employees
+                command = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
+                connection.Open();
+                int employeeCount = (int)command.ExecuteScalar();
+                connection.Close();
+
+
+                // Calculate the percentage of attendance
+                double attendancePercentage = (double)attendanceCount / employeeCount * 100;
+
+                // Display the attendance percentage in BunifuCircleProgress control
+                bunifuCircleProgress1.Value = (int)attendancePercentage;
+                bunifuCircleProgress1.Text = attendancePercentage.ToString("0.00") + "%";
+            }
+
+
             DateTime currentTime = DateTime.Now;
 
             // Check the time of day and set the label text accordingly
@@ -457,6 +487,16 @@ namespace EMS___SCNE.UserControls
         }
 
         private void bunifuLabel20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaWinCircleProgressIndicator1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuCircleProgress2_ProgressChanged(object sender, BunifuCircleProgress.ProgressChangedEventArgs e)
         {
 
         }

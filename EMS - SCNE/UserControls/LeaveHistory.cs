@@ -186,5 +186,9 @@ namespace EMS___SCNE
 
         }
 
+        private void bunifuTextBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -69,6 +69,15 @@
             this.bunifuDropdown1 = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Leave_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.From_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.To_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leaveRequestHistoryDisplayBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eMSSCNEDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._EMS_SCNEDataSet = new EMS___SCNE._EMS_SCNEDataSet();
             this.leaveRequestHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuButton2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -88,25 +97,25 @@
             this.bunifuTextBox6 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuTextBox7 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.eMSSCNEDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._EMS_SCNEDataSet = new EMS___SCNE._EMS_SCNEDataSet();
             this.leaveRequest_HistoryTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.LeaveRequest_HistoryTableAdapter();
             this.employeesTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.EmployeesTableAdapter();
-            this.leaveRequestHistoryDisplayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.leaveRequest_HistoryDisplayTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.LeaveRequest_HistoryDisplayTableAdapter();
-            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Leave_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.From_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.To_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leaveTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryDisplayBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMSSCNEDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryBindingSource)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMSSCNEDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryDisplayBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuLabel1
@@ -385,7 +394,16 @@
             this.From_Date,
             this.To_Date,
             this.Year,
-            this.Position});
+            this.Position,
+            this.userIDDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.positionDataGridViewTextBoxColumn,
+            this.departmentDataGridViewTextBoxColumn,
+            this.leaveTypeDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn,
+            this.fromDateDataGridViewTextBoxColumn,
+            this.toDateDataGridViewTextBoxColumn,
+            this.reasonDataGridViewTextBoxColumn});
             this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(232)))), ((int)(((byte)(191)))));
             this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.bunifuDataGridView1.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -427,6 +445,63 @@
             this.bunifuDataGridView1.TabIndex = 5;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Orange;
             this.bunifuDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
+            // 
+            // UserID
+            // 
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "UserID";
+            this.UserID.Name = "UserID";
+            this.UserID.Width = 82;
+            // 
+            // Leave_Type
+            // 
+            this.Leave_Type.DataPropertyName = "Leave_Type";
+            this.Leave_Type.HeaderText = "Leave Type";
+            this.Leave_Type.Name = "Leave_Type";
+            this.Leave_Type.Width = 114;
+            // 
+            // From_Date
+            // 
+            this.From_Date.DataPropertyName = "From_Date";
+            this.From_Date.HeaderText = "From";
+            this.From_Date.Name = "From_Date";
+            this.From_Date.Width = 71;
+            // 
+            // To_Date
+            // 
+            this.To_Date.DataPropertyName = "To_Date";
+            this.To_Date.HeaderText = "To";
+            this.To_Date.Name = "To_Date";
+            this.To_Date.Width = 50;
+            // 
+            // Year
+            // 
+            this.Year.DataPropertyName = "Year";
+            this.Year.HeaderText = "Year";
+            this.Year.Name = "Year";
+            this.Year.Width = 64;
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            this.Position.Width = 91;
+            // 
+            // leaveRequestHistoryDisplayBindingSource
+            // 
+            this.leaveRequestHistoryDisplayBindingSource.DataMember = "LeaveRequest_HistoryDisplay";
+            this.leaveRequestHistoryDisplayBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
+            // 
+            // eMSSCNEDataSetBindingSource
+            // 
+            this.eMSSCNEDataSetBindingSource.DataSource = this._EMS_SCNEDataSet;
+            this.eMSSCNEDataSetBindingSource.Position = 0;
+            // 
+            // _EMS_SCNEDataSet
+            // 
+            this._EMS_SCNEDataSet.DataSetName = "_EMS_SCNEDataSet";
+            this._EMS_SCNEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // leaveRequestHistoryBindingSource
             // 
@@ -703,6 +778,7 @@
             this.bunifuTextBox3.TextPlaceholder = "";
             this.bunifuTextBox3.UseSystemPasswordChar = false;
             this.bunifuTextBox3.WordWrap = true;
+            this.bunifuTextBox3.TextChanged += new System.EventHandler(this.bunifuTextBox3_TextChanged);
             // 
             // bunifuTextBox2
             // 
@@ -1136,16 +1212,6 @@
             this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // eMSSCNEDataSetBindingSource
-            // 
-            this.eMSSCNEDataSetBindingSource.DataSource = this._EMS_SCNEDataSet;
-            this.eMSSCNEDataSetBindingSource.Position = 0;
-            // 
-            // _EMS_SCNEDataSet
-            // 
-            this._EMS_SCNEDataSet.DataSetName = "_EMS_SCNEDataSet";
-            this._EMS_SCNEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // leaveRequest_HistoryTableAdapter
             // 
             this.leaveRequest_HistoryTableAdapter.ClearBeforeFill = true;
@@ -1154,56 +1220,72 @@
             // 
             this.employeesTableAdapter.ClearBeforeFill = true;
             // 
-            // leaveRequestHistoryDisplayBindingSource
-            // 
-            this.leaveRequestHistoryDisplayBindingSource.DataMember = "LeaveRequest_HistoryDisplay";
-            this.leaveRequestHistoryDisplayBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
-            // 
             // leaveRequest_HistoryDisplayTableAdapter
             // 
             this.leaveRequest_HistoryDisplayTableAdapter.ClearBeforeFill = true;
             // 
-            // UserID
+            // userIDDataGridViewTextBoxColumn
             // 
-            this.UserID.DataPropertyName = "UserID";
-            this.UserID.HeaderText = "UserID";
-            this.UserID.Name = "UserID";
-            this.UserID.Width = 82;
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.Width = 82;
             // 
-            // Leave_Type
+            // nameDataGridViewTextBoxColumn
             // 
-            this.Leave_Type.DataPropertyName = "Leave_Type";
-            this.Leave_Type.HeaderText = "Leave Type";
-            this.Leave_Type.Name = "Leave_Type";
-            this.Leave_Type.Width = 114;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 76;
             // 
-            // From_Date
+            // positionDataGridViewTextBoxColumn
             // 
-            this.From_Date.DataPropertyName = "From_Date";
-            this.From_Date.HeaderText = "From";
-            this.From_Date.Name = "From_Date";
-            this.From_Date.Width = 71;
+            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
+            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            this.positionDataGridViewTextBoxColumn.Width = 91;
             // 
-            // To_Date
+            // departmentDataGridViewTextBoxColumn
             // 
-            this.To_Date.DataPropertyName = "To_Date";
-            this.To_Date.HeaderText = "To";
-            this.To_Date.Name = "To_Date";
-            this.To_Date.Width = 50;
+            this.departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
+            this.departmentDataGridViewTextBoxColumn.HeaderText = "Department";
+            this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
+            this.departmentDataGridViewTextBoxColumn.Width = 121;
             // 
-            // Year
+            // leaveTypeDataGridViewTextBoxColumn
             // 
-            this.Year.DataPropertyName = "Year";
-            this.Year.HeaderText = "Year";
-            this.Year.Name = "Year";
-            this.Year.Width = 64;
+            this.leaveTypeDataGridViewTextBoxColumn.DataPropertyName = "Leave_Type";
+            this.leaveTypeDataGridViewTextBoxColumn.HeaderText = "Leave_Type";
+            this.leaveTypeDataGridViewTextBoxColumn.Name = "leaveTypeDataGridViewTextBoxColumn";
+            this.leaveTypeDataGridViewTextBoxColumn.Width = 117;
             // 
-            // Position
+            // yearDataGridViewTextBoxColumn
             // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.HeaderText = "Position";
-            this.Position.Name = "Position";
-            this.Position.Width = 91;
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // fromDateDataGridViewTextBoxColumn
+            // 
+            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "From_Date";
+            this.fromDateDataGridViewTextBoxColumn.HeaderText = "From_Date";
+            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
+            this.fromDateDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // toDateDataGridViewTextBoxColumn
+            // 
+            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "To_Date";
+            this.toDateDataGridViewTextBoxColumn.HeaderText = "To_Date";
+            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
+            this.toDateDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // reasonDataGridViewTextBoxColumn
+            // 
+            this.reasonDataGridViewTextBoxColumn.DataPropertyName = "Reason";
+            this.reasonDataGridViewTextBoxColumn.HeaderText = "Reason";
+            this.reasonDataGridViewTextBoxColumn.Name = "reasonDataGridViewTextBoxColumn";
+            this.reasonDataGridViewTextBoxColumn.Width = 86;
             // 
             // LeaveHistory
             // 
@@ -1235,12 +1317,12 @@
             this.Size = new System.Drawing.Size(1035, 556);
             this.Load += new System.EventHandler(this.LeaveHistory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryDisplayBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.eMSSCNEDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryBindingSource)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eMSSCNEDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryDisplayBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1285,5 +1367,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn To_Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Year;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn departmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn leaveTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
     }
 }

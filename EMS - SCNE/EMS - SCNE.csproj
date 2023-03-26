@@ -70,6 +70,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
       <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar">
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
       <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
     </Reference>
@@ -190,6 +193,9 @@
     </Compile>
     <Compile Include="UserControls\Dashboard_UC.Designer.cs">
       <DependentUpon>Dashboard_UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_EMS_SCNEDataSet.cs">
+      <DependentUpon>_EMS_SCNEDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="_EMS_SCNEDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
