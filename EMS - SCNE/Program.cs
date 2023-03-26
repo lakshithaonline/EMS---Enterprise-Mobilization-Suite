@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EMS___SCNE.UserControls___SuperAdmin;
+using System;
 using System.Windows.Forms;
 
 namespace EMS___SCNE
@@ -13,8 +14,9 @@ namespace EMS___SCNE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SuperAdmin());
+            //Application.Run(new SuperAdmin());
             //Application.Run(new Dashboard());
+            Application.Run(new Login());
         }
     }
 }

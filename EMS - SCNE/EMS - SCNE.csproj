@@ -43,6 +43,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>..\..\..\..\Documents\GitHub\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuCheckBox">
+      <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuCheckBox.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
       <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
     </Reference>
@@ -72,6 +75,9 @@
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar">
       <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>..\..\..\..\Desktop\New folder\BUNIFU TOOLS\BUNIFU TOOLS\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
       <HintPath>..\..\APictures-IM\WindowsFormsApp3\bin\Debug\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
@@ -156,6 +162,12 @@
     <Compile Include="UserControls - SuperAdmin\Employee_superadmin.Designer.cs">
       <DependentUpon>Employee_superadmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls - SuperAdmin\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls - SuperAdmin\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls - SuperAdmin\Settings_Superadmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -229,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls - SuperAdmin\Employee_superadmin.resx">
       <DependentUpon>Employee_superadmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls - SuperAdmin\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls - SuperAdmin\Settings_Superadmin.resx">
       <DependentUpon>Settings_Superadmin.cs</DependentUpon>

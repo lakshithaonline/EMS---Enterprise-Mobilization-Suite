@@ -13,6 +13,7 @@ using EMS___SCNE.UserControls;
 using Bunifu.UI.WinForms;
 using System.Data.SqlClient;
 using System.IO;
+using EMS___SCNE.UserControls___SuperAdmin;
 
 namespace EMS___SCNE
 {
@@ -142,7 +143,17 @@ namespace EMS___SCNE
 
         private void bunifuButton5_Click_1(object sender, EventArgs e)
         {
-            Application.Exit();
+            // Hide the current form
+            this.Hide();
+
+            // Create a new instance of the Preloader form
+            Login preloaderForm = new Login();
+
+            // Show the Preloader form
+            preloaderForm.ShowDialog();
+
+            // Close the current form after Preloader form is closed
+            this.Close();
         }
 
         private void greatingslable_Click(object sender, EventArgs e)
