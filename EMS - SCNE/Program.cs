@@ -17,6 +17,7 @@ namespace EMS___SCNE
             //Application.Run(new SuperAdmin());
             //Application.Run(new Dashboard());
             Application.Run(new Login());
+            
         }
     }
 }

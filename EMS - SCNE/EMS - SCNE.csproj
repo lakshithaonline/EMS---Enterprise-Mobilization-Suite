@@ -162,10 +162,10 @@
     <Compile Include="UserControls - SuperAdmin\Employee_superadmin.Designer.cs">
       <DependentUpon>Employee_superadmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls - SuperAdmin\Login.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControls - SuperAdmin\Login.Designer.cs">
+    <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls - SuperAdmin\Settings_Superadmin.cs">
@@ -242,7 +242,7 @@
     <EmbeddedResource Include="UserControls - SuperAdmin\Employee_superadmin.resx">
       <DependentUpon>Employee_superadmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls - SuperAdmin\Login.resx">
+    <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls - SuperAdmin\Settings_Superadmin.resx">

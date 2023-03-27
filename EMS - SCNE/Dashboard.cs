@@ -14,11 +14,13 @@ using Bunifu.UI.WinForms;
 using System.Data.SqlClient;
 using System.IO;
 using EMS___SCNE.UserControls___SuperAdmin;
+using System.Diagnostics;
 
 namespace EMS___SCNE
 {
     public partial class Dashboard : KryptonForm
     {
+        string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
         public Dashboard()
         {
             InitializeComponent();
@@ -51,12 +53,58 @@ namespace EMS___SCNE
             elipse2.BorderRadius = 10;
             elipse2.TargetControl = gunaTransfarantPictureBox3;
 
-           
+            ///////////////////////////////////////////////////not worked correclty
+            // Get the username of the logged-in user
+            string username = Environment.UserName;
 
+            // Query the database to get the employee name
+            
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT e.Name FROM LoginCredentials l JOIN Employees e ON l.UserID = e.UserID WHERE l.Username = @Username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    string employeeName = (string)command.ExecuteScalar();
+
+                    // Change the label text to the employee name
+                    bunifuLabel3.Text = "Welcome, " + employeeName;
+                }
+            }
 
 
 
         }
+        /// <summary>
+        /// /////////////////////////not event display
+        /// </summary>
+        private void UpdateWelcomeLabel()
+        {
+            // Get the username of the logged-in user
+            string username = Environment.UserName;
+
+            // Query the database to get the employee name
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT e.Name FROM LoginCredentials l JOIN Employees e ON l.UserID = e.UserID WHERE l.Username = @Username";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    string employeeName = (string)command.ExecuteScalar();
+
+                    // Output a message to the Output window
+                    Debug.WriteLine("Employee name: " + employeeName);
+
+                    // Change the label text to the employee name
+                    bunifuLabel3.Text = "Welcome, " + employeeName;
+                }
+            }
+        }
+
 
 
         private void bunifuPanel1_Click(object sender, EventArgs e)

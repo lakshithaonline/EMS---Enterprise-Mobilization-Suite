@@ -179,9 +179,6 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             }
             
         }
-      
-
-
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
