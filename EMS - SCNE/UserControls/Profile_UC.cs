@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace EMS___SCNE
 {
@@ -102,7 +103,7 @@ namespace EMS___SCNE
             }
 
             using (var connection = new SqlConnection(connString))
-            using (var command = new SqlCommand("SELECT Name, Department, Position, UserID FROM Employees WHERE UserID = @userID", connection))
+            using (var command = new SqlCommand("SELECT Name, Department, Position, UserID, ProfilePicture FROM Employees WHERE UserID = @userID", connection))
             {
                 command.Parameters.AddWithValue("@userID", userID);
 
@@ -116,8 +117,21 @@ namespace EMS___SCNE
                         bunifuLabel3.Text = reader.GetString(1); //Display Department
                         bunifuLabel4.Text = reader.GetString(2); //Display Position
                         bunifuLabel38.Text = reader.GetInt32(3).ToString();
-                        // bunifuLabel3.Text = reader.GetInt32(1).ToString(); // Display Age in bunifuLabel3
 
+                        // Display Profile Picture in bunifuPictureBox1
+                        if (!reader.IsDBNull(4))
+                        {
+                            var data = (byte[])reader["ProfilePicture"];
+                            using (var ms = new MemoryStream(data))
+                            {
+                                bunifuPictureBox1.Image = Image.FromStream(ms);
+                            }
+                        }
+                        else
+                        {
+                            // Display default image
+                            bunifuPictureBox1.Image = Properties.Resources.user;
+                        }
                     }
                     else
                     {
@@ -133,6 +147,26 @@ namespace EMS___SCNE
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+        }
+
+
+        private void bunifuLabel21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuDropdown1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuDropdown2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuTextBox5_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

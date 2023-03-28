@@ -23,11 +23,6 @@ namespace EMS___SCNE
 
         }
 
-        private void bunifuButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Leave_Load(object sender, EventArgs e)
         {
             // Populate the leave type dropdown
@@ -320,11 +315,6 @@ namespace EMS___SCNE
                 bunifuLabel6.Text = "Date";
             }
 
-
-        }
-
-        private void bunifuDropdown2_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 

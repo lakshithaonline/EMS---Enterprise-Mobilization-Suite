@@ -18,6 +18,7 @@ using System.Diagnostics;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
+using System.Drawing.Drawing2D;
 
 namespace EMS___SCNE
 {
@@ -121,6 +122,21 @@ namespace EMS___SCNE
             elipse2.TargetControl = gunaTransfarantPictureBox3;
 
             timer1.Start();
+
+            /*
+            // Set the border radius of the GunaTransfarantPictureBox2 control
+            int cornerRadius = 10;
+            GraphicsPath path = new GraphicsPath();
+            Rectangle rect = new Rectangle(0, 0, gunaTransfarantPictureBox2.Width, gunaTransfarantPictureBox2.Height);
+            path.AddArc(rect.X, rect.Y, cornerRadius, cornerRadius, 180, 90);
+            path.AddArc(rect.X + rect.Width - cornerRadius, rect.Y, cornerRadius, cornerRadius, 270, 90);
+            path.AddArc(rect.X + rect.Width - cornerRadius, rect.Y + rect.Height - cornerRadius, cornerRadius, cornerRadius, 0, 90);
+            path.AddArc(rect.X, rect.Y + rect.Height - cornerRadius, cornerRadius, cornerRadius, 90, 90);
+            path.CloseAllFigures();
+            gunaTransfarantPictureBox2.Region = new Region(path);
+            gunaTransfarantPictureBox1.Region = new Region(path);
+            gunaTransfarantPictureBox3.Region = new Region(path);
+            */
 
         }
 
@@ -384,6 +400,11 @@ namespace EMS___SCNE
         }
 
         private void bunifuPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaTransfarantPictureBox3_Click(object sender, EventArgs e)
         {
 
         }

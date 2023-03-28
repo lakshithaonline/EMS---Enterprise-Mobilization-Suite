@@ -190,5 +190,10 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuDatePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

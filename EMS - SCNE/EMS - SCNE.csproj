@@ -304,6 +304,7 @@
     <None Include="Resources\mc-yellw.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\user.png" />
     <None Include="Resources\loginAttempts.txt.txt" />
     <None Include="Resources\DefaultMaleImage.png" />
     <None Include="Resources\DefaultFemaleImage.png" />

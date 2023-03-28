@@ -36,6 +36,8 @@ namespace EMS___SCNE
             bunifuDropdown2.Items.Add("Late Check In");
             bunifuDropdown2.Items.Add("Early Check-Out");
             bunifuDropdown2.Items.Add("Absent");
+            bunifuDropdown2.Items.Add("Normal Attendence");
+            bunifuDropdown2.Items.Add("Must be monitored");
 
         }
 
@@ -159,57 +161,75 @@ namespace EMS___SCNE
 
         private void bunifuButton1_Click_1(object sender, System.EventArgs e)
         {
-         
-
-            // Get selected filter values
-            string attendanceType = bunifuDropdown2.SelectedItem.ToString();
-            DateTime startDate = bunifuDatePicker2.Value.Date;
-            DateTime endDate = bunifuDatePicker1.Value.Date;
-            string employeeID = bunifuTextBox1.Text.Trim();
-
-            // Set up SQL query based on selected filter values
-            string sqlQuery = "";
-            switch (attendanceType)
+            try
             {
-                case "Late Check In":
-                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND Check_In_Time > '09:00:00'";
-                    break;
-                case "Early Check-Out":
-                    sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND Total_Hours_Worked < 8";
-                    break;
-                case "Absent":
-                    sqlQuery = "SELECT UserID, Name, Department, Date, Position FROM Absent_emp WHERE Date BETWEEN @StartDate AND @EndDate ";
-                    break;
+                // Get selected filter values
+                string attendanceType = bunifuDropdown2.SelectedItem?.ToString();
+                DateTime startDate = bunifuDatePicker2.Value.Date;
+                DateTime endDate = bunifuDatePicker1.Value.Date;
+                string employeeID = bunifuTextBox1.Text.Trim();
 
+                // Validate attendanceType
+                if (string.IsNullOrEmpty(attendanceType))
+                {
+                    throw new ArgumentException("Please select an attendance type.", nameof(attendanceType));
+                }
 
-            }
+                // Set up SQL query based on selected filter values
+                string sqlQuery = "";
+                switch (attendanceType)
+                {
+                    case "Late Check In":
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND Check_In_Time > '09:00:00'";
+                        break;
+                    case "Early Check-Out":
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND (Total_Hours_Worked < 8 AND Total_Hours_Worked > 1)";
+                        break;
+                    case "Absent":
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Position FROM Absent_emp WHERE Date BETWEEN @StartDate AND @EndDate ";
+                        break;
+                    case "Normal Attendence":
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Total_Hours_Worked FROM Attendance WHERE Total_Hours_Worked >= 8 AND UserID NOT IN (SELECT UserID FROM Absent_emp) AND Date BETWEEN @StartDate AND @EndDate";
+                        break;
+                    case "Must be monitored":
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Check_In_Time > '09:00:00' AND Total_Hours_Worked >= 1 AND Total_Hours_Worked < 8 AND Date BETWEEN @StartDate AND @EndDate";
+                        break;
+                    default:
+                        sqlQuery = "";
+                        break;
+                }
 
-            // Add employee ID filter if specified
-            if (!string.IsNullOrEmpty(employeeID))
-            {
-                sqlQuery += " AND UserID = @UserID";
-            }
-
-            // Execute query and display results
-            using (SqlCommand command = new SqlCommand(sqlQuery, connection))
-            {
-                command.Parameters.AddWithValue("@StartDate", startDate);
-                command.Parameters.AddWithValue("@EndDate", endDate);
+                // Add employee ID filter if specified
                 if (!string.IsNullOrEmpty(employeeID))
                 {
-                    command.Parameters.AddWithValue("@UserID", employeeID);
+                    sqlQuery += " AND UserID = @UserID";
                 }
 
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                // Execute query and display results
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-                    bunifuDataGridView1.DataSource = dataTable;
+                    command.Parameters.AddWithValue("@StartDate", startDate);
+                    command.Parameters.AddWithValue("@EndDate", endDate);
+                    if (!string.IsNullOrEmpty(employeeID))
+                    {
+                        command.Parameters.AddWithValue("@UserID", employeeID);
+                    }
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        bunifuDataGridView1.DataSource = dataTable;
+                    }
                 }
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         private void kryptonComboBox2_SelectedIndexChanged(object sender, System.EventArgs e)
         {
@@ -266,6 +286,16 @@ namespace EMS___SCNE
 
             // Display the Print Preview Dialog
             ppd.ShowDialog();
+        }
+
+        private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

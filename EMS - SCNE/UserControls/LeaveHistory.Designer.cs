@@ -75,6 +75,15 @@
             this.To_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leaveTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leaveRequestHistoryDisplayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMSSCNEDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._EMS_SCNEDataSet = new EMS___SCNE._EMS_SCNEDataSet();
@@ -100,15 +109,7 @@
             this.leaveRequest_HistoryTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.LeaveRequest_HistoryTableAdapter();
             this.employeesTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.EmployeesTableAdapter();
             this.leaveRequest_HistoryDisplayTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.LeaveRequest_HistoryDisplayTableAdapter();
-            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leaveTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fromDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryDisplayBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMSSCNEDataSetBindingSource)).BeginInit();
@@ -116,6 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryBindingSource)).BeginInit();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
+            this.bunifuPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuLabel1
@@ -143,17 +145,17 @@
             this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.bunifuTextBox1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuTextBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox1.BackgroundImage")));
-            this.bunifuTextBox1.BorderColorActive = System.Drawing.Color.Black;
+            this.bunifuTextBox1.BorderColorActive = System.Drawing.Color.Transparent;
             this.bunifuTextBox1.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.Black;
-            this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.Black;
+            this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.Transparent;
+            this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.Transparent;
             this.bunifuTextBox1.BorderRadius = 10;
             this.bunifuTextBox1.BorderThickness = 1;
             this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.bunifuTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTextBox1.DefaultText = "";
-            this.bunifuTextBox1.FillColor = System.Drawing.Color.White;
+            this.bunifuTextBox1.FillColor = System.Drawing.Color.WhiteSmoke;
             this.bunifuTextBox1.HideSelection = true;
             this.bunifuTextBox1.IconLeft = null;
             this.bunifuTextBox1.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -161,13 +163,13 @@
             this.bunifuTextBox1.IconRight = null;
             this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox1.Lines = new string[0];
-            this.bunifuTextBox1.Location = new System.Drawing.Point(35, 111);
+            this.bunifuTextBox1.Location = new System.Drawing.Point(12, 30);
             this.bunifuTextBox1.MaxLength = 32767;
             this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox1.Modified = false;
             this.bunifuTextBox1.Multiline = false;
             this.bunifuTextBox1.Name = "bunifuTextBox1";
-            stateProperties1.BorderColor = System.Drawing.Color.Black;
+            stateProperties1.BorderColor = System.Drawing.Color.Transparent;
             stateProperties1.FillColor = System.Drawing.Color.Empty;
             stateProperties1.ForeColor = System.Drawing.Color.Empty;
             stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
@@ -177,19 +179,19 @@
             stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
             this.bunifuTextBox1.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.Black;
+            stateProperties3.BorderColor = System.Drawing.Color.Transparent;
             stateProperties3.FillColor = System.Drawing.Color.Empty;
             stateProperties3.ForeColor = System.Drawing.Color.Empty;
             stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox1.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Black;
-            stateProperties4.FillColor = System.Drawing.Color.White;
+            stateProperties4.BorderColor = System.Drawing.Color.Transparent;
+            stateProperties4.FillColor = System.Drawing.Color.WhiteSmoke;
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox1.OnIdleState = stateProperties4;
             this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(3);
             this.bunifuTextBox1.PasswordChar = '\0';
-            this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Black;
             this.bunifuTextBox1.PlaceholderText = "Enter ID";
             this.bunifuTextBox1.ReadOnly = false;
             this.bunifuTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -197,7 +199,7 @@
             this.bunifuTextBox1.SelectionLength = 0;
             this.bunifuTextBox1.SelectionStart = 0;
             this.bunifuTextBox1.ShortcutsEnabled = true;
-            this.bunifuTextBox1.Size = new System.Drawing.Size(149, 32);
+            this.bunifuTextBox1.Size = new System.Drawing.Size(106, 32);
             this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.bunifuTextBox1.TabIndex = 1;
             this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -213,7 +215,7 @@
             // 
             this.bunifuDatePicker1.BackColor = System.Drawing.Color.White;
             this.bunifuDatePicker1.BorderRadius = 6;
-            this.bunifuDatePicker1.Color = System.Drawing.Color.Black;
+            this.bunifuDatePicker1.Color = System.Drawing.Color.Transparent;
             this.bunifuDatePicker1.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
             this.bunifuDatePicker1.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
             this.bunifuDatePicker1.DisabledColor = System.Drawing.Color.Gray;
@@ -227,10 +229,10 @@
             this.bunifuDatePicker1.IconColor = System.Drawing.Color.Black;
             this.bunifuDatePicker1.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.bunifuDatePicker1.LeftTextMargin = 5;
-            this.bunifuDatePicker1.Location = new System.Drawing.Point(35, 149);
+            this.bunifuDatePicker1.Location = new System.Drawing.Point(12, 68);
             this.bunifuDatePicker1.MinimumSize = new System.Drawing.Size(4, 32);
             this.bunifuDatePicker1.Name = "bunifuDatePicker1";
-            this.bunifuDatePicker1.Size = new System.Drawing.Size(228, 32);
+            this.bunifuDatePicker1.Size = new System.Drawing.Size(214, 32);
             this.bunifuDatePicker1.TabIndex = 2;
             this.bunifuDatePicker1.Value = new System.DateTime(2023, 3, 25, 0, 0, 0, 0);
             this.bunifuDatePicker1.ValueChanged += new System.EventHandler(this.bunifuDatePicker1_ValueChanged);
@@ -239,9 +241,9 @@
             // 
             this.bunifuDropdown1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuDropdown1.BackgroundColor = System.Drawing.Color.White;
-            this.bunifuDropdown1.BorderColor = System.Drawing.Color.Black;
+            this.bunifuDropdown1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuDropdown1.BorderRadius = 6;
-            this.bunifuDropdown1.Color = System.Drawing.Color.Black;
+            this.bunifuDropdown1.Color = System.Drawing.Color.Transparent;
             this.bunifuDropdown1.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
             this.bunifuDropdown1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.bunifuDropdown1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -269,7 +271,7 @@
             this.bunifuDropdown1.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.bunifuDropdown1.ItemHighLightForeColor = System.Drawing.Color.White;
             this.bunifuDropdown1.ItemTopMargin = 3;
-            this.bunifuDropdown1.Location = new System.Drawing.Point(190, 111);
+            this.bunifuDropdown1.Location = new System.Drawing.Point(124, 30);
             this.bunifuDropdown1.Name = "bunifuDropdown1";
             this.bunifuDropdown1.Size = new System.Drawing.Size(133, 32);
             this.bunifuDropdown1.TabIndex = 3;
@@ -289,7 +291,7 @@
             this.bunifuButton1.AutoSizeLeftIcon = true;
             this.bunifuButton1.AutoSizeRightIcon = true;
             this.bunifuButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuButton1.BackColor1 = System.Drawing.Color.White;
+            this.bunifuButton1.BackColor1 = System.Drawing.Color.WhiteSmoke;
             this.bunifuButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton1.BackgroundImage")));
             this.bunifuButton1.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.bunifuButton1.ButtonText = "Search";
@@ -318,14 +320,14 @@
             this.bunifuButton1.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.bunifuButton1.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.bunifuButton1.IconSize = 25;
-            this.bunifuButton1.IdleBorderColor = System.Drawing.Color.Black;
+            this.bunifuButton1.IdleBorderColor = System.Drawing.Color.Transparent;
             this.bunifuButton1.IdleBorderRadius = 10;
             this.bunifuButton1.IdleBorderThickness = 1;
-            this.bunifuButton1.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuButton1.IdleFillColor = System.Drawing.Color.WhiteSmoke;
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(329, 111);
+            this.bunifuButton1.Location = new System.Drawing.Point(263, 30);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 10;
@@ -343,11 +345,11 @@
             this.bunifuButton1.onHoverState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.onHoverState.IconLeftImage = null;
             this.bunifuButton1.onHoverState.IconRightImage = null;
-            this.bunifuButton1.OnIdleState.BorderColor = System.Drawing.Color.Black;
+            this.bunifuButton1.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuButton1.OnIdleState.BorderRadius = 10;
             this.bunifuButton1.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.bunifuButton1.OnIdleState.BorderThickness = 1;
-            this.bunifuButton1.OnIdleState.FillColor = System.Drawing.Color.White;
+            this.bunifuButton1.OnIdleState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.bunifuButton1.OnIdleState.ForeColor = System.Drawing.Color.Black;
             this.bunifuButton1.OnIdleState.IconLeftImage = null;
             this.bunifuButton1.OnIdleState.IconRightImage = null;
@@ -359,7 +361,7 @@
             this.bunifuButton1.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.OnPressedState.IconLeftImage = null;
             this.bunifuButton1.OnPressedState.IconRightImage = null;
-            this.bunifuButton1.Size = new System.Drawing.Size(170, 32);
+            this.bunifuButton1.Size = new System.Drawing.Size(182, 32);
             this.bunifuButton1.TabIndex = 4;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -441,7 +443,7 @@
             this.bunifuDataGridView1.RowHeadersVisible = false;
             this.bunifuDataGridView1.RowTemplate.Height = 40;
             this.bunifuDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuDataGridView1.Size = new System.Drawing.Size(458, 319);
+            this.bunifuDataGridView1.Size = new System.Drawing.Size(458, 291);
             this.bunifuDataGridView1.TabIndex = 5;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Orange;
             this.bunifuDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
@@ -488,6 +490,69 @@
             this.Position.Name = "Position";
             this.Position.Width = 91;
             // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 76;
+            // 
+            // positionDataGridViewTextBoxColumn
+            // 
+            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
+            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            this.positionDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // departmentDataGridViewTextBoxColumn
+            // 
+            this.departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
+            this.departmentDataGridViewTextBoxColumn.HeaderText = "Department";
+            this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
+            this.departmentDataGridViewTextBoxColumn.Width = 121;
+            // 
+            // leaveTypeDataGridViewTextBoxColumn
+            // 
+            this.leaveTypeDataGridViewTextBoxColumn.DataPropertyName = "Leave_Type";
+            this.leaveTypeDataGridViewTextBoxColumn.HeaderText = "Leave_Type";
+            this.leaveTypeDataGridViewTextBoxColumn.Name = "leaveTypeDataGridViewTextBoxColumn";
+            this.leaveTypeDataGridViewTextBoxColumn.Width = 117;
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            this.yearDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // fromDateDataGridViewTextBoxColumn
+            // 
+            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "From_Date";
+            this.fromDateDataGridViewTextBoxColumn.HeaderText = "From_Date";
+            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
+            this.fromDateDataGridViewTextBoxColumn.Width = 112;
+            // 
+            // toDateDataGridViewTextBoxColumn
+            // 
+            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "To_Date";
+            this.toDateDataGridViewTextBoxColumn.HeaderText = "To_Date";
+            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
+            this.toDateDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // reasonDataGridViewTextBoxColumn
+            // 
+            this.reasonDataGridViewTextBoxColumn.DataPropertyName = "Reason";
+            this.reasonDataGridViewTextBoxColumn.HeaderText = "Reason";
+            this.reasonDataGridViewTextBoxColumn.Name = "reasonDataGridViewTextBoxColumn";
+            this.reasonDataGridViewTextBoxColumn.Width = 86;
+            // 
             // leaveRequestHistoryDisplayBindingSource
             // 
             this.leaveRequestHistoryDisplayBindingSource.DataMember = "LeaveRequest_HistoryDisplay";
@@ -513,14 +578,14 @@
             this.bunifuPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
             this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Black;
+            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuPanel1.BorderRadius = 10;
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.bunifuDataGridView1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(35, 197);
+            this.bunifuPanel1.Location = new System.Drawing.Point(35, 225);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(464, 325);
+            this.bunifuPanel1.Size = new System.Drawing.Size(464, 297);
             this.bunifuPanel1.TabIndex = 6;
             // 
             // bunifuButton2
@@ -534,7 +599,7 @@
             this.bunifuButton2.AutoSizeLeftIcon = true;
             this.bunifuButton2.AutoSizeRightIcon = true;
             this.bunifuButton2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuButton2.BackColor1 = System.Drawing.Color.White;
+            this.bunifuButton2.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
             this.bunifuButton2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton2.BackgroundImage")));
             this.bunifuButton2.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.bunifuButton2.ButtonText = "Delete Leave";
@@ -563,14 +628,14 @@
             this.bunifuButton2.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.bunifuButton2.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.bunifuButton2.IconSize = 25;
-            this.bunifuButton2.IdleBorderColor = System.Drawing.Color.Black;
+            this.bunifuButton2.IdleBorderColor = System.Drawing.Color.Transparent;
             this.bunifuButton2.IdleBorderRadius = 10;
             this.bunifuButton2.IdleBorderThickness = 1;
-            this.bunifuButton2.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuButton2.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
             this.bunifuButton2.IdleIconLeftImage = null;
             this.bunifuButton2.IdleIconRightImage = null;
             this.bunifuButton2.IndicateFocus = false;
-            this.bunifuButton2.Location = new System.Drawing.Point(689, 471);
+            this.bunifuButton2.Location = new System.Drawing.Point(689, 490);
             this.bunifuButton2.Name = "bunifuButton2";
             this.bunifuButton2.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton2.OnDisabledState.BorderRadius = 10;
@@ -588,11 +653,11 @@
             this.bunifuButton2.onHoverState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton2.onHoverState.IconLeftImage = null;
             this.bunifuButton2.onHoverState.IconRightImage = null;
-            this.bunifuButton2.OnIdleState.BorderColor = System.Drawing.Color.Black;
+            this.bunifuButton2.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
             this.bunifuButton2.OnIdleState.BorderRadius = 10;
             this.bunifuButton2.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.bunifuButton2.OnIdleState.BorderThickness = 1;
-            this.bunifuButton2.OnIdleState.FillColor = System.Drawing.Color.White;
+            this.bunifuButton2.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
             this.bunifuButton2.OnIdleState.ForeColor = System.Drawing.Color.Black;
             this.bunifuButton2.OnIdleState.IconLeftImage = null;
             this.bunifuButton2.OnIdleState.IconRightImage = null;
@@ -617,7 +682,7 @@
             // 
             this.bunifuDatePicker2.BackColor = System.Drawing.Color.White;
             this.bunifuDatePicker2.BorderRadius = 6;
-            this.bunifuDatePicker2.Color = System.Drawing.Color.Black;
+            this.bunifuDatePicker2.Color = System.Drawing.Color.Transparent;
             this.bunifuDatePicker2.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
             this.bunifuDatePicker2.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
             this.bunifuDatePicker2.DisabledColor = System.Drawing.Color.Gray;
@@ -631,12 +696,13 @@
             this.bunifuDatePicker2.IconColor = System.Drawing.Color.Black;
             this.bunifuDatePicker2.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.bunifuDatePicker2.LeftTextMargin = 5;
-            this.bunifuDatePicker2.Location = new System.Drawing.Point(271, 149);
+            this.bunifuDatePicker2.Location = new System.Drawing.Point(232, 68);
             this.bunifuDatePicker2.MinimumSize = new System.Drawing.Size(4, 32);
             this.bunifuDatePicker2.Name = "bunifuDatePicker2";
-            this.bunifuDatePicker2.Size = new System.Drawing.Size(228, 32);
+            this.bunifuDatePicker2.Size = new System.Drawing.Size(213, 32);
             this.bunifuDatePicker2.TabIndex = 8;
             this.bunifuDatePicker2.Value = new System.DateTime(2023, 3, 25, 0, 0, 0, 0);
+            this.bunifuDatePicker2.ValueChanged += new System.EventHandler(this.bunifuDatePicker2_ValueChanged);
             // 
             // employeesBindingSource
             // 
@@ -1224,68 +1290,24 @@
             // 
             this.leaveRequest_HistoryDisplayTableAdapter.ClearBeforeFill = true;
             // 
-            // userIDDataGridViewTextBoxColumn
+            // bunifuPanel2
             // 
-            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
-            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
-            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
-            this.userIDDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
-            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
-            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
-            this.positionDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // departmentDataGridViewTextBoxColumn
-            // 
-            this.departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
-            this.departmentDataGridViewTextBoxColumn.HeaderText = "Department";
-            this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
-            this.departmentDataGridViewTextBoxColumn.Width = 121;
-            // 
-            // leaveTypeDataGridViewTextBoxColumn
-            // 
-            this.leaveTypeDataGridViewTextBoxColumn.DataPropertyName = "Leave_Type";
-            this.leaveTypeDataGridViewTextBoxColumn.HeaderText = "Leave_Type";
-            this.leaveTypeDataGridViewTextBoxColumn.Name = "leaveTypeDataGridViewTextBoxColumn";
-            this.leaveTypeDataGridViewTextBoxColumn.Width = 117;
-            // 
-            // yearDataGridViewTextBoxColumn
-            // 
-            this.yearDataGridViewTextBoxColumn.DataPropertyName = "Year";
-            this.yearDataGridViewTextBoxColumn.HeaderText = "Year";
-            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
-            this.yearDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // fromDateDataGridViewTextBoxColumn
-            // 
-            this.fromDateDataGridViewTextBoxColumn.DataPropertyName = "From_Date";
-            this.fromDateDataGridViewTextBoxColumn.HeaderText = "From_Date";
-            this.fromDateDataGridViewTextBoxColumn.Name = "fromDateDataGridViewTextBoxColumn";
-            this.fromDateDataGridViewTextBoxColumn.Width = 112;
-            // 
-            // toDateDataGridViewTextBoxColumn
-            // 
-            this.toDateDataGridViewTextBoxColumn.DataPropertyName = "To_Date";
-            this.toDateDataGridViewTextBoxColumn.HeaderText = "To_Date";
-            this.toDateDataGridViewTextBoxColumn.Name = "toDateDataGridViewTextBoxColumn";
-            this.toDateDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // reasonDataGridViewTextBoxColumn
-            // 
-            this.reasonDataGridViewTextBoxColumn.DataPropertyName = "Reason";
-            this.reasonDataGridViewTextBoxColumn.HeaderText = "Reason";
-            this.reasonDataGridViewTextBoxColumn.Name = "reasonDataGridViewTextBoxColumn";
-            this.reasonDataGridViewTextBoxColumn.Width = 86;
+            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
+            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
+            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel2.BorderRadius = 10;
+            this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Controls.Add(this.bunifuTextBox1);
+            this.bunifuPanel2.Controls.Add(this.bunifuDropdown1);
+            this.bunifuPanel2.Controls.Add(this.bunifuButton1);
+            this.bunifuPanel2.Controls.Add(this.bunifuDatePicker1);
+            this.bunifuPanel2.Controls.Add(this.bunifuDatePicker2);
+            this.bunifuPanel2.Location = new System.Drawing.Point(35, 104);
+            this.bunifuPanel2.Name = "bunifuPanel2";
+            this.bunifuPanel2.ShowBorders = true;
+            this.bunifuPanel2.Size = new System.Drawing.Size(461, 114);
+            this.bunifuPanel2.TabIndex = 24;
             // 
             // LeaveHistory
             // 
@@ -1305,14 +1327,10 @@
             this.Controls.Add(this.bunifuLabel4);
             this.Controls.Add(this.bunifuLabel3);
             this.Controls.Add(this.bunifuLabel2);
-            this.Controls.Add(this.bunifuDatePicker2);
             this.Controls.Add(this.bunifuButton2);
             this.Controls.Add(this.bunifuPanel1);
-            this.Controls.Add(this.bunifuButton1);
-            this.Controls.Add(this.bunifuDropdown1);
-            this.Controls.Add(this.bunifuDatePicker1);
-            this.Controls.Add(this.bunifuTextBox1);
             this.Controls.Add(this.bunifuLabel1);
+            this.Controls.Add(this.bunifuPanel2);
             this.Name = "LeaveHistory";
             this.Size = new System.Drawing.Size(1035, 556);
             this.Load += new System.EventHandler(this.LeaveHistory_Load);
@@ -1323,6 +1341,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryBindingSource)).EndInit();
             this.bunifuPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
+            this.bunifuPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1376,5 +1395,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fromDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn toDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
     }
 }
