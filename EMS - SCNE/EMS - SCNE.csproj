@@ -304,6 +304,8 @@
     <None Include="Resources\mc-yellw.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\DefaultFemaleImage.png" />
+    <Content Include="Resources\DefaultMaleImage.png" />
     <None Include="Resources\290289867_2821437328151951_5817885558058486072_n.jpg" />
     <Content Include="Resources\construction-workers-sunset.jpg" />
     <None Include="Resources\construction-workers-sunset1.jpg" />

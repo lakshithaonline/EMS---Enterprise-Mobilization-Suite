@@ -1,10 +1,13 @@
 ﻿using Bunifu.UI.WinForms;
+using EMS___SCNE.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -177,7 +180,6 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 MessageBox.Show("Please select a row to delete.");
 
             }
-            
         }
 
         private void bunifuButton2_Click(object sender, EventArgs e)
@@ -197,17 +199,28 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             string department = bunifuDropdown2.SelectedItem.ToString();
             string gender = bunifuDropdown3.SelectedItem.ToString();
 
-            string query = "INSERT INTO Employees (UserID, Name, Department, Position, Gender) " +
-                           "VALUES (@UserID, @Name, @Department, @Position, @Gender)";
+            byte[] image = null;
+            if (bunifuPictureBox2.Image != null)
+            {
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    bunifuPictureBox2.Image.Save(memoryStream, ImageFormat.Jpeg);
+                    image = memoryStream.ToArray();
+                }
+            }
+
+            string query = "INSERT INTO Employees (UserID, Name, Department, Position, Gender, ProfilePicture) " +
+                           "VALUES (@UserID, @Name, @Department, @Position, @Gender, @ProfilePicture)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@UserID", userID.Value);
+                command.Parameters.AddWithValue("@UserID", userID.HasValue ? (object)userID.Value : DBNull.Value);
                 command.Parameters.AddWithValue("@Name", name);
                 command.Parameters.AddWithValue("@Department", department);
                 command.Parameters.AddWithValue("@Position", position);
                 command.Parameters.AddWithValue("@Gender", gender);
+                command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : DBNull.Value);
                 connection.Open();
                 int result = command.ExecuteNonQuery();
                 if (result > 0)
@@ -221,6 +234,7 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             }
         }
 
+
         private void bunifuTextBox2_TextChanged(object sender, EventArgs e)
         {
 
@@ -229,6 +243,15 @@ namespace EMS___SCNE.UserControls___SuperAdmin
         private void bunifuTextBox10_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bunifuButton4_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                bunifuPictureBox2.Image = Image.FromFile(openFileDialog1.FileName);
+            }
         }
     }
 }

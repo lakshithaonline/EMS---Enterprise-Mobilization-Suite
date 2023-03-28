@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,10 @@ namespace EMS___SCNE
         {   
             //current date
             bunifuDatePicker1.Value = DateTime.Now;
+
+            string username = Environment.UserName;
+
+            Debug.WriteLine("Current user: " + username);
 
         }
 

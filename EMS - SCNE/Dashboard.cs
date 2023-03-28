@@ -15,23 +15,70 @@ using System.Data.SqlClient;
 using System.IO;
 using EMS___SCNE.UserControls___SuperAdmin;
 using System.Diagnostics;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Xml.Linq;
 
 namespace EMS___SCNE
 {
     public partial class Dashboard : KryptonForm
     {
+        
+
+
         string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
         public Dashboard()
         {
             InitializeComponent();
             timer1.Enabled = true;
 
-            //resize
-          //  Resize += Form1_Resize;
-          //  Load += Form1_Load;
-
-
         }
+
+        //Display the current user's Name and Position top of Dashboard
+        public Dashboard(string username) //the username variable called from Login form
+        {
+            InitializeComponent();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT Employees.Name, Employees.Position, Employees.Gender, Employees.ProfilePicture FROM LoginCredentials JOIN Employees ON LoginCredentials.UserID = Employees.UserID WHERE LoginCredentials.Username = @Username;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        string employeeName = reader.GetString(0);
+                        string employeePosition = reader.GetString(1);
+                        byte[] profilePictureBytes = reader["ProfilePicture"] as byte[];
+
+                        // Set the label texts to the employee name and position
+                        bunifuLabel3.Text = employeeName;
+                        bunifuLabel4.Text = employeePosition;
+
+                        // Display the profile picture in the bunifuPictureBox1
+                        if (profilePictureBytes != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream(profilePictureBytes))
+                            {
+                                bunifuPictureBox1.Image = Image.FromStream(ms);
+                            }
+                        }   
+                    }
+                    else
+                    {
+                        // Handle the case where the username is not found
+                        bunifuLabel3.Text = "Error: Username not found";
+                    }
+                }
+            }
+        }
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -53,59 +100,9 @@ namespace EMS___SCNE
             elipse2.BorderRadius = 10;
             elipse2.TargetControl = gunaTransfarantPictureBox3;
 
-            ///////////////////////////////////////////////////not worked correclty
-            // Get the username of the logged-in user
-            string username = Environment.UserName;
-
-            // Query the database to get the employee name
-            
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT e.Name FROM LoginCredentials l JOIN Employees e ON l.UserID = e.UserID WHERE l.Username = @Username";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Username", username);
-                    string employeeName = (string)command.ExecuteScalar();
-
-                    // Change the label text to the employee name
-                    bunifuLabel3.Text = "Welcome, " + employeeName;
-                }
-            }
-
-
+            timer1.Start();
 
         }
-        /// <summary>
-        /// /////////////////////////not event display
-        /// </summary>
-        private void UpdateWelcomeLabel()
-        {
-            // Get the username of the logged-in user
-            string username = Environment.UserName;
-
-            // Query the database to get the employee name
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "SELECT e.Name FROM LoginCredentials l JOIN Employees e ON l.UserID = e.UserID WHERE l.Username = @Username";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Username", username);
-                    string employeeName = (string)command.ExecuteScalar();
-
-                    // Output a message to the Output window
-                    Debug.WriteLine("Employee name: " + employeeName);
-
-                    // Change the label text to the employee name
-                    bunifuLabel3.Text = "Welcome, " + employeeName;
-                }
-            }
-        }
-
-
 
         private void bunifuPanel1_Click(object sender, EventArgs e)
         {
@@ -195,10 +192,10 @@ namespace EMS___SCNE
             this.Hide();
 
             // Create a new instance of the Preloader form
-            Login preloaderForm = new Login();
+            Login Login = new Login();
 
             // Show the Preloader form
-            preloaderForm.ShowDialog();
+            Login.ShowDialog();
 
             // Close the current form after Preloader form is closed
             this.Close();
@@ -357,6 +354,16 @@ namespace EMS___SCNE
         }
 
         private void bunifuLabel4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labledate_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void bunifuPictureBox1_Click(object sender, EventArgs e)
         {
 
         }

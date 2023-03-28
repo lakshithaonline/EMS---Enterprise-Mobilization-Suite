@@ -35,13 +35,13 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             bunifuDropdown1.Items.Add("SuperAdmin");
             bunifuDropdown1.Items.Add("EMS");
 
-
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
             try
             {
+
                 string username = bunifuTextBox1.Text;
                 string password = bunifuTextBox2.Text;
 
@@ -75,7 +75,10 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                             if (storedHash == enteredHash && storedUsername == username)
                             {
                                 // Open the Dashboard form
-                                new Dashboard().ShowDialog();
+                                Dashboard dashboard = new Dashboard(username); //username variable send to the Dashboard form
+                                dashboard.ShowDialog();
+
+                                // Close the Login form
                                 Close();
                             }
                             else

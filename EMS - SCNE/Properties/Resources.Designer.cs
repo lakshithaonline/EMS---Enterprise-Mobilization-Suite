@@ -10,8 +10,9 @@
 
 namespace EMS___SCNE.Properties {
     using System;
-    
-    
+    using System.Drawing;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -31,7 +32,10 @@ namespace EMS___SCNE.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
+        public static Bitmap DefaultMaleImage { get; internal set; }
+        public static Bitmap DefaultFemaleImage { get; internal set; }
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
