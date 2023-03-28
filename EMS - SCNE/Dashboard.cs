@@ -54,6 +54,7 @@ namespace EMS___SCNE
                     {
                         string employeeName = reader.GetString(0);
                         string employeePosition = reader.GetString(1);
+                        string employeeGender = reader.GetString(2);
                         byte[] profilePictureBytes = reader["ProfilePicture"] as byte[];
 
                         // Set the label texts to the employee name and position
@@ -67,7 +68,26 @@ namespace EMS___SCNE
                             {
                                 bunifuPictureBox1.Image = Image.FromStream(ms);
                             }
-                        }   
+                        }
+                        else
+                        {
+                            // Set default profile picture for male or female employees
+                            Bitmap defaultImage = null;
+                            if (string.Equals(employeeGender, "Male", StringComparison.OrdinalIgnoreCase))
+                            {
+                                defaultImage = Properties.Resources.DefaultMaleImage;
+                            }
+                            else if (string.Equals(employeeGender, "Female", StringComparison.OrdinalIgnoreCase))
+                            {
+                                defaultImage = Properties.Resources.DefaultFemaleImage;
+                            }
+
+                            // Display the default profile picture
+                            if (defaultImage != null)
+                            {
+                                bunifuPictureBox1.Image = defaultImage;
+                            }
+                        }
                     }
                     else
                     {

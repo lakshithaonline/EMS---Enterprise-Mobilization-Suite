@@ -34,8 +34,10 @@
             this.bunifuPanel6 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel5 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuPanel8
@@ -103,11 +105,29 @@
             this.bunifuPanel4.BorderColor = System.Drawing.Color.Black;
             this.bunifuPanel4.BorderRadius = 10;
             this.bunifuPanel4.BorderThickness = 1;
+            this.bunifuPanel4.Controls.Add(this.bunifuLabel1);
             this.bunifuPanel4.Location = new System.Drawing.Point(295, 19);
             this.bunifuPanel4.Name = "bunifuPanel4";
             this.bunifuPanel4.ShowBorders = true;
             this.bunifuPanel4.Size = new System.Drawing.Size(226, 144);
             this.bunifuPanel4.TabIndex = 9;
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bunifuLabel1.Location = new System.Drawing.Point(63, 48);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(82, 15);
+            this.bunifuLabel1.TabIndex = 0;
+            this.bunifuLabel1.Text = "Login Attempts";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            this.bunifuLabel1.Click += new System.EventHandler(this.bunifuLabel1_Click);
             // 
             // bunifuPanel3
             // 
@@ -150,6 +170,9 @@
             this.Controls.Add(this.bunifuPanel2);
             this.Name = "Dashboard_superadmin";
             this.Size = new System.Drawing.Size(1173, 548);
+            this.Load += new System.EventHandler(this.Dashboard_superadmin_Load);
+            this.bunifuPanel4.ResumeLayout(false);
+            this.bunifuPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -163,5 +186,6 @@
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
     }
 }

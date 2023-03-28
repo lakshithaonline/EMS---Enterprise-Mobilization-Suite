@@ -144,6 +144,11 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SuperAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,14 +230,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="SuperAdmin.resx">
       <DependentUpon>SuperAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,8 +304,9 @@
     <None Include="Resources\mc-yellw.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\DefaultFemaleImage.png" />
-    <Content Include="Resources\DefaultMaleImage.png" />
+    <None Include="Resources\loginAttempts.txt.txt" />
+    <None Include="Resources\DefaultMaleImage.png" />
+    <None Include="Resources\DefaultFemaleImage.png" />
     <None Include="Resources\290289867_2821437328151951_5817885558058486072_n.jpg" />
     <Content Include="Resources\construction-workers-sunset.jpg" />
     <None Include="Resources\construction-workers-sunset1.jpg" />

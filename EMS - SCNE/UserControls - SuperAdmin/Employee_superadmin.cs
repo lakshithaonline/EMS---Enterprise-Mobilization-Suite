@@ -220,7 +220,10 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 command.Parameters.AddWithValue("@Department", department);
                 command.Parameters.AddWithValue("@Position", position);
                 command.Parameters.AddWithValue("@Gender", gender);
-                command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : DBNull.Value);
+                //command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : DBNull.Value);
+                command.Parameters.AddWithValue("@ProfilePicture", image ?? (object)DBNull.Value);
+                //command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : (object)DBNull.Value);
+                //command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : null);
                 connection.Open();
                 int result = command.ExecuteNonQuery();
                 if (result > 0)

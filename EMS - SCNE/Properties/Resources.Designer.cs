@@ -10,9 +10,8 @@
 
 namespace EMS___SCNE.Properties {
     using System;
-    using System.Drawing;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -32,10 +31,7 @@ namespace EMS___SCNE.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-
-        public static Bitmap DefaultMaleImage { get; internal set; }
-        public static Bitmap DefaultFemaleImage { get; internal set; }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -81,6 +77,35 @@ namespace EMS___SCNE.Properties {
             get {
                 object obj = ResourceManager.GetObject("construction-workers-sunset", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DefaultFemaleImage {
+            get {
+                object obj = ResourceManager.GetObject("DefaultFemaleImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DefaultMaleImage {
+            get {
+                object obj = ResourceManager.GetObject("DefaultMaleImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string loginAttempts_txt {
+            get {
+                return ResourceManager.GetString("loginAttempts.txt", resourceCulture);
             }
         }
         
