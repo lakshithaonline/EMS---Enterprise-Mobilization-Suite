@@ -1992,6 +1992,10 @@ namespace EMS___SCNE {
             
             private global::System.Data.DataColumn columnPosition;
             
+            private global::System.Data.DataColumn columnGender;
+            
+            private global::System.Data.DataColumn columnProfilePicture;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public EmployeesDataTable() {
@@ -2059,6 +2063,22 @@ namespace EMS___SCNE {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn GenderColumn {
+                get {
+                    return this.columnGender;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ProfilePictureColumn {
+                get {
+                    return this.columnProfilePicture;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2094,13 +2114,15 @@ namespace EMS___SCNE {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public EmployeesRow AddEmployeesRow(int UserID, string Name, string Department, string Position) {
+            public EmployeesRow AddEmployeesRow(int UserID, string Name, string Department, string Position, string Gender, byte[] ProfilePicture) {
                 EmployeesRow rowEmployeesRow = ((EmployeesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         UserID,
                         Name,
                         Department,
-                        Position};
+                        Position,
+                        Gender,
+                        ProfilePicture};
                 rowEmployeesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEmployeesRow);
                 return rowEmployeesRow;
@@ -2135,6 +2157,8 @@ namespace EMS___SCNE {
                 this.columnName = base.Columns["Name"];
                 this.columnDepartment = base.Columns["Department"];
                 this.columnPosition = base.Columns["Position"];
+                this.columnGender = base.Columns["Gender"];
+                this.columnProfilePicture = base.Columns["ProfilePicture"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2148,6 +2172,10 @@ namespace EMS___SCNE {
                 base.Columns.Add(this.columnDepartment);
                 this.columnPosition = new global::System.Data.DataColumn("Position", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPosition);
+                this.columnGender = new global::System.Data.DataColumn("Gender", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGender);
+                this.columnProfilePicture = new global::System.Data.DataColumn("ProfilePicture", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProfilePicture);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUserID,
                                 this.columnPosition}, true));
@@ -2158,6 +2186,7 @@ namespace EMS___SCNE {
                 this.columnDepartment.MaxLength = 255;
                 this.columnPosition.AllowDBNull = false;
                 this.columnPosition.MaxLength = 255;
+                this.columnGender.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7143,6 +7172,62 @@ namespace EMS___SCNE {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Gender {
+                get {
+                    try {
+                        return ((string)(this[this.tableEmployees.GenderColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Gender\' in table \'Employees\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployees.GenderColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public byte[] ProfilePicture {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableEmployees.ProfilePictureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProfilePicture\' in table \'Employees\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEmployees.ProfilePictureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsGenderNull() {
+                return this.IsNull(this.tableEmployees.GenderColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetGenderNull() {
+                this[this.tableEmployees.GenderColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProfilePictureNull() {
+                return this.IsNull(this.tableEmployees.ProfilePictureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProfilePictureNull() {
+                this[this.tableEmployees.ProfilePictureColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Absent_empRow[] GetAbsent_empRows() {
                 if ((this.Table.ChildRelations["FK_Absent_emp_Employees"] == null)) {
                     return new Absent_empRow[0];
@@ -10620,40 +10705,50 @@ SELECT UserID, Name, Department, Date, Check_In_Time, Check_Out_Time, Total_Hour
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Department", "Department");
             tableMapping.ColumnMappings.Add("Position", "Position");
+            tableMapping.ColumnMappings.Add("Gender", "Gender");
+            tableMapping.ColumnMappings.Add("ProfilePicture", "ProfilePicture");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Employees] WHERE (([UserID] = @Original_UserID) AND ([Name] = " +
-                "@Original_Name) AND ([Department] = @Original_Department) AND ([Position] = @Ori" +
-                "ginal_Position))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Employees] WHERE (([UserID] = @Original_UserID) AND ([Name] = @Origi" +
+                "nal_Name) AND ([Department] = @Original_Department) AND ([Position] = @Original_" +
+                "Position) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Origina" +
+                "l_Gender)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Department", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Gender", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Employees] ([UserID], [Name], [Department], [Position]) VALUES" +
-                " (@UserID, @Name, @Department, @Position);\r\nSELECT UserID, Name, Department, Pos" +
-                "ition FROM Employees WHERE (Position = @Position) AND (UserID = @UserID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [Employees] ([UserID], [Name], [Department], [Position], [Gender], [ProfilePicture]) VALUES (@UserID, @Name, @Department, @Position, @Gender, @ProfilePicture);
+SELECT UserID, Name, Department, Position, Gender, ProfilePicture FROM Employees WHERE (Position = @Position) AND (UserID = @UserID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Department", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProfilePicture", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProfilePicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Employees] SET [UserID] = @UserID, [Name] = @Name, [Department] = @Department, [Position] = @Position WHERE (([UserID] = @Original_UserID) AND ([Name] = @Original_Name) AND ([Department] = @Original_Department) AND ([Position] = @Original_Position));
-SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Position) AND (UserID = @UserID)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Employees] SET [UserID] = @UserID, [Name] = @Name, [Department] = @Department, [Position] = @Position, [Gender] = @Gender, [ProfilePicture] = @ProfilePicture WHERE (([UserID] = @Original_UserID) AND ([Name] = @Original_Name) AND ([Department] = @Original_Department) AND ([Position] = @Original_Position) AND ((@IsNull_Gender = 1 AND [Gender] IS NULL) OR ([Gender] = @Original_Gender)));
+SELECT UserID, Name, Department, Position, Gender, ProfilePicture FROM Employees WHERE (Position = @Position) AND (UserID = @UserID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Department", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Gender", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProfilePicture", global::System.Data.SqlDbType.VarBinary, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ProfilePicture", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UserID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UserID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Department", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Department", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Position", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Position", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Gender", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Gender", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Gender", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10669,7 +10764,7 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT UserID, Name, Department, Position FROM dbo.Employees";
+            this._commandCollection[0].CommandText = "SELECT UserID, Name, Department, Position, Gender, ProfilePicture FROM Employees";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10730,7 +10825,7 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_UserID, string Original_Name, string Original_Department, string Original_Position) {
+        public virtual int Delete(int Original_UserID, string Original_Name, string Original_Department, string Original_Position, string Original_Gender) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_UserID));
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
@@ -10749,6 +10844,14 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Position));
+            }
+            if ((Original_Gender == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Gender));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10770,7 +10873,7 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int UserID, string Name, string Department, string Position) {
+        public virtual int Insert(int UserID, string Name, string Department, string Position, string Gender, byte[] ProfilePicture) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(UserID));
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
@@ -10789,6 +10892,18 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Position));
+            }
+            if ((Gender == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Gender));
+            }
+            if ((ProfilePicture == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((byte[])(ProfilePicture));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10810,7 +10925,7 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int UserID, string Name, string Department, string Position, int Original_UserID, string Original_Name, string Original_Department, string Original_Position) {
+        public virtual int Update(int UserID, string Name, string Department, string Position, string Gender, byte[] ProfilePicture, int Original_UserID, string Original_Name, string Original_Department, string Original_Position, string Original_Gender) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(UserID));
             if ((Name == null)) {
                 throw new global::System.ArgumentNullException("Name");
@@ -10830,24 +10945,44 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Position));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_UserID));
+            if ((Gender == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Gender));
+            }
+            if ((ProfilePicture == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((byte[])(ProfilePicture));
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_UserID));
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Name));
             }
             if ((Original_Department == null)) {
                 throw new global::System.ArgumentNullException("Original_Department");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Department));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Department));
             }
             if ((Original_Position == null)) {
                 throw new global::System.ArgumentNullException("Original_Position");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Position));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Position));
+            }
+            if ((Original_Gender == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Gender));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10869,8 +11004,8 @@ SELECT UserID, Name, Department, Position FROM Employees WHERE (Position = @Posi
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Department, int Original_UserID, string Original_Name, string Original_Department, string Original_Position) {
-            return this.Update(Original_UserID, Name, Department, Original_Position, Original_UserID, Original_Name, Original_Department, Original_Position);
+        public virtual int Update(string Name, string Department, string Gender, byte[] ProfilePicture, int Original_UserID, string Original_Name, string Original_Department, string Original_Position, string Original_Gender) {
+            return this.Update(Original_UserID, Name, Department, Original_Position, Gender, ProfilePicture, Original_UserID, Original_Name, Original_Department, Original_Position, Original_Gender);
         }
     }
     

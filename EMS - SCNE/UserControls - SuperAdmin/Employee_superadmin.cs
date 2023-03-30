@@ -108,15 +108,43 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             {
                 DataGridViewRow row = bunifuDataGridView1.Rows[e.RowIndex];
 
+                //Delete Employee display
                 bunifuTextBox10.Text = row.Cells[0].Value.ToString();
                 bunifuTextBox9.Text = row.Cells[1].Value.ToString();
                 bunifuTextBox8.Text = row.Cells[2].Value.ToString();
-                
+
+                //Edit Employee display
+                bunifuTextBox2.Text = row.Cells[0].Value.ToString();
+                bunifuTextBox3.Text = row.Cells[1].Value.ToString();
+                bunifuTextBox5.Text = row.Cells[2].Value.ToString();
+                bunifuDropdown2.SelectedItem = row.Cells[3].Value.ToString();
+                bunifuDropdown3.SelectedItem = row.Cells[4].Value.ToString();
+
+                //byte[] imageData = (byte[])row.Cells[5].Value;
+                //MemoryStream ms = new MemoryStream(imageData);
+                //bunifuPictureBox2.Image = Image.FromStream(ms);
+
+                if (row.Cells[5].Value != null && row.Cells[5].Value != DBNull.Value)
+                {
+                    byte[] imageData = (byte[])row.Cells[5].Value;
+                    MemoryStream ms = new MemoryStream(imageData);
+                    bunifuPictureBox2.Image = Image.FromStream(ms);
+                }
+                else
+                {
+                    bunifuPictureBox2.Image = null;
+                }
+
+
+
 
                 bunifuTextBox10.ReadOnly = true;
                 bunifuTextBox9.ReadOnly = true;
                 bunifuTextBox8.ReadOnly = true;
-               
+
+
+                bunifuTextBox2.ReadOnly = true;
+
 
             }
         }
@@ -212,30 +240,42 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             string query = "INSERT INTO Employees (UserID, Name, Department, Position, Gender, ProfilePicture) " +
                            "VALUES (@UserID, @Name, @Department, @Position, @Gender, @ProfilePicture)";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
+            try
             {
-                command.Parameters.AddWithValue("@UserID", userID.HasValue ? (object)userID.Value : DBNull.Value);
-                command.Parameters.AddWithValue("@Name", name);
-                command.Parameters.AddWithValue("@Department", department);
-                command.Parameters.AddWithValue("@Position", position);
-                command.Parameters.AddWithValue("@Gender", gender);
-                //command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : DBNull.Value);
-                command.Parameters.AddWithValue("@ProfilePicture", image ?? (object)DBNull.Value);
-                //command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : (object)DBNull.Value);
-                //command.Parameters.AddWithValue("@ProfilePicture", image != null && image.Length > 0 ? (object)image : null);
-                connection.Open();
-                int result = command.ExecuteNonQuery();
-                if (result > 0)
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    MessageBox.Show("Employee added successfully!");
+                    command.Parameters.AddWithValue("@UserID", userID.HasValue ? (object)userID.Value : DBNull.Value);
+                    command.Parameters.AddWithValue("@Name", name);
+                    command.Parameters.AddWithValue("@Department", department);
+                    command.Parameters.AddWithValue("@Position", position);
+                    command.Parameters.AddWithValue("@Gender", gender);
+                    command.Parameters.AddWithValue("@ProfilePicture", image ?? (object)DBNull.Value);
+                    connection.Open();
+                    int result = command.ExecuteNonQuery();
+                    if (result > 0)
+                    {
+                        MessageBox.Show("Employee added successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add employee.");
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 2627)
+                {
+                    MessageBox.Show("A user with that ID already exists in the database. Please enter a unique ID.");
                 }
                 else
                 {
-                    MessageBox.Show("Failed to add employee.");
+                    MessageBox.Show("An error occurred while adding the employee to the database. Error message: " + ex.Message);
                 }
             }
         }
+
 
 
         private void bunifuTextBox2_TextChanged(object sender, EventArgs e)
@@ -255,6 +295,121 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             {
                 bunifuPictureBox2.Image = Image.FromFile(openFileDialog1.FileName);
             }
+        }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
+        {
+            string connectionString1 = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+
+            if (bunifuDataGridView1.SelectedRows.Count == 1)
+            {
+                DataGridViewRow row = bunifuDataGridView1.SelectedRows[0];
+                int userID = int.Parse(row.Cells[0].Value.ToString());
+
+                // Prompt the user to confirm the update
+                DialogResult result = MessageBox.Show("Are you sure you want to update this record?",
+                                                      "Confirmation",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Update the record in the database
+                    using (SqlConnection conn = new SqlConnection(connectionString1))
+                    {
+                        conn.Open();
+                        string query = "UPDATE Employees SET " +
+                                       "Name = @name, " +
+                                       "Position = @position, " +
+                                       "Department = @department, " +
+                                       "Gender = @gender, " +
+                                       "ProfilePicture = @profilePicture " +
+                                       "WHERE UserID = @userID";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@name", bunifuTextBox3.Text);
+                        cmd.Parameters.AddWithValue("@position", bunifuTextBox5.Text);
+                        cmd.Parameters.AddWithValue("@department", bunifuDropdown2.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@gender", bunifuDropdown3.SelectedItem.ToString());
+                        cmd.Parameters.AddWithValue("@userID", userID);
+
+                        byte[] newProfilePicture = GetProfilePictureBytes(bunifuPictureBox2);
+                        if (newProfilePicture != null)
+                        {
+                            cmd.Parameters.AddWithValue("@profilePicture", newProfilePicture);
+                        }
+                        else
+                        {
+                            SqlParameter param = new SqlParameter("@profilePicture", SqlDbType.VarBinary, -1);
+                            param.Value = DBNull.Value;
+                            cmd.Parameters.Add(param);
+                        }
+
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            // Update the row in the DataGridView
+                            row.Cells[1].Value = bunifuTextBox3.Text;
+                            row.Cells[2].Value = bunifuTextBox5.Text;
+                            row.Cells[3].Value = bunifuDropdown2.SelectedItem.ToString();
+                            row.Cells[4].Value = bunifuDropdown3.SelectedItem.ToString();
+
+                            if (newProfilePicture != null)
+                            {
+                                bunifuPictureBox2.Image = Image.FromStream(new MemoryStream(newProfilePicture));
+                            }
+                            else
+                            {
+                                bunifuPictureBox2.Image = null;
+                            }
+
+                            MessageBox.Show("Record updated successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error updating record.");
+                        }
+                        conn.Close();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to update.");
+            }
+        }
+
+
+        private byte[] GetProfilePictureBytes(BunifuPictureBox pictureBox)
+        {
+            if (pictureBox.Image == null)
+            {
+                return null;
+            }
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                pictureBox.Image.Save(memoryStream, ImageFormat.Jpeg);
+                return memoryStream.ToArray();
+            }
+        }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
+        {
+
+            bunifuTextBox2.Clear();
+            bunifuTextBox3.Clear();
+            bunifuTextBox5.Clear();
+            bunifuDropdown2.SelectedItem = null;
+            bunifuDropdown3.SelectedItem = null;
+
+
+        }
+
+        private void bunifuButton7_Click(object sender, EventArgs e)
+        {
+            bunifuTextBox8.Clear();
+            bunifuTextBox9.Clear();
+            bunifuTextBox10.Clear();    
         }
     }
 }
