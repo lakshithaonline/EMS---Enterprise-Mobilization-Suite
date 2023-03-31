@@ -370,5 +370,24 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             }
         }
 
+        private void bunifuPanel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
