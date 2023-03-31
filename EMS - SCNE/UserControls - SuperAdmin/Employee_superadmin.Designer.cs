@@ -70,6 +70,14 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProfilePicture = new System.Windows.Forms.DataGridViewImageColumn();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._EMS_SCNEDataSet = new EMS___SCNE._EMS_SCNEDataSet();
             this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuDropdown1 = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
@@ -102,29 +110,17 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.bunifuButton4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._EMS_SCNEDataSet = new EMS___SCNE._EMS_SCNEDataSet();
             this.leaveRequestHistoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.leaveRequest_HistoryTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.LeaveRequest_HistoryTableAdapter();
             this.employeesTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.EmployeesTableAdapter();
             this.employeesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.positionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProfilePicture = new System.Windows.Forms.DataGridViewImageColumn();
             this.bunifuButton6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuButton7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).BeginInit();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -212,6 +208,58 @@
             this.bunifuDataGridView1.TabIndex = 0;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Orange;
             this.bunifuDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.Width = 82;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 76;
+            // 
+            // positionDataGridViewTextBoxColumn
+            // 
+            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
+            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
+            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
+            this.positionDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // departmentDataGridViewTextBoxColumn
+            // 
+            this.departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
+            this.departmentDataGridViewTextBoxColumn.HeaderText = "Department";
+            this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
+            this.departmentDataGridViewTextBoxColumn.Width = 121;
+            // 
+            // Gender
+            // 
+            this.Gender.DataPropertyName = "Gender";
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.Width = 87;
+            // 
+            // ProfilePicture
+            // 
+            this.ProfilePicture.DataPropertyName = "ProfilePicture";
+            this.ProfilePicture.HeaderText = "ProfilePicture";
+            this.ProfilePicture.Name = "ProfilePicture";
+            this.ProfilePicture.Width = 113;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this._EMS_SCNEDataSet;
+            // 
+            // _EMS_SCNEDataSet
+            // 
+            this._EMS_SCNEDataSet.DataSetName = "_EMS_SCNEDataSet";
+            this._EMS_SCNEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bunifuTextBox1
             // 
@@ -1565,46 +1613,6 @@
             this.bunifuButton5.UseDefaultRadiusAndThickness = true;
             this.bunifuButton5.Click += new System.EventHandler(this.bunifuButton5_Click);
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(361, 343);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(250, 163);
-            this.tabControl1.TabIndex = 37;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(242, 137);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(242, 137);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataMember = "Employees";
-            this.employeesBindingSource.DataSource = this._EMS_SCNEDataSet;
-            // 
-            // _EMS_SCNEDataSet
-            // 
-            this._EMS_SCNEDataSet.DataSetName = "_EMS_SCNEDataSet";
-            this._EMS_SCNEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // leaveRequestHistoryBindingSource
             // 
             this.leaveRequestHistoryBindingSource.DataMember = "LeaveRequest_History";
@@ -1622,48 +1630,6 @@
             // 
             this.employeesBindingSource1.DataMember = "Employees";
             this.employeesBindingSource1.DataSource = this._EMS_SCNEDataSet;
-            // 
-            // userIDDataGridViewTextBoxColumn
-            // 
-            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
-            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
-            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
-            this.userIDDataGridViewTextBoxColumn.Width = 82;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.Width = 76;
-            // 
-            // positionDataGridViewTextBoxColumn
-            // 
-            this.positionDataGridViewTextBoxColumn.DataPropertyName = "Position";
-            this.positionDataGridViewTextBoxColumn.HeaderText = "Position";
-            this.positionDataGridViewTextBoxColumn.Name = "positionDataGridViewTextBoxColumn";
-            this.positionDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // departmentDataGridViewTextBoxColumn
-            // 
-            this.departmentDataGridViewTextBoxColumn.DataPropertyName = "Department";
-            this.departmentDataGridViewTextBoxColumn.HeaderText = "Department";
-            this.departmentDataGridViewTextBoxColumn.Name = "departmentDataGridViewTextBoxColumn";
-            this.departmentDataGridViewTextBoxColumn.Width = 121;
-            // 
-            // Gender
-            // 
-            this.Gender.DataPropertyName = "Gender";
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            this.Gender.Width = 87;
-            // 
-            // ProfilePicture
-            // 
-            this.ProfilePicture.DataPropertyName = "ProfilePicture";
-            this.ProfilePicture.HeaderText = "ProfilePicture";
-            this.ProfilePicture.Name = "ProfilePicture";
-            this.ProfilePicture.Width = 113;
             // 
             // bunifuButton6
             // 
@@ -1851,7 +1817,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.bunifuButton7);
             this.Controls.Add(this.bunifuButton6);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.bunifuButton5);
             this.Controls.Add(this.bunifuButton4);
             this.Controls.Add(this.bunifuLabel10);
@@ -1889,10 +1854,9 @@
             this.Load += new System.EventHandler(this.Employee_superadmin_Load);
             this.bunifuPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).EndInit();
-            this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -1942,9 +1906,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton4;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton bunifuButton5;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn positionDataGridViewTextBoxColumn;

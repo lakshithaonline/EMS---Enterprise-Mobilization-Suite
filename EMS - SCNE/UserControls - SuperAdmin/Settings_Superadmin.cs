@@ -55,10 +55,38 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             catch (SqlException ex)
             {
                 MessageBox.Show("An error occurred while checking if the user exists: " + ex.Message);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred while checking if the user exists: " + ex.Message);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+
             }
             return userExists;
         }
@@ -82,6 +110,20 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             {
                 MessageBox.Show("Error occurred while hashing password: " + ex.Message);
                 return "";
+
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
             }
         }
 
@@ -138,6 +180,19 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
             }
         }
 
@@ -169,6 +224,19 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             {
                 // Show error message
                 MessageBox.Show("Error occurred while sending email: " + ex.Message);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
             }
         }
 
@@ -252,6 +320,11 @@ namespace EMS___SCNE.UserControls___SuperAdmin
 
                 bunifuDataGridView1.DataSource = dataSet.Tables[0];
             }
+        }
+
+        private void bunifuDropdown1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

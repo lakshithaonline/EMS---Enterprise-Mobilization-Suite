@@ -141,6 +141,7 @@ namespace EMS___SCNE
                         {
                             // Display default image
                             bunifuPictureBox1.Image = Properties.Resources.user;
+
                         }
                     }
                     else
@@ -151,10 +152,36 @@ namespace EMS___SCNE
                 catch (SqlException ex)
                 {
                     MessageBox.Show("SQL Server Error: " + ex.Message);
+
+                    // log the error to the database
+                    using (SqlConnection conn = new SqlConnection(connString))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                            cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                            int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
+
+                    // log the error to the database
+                    using (SqlConnection conn = new SqlConnection(connString))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                            cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                            int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                        }
+                    }
                 }
             }
         }
@@ -240,6 +267,20 @@ namespace EMS___SCNE
             {
                 // Display error message to user
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+
             }
         }
 

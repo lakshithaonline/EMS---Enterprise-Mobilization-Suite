@@ -172,10 +172,36 @@ namespace EMS___SCNE
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Leave deduction failed. Error message: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
             }
 
         }
@@ -399,6 +425,19 @@ namespace EMS___SCNE
             catch (Exception ex)
             {
                 MessageBox.Show("Leave deduction failed. Error message: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
             }
         }
 

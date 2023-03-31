@@ -70,7 +70,7 @@ namespace EMS___SCNE.UserControls
 
             //display the best employee in month
             {
-                SqlCommand cmd = new SqlCommand("sp_GetTopEmployees", connection);
+                SqlCommand cmd = new SqlCommand("GetTopEmployees_PreviousMonth", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -255,6 +255,20 @@ namespace EMS___SCNE.UserControls
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+
+
+                // log the error to the database
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO ErrorLog (ErrorMessage, ErrorDate, ErrorType) VALUES (@ErrorMessage, @ErrorDate, @ErrorType); SELECT SCOPE_IDENTITY();", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ErrorMessage", ex.Message);
+                        cmd.Parameters.AddWithValue("@ErrorDate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@ErrorType", ex.GetType().ToString());
+                        int errorId = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
             }
             
            /*
