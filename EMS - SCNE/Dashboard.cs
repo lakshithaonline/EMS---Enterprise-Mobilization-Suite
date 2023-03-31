@@ -408,5 +408,15 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuButton8_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void dashboard_UC1_Load_5(object sender, EventArgs e)
+        {
+
+        }
     }
 }

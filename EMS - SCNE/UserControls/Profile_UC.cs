@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Bunifu.UI.WinForms;
 
 namespace EMS___SCNE
 {
@@ -24,6 +25,15 @@ namespace EMS___SCNE
 
         private void Profile_UC_Load(object sender, EventArgs e)
         {
+            // Populate bunifuDropdown2 with options
+            string[] feedbackOptions = { "Feedback", "Complain", "Monitoring Notification" };
+            bunifuDropdown1.Items.AddRange(feedbackOptions);
+
+            // Populate bunifuDropdown3 with options
+            string[] sectorOptions = { "Attendance", "Leave", "Other" };
+            bunifuDropdown2.Items.AddRange(sectorOptions);
+
+         //   SuggestEmployeeNames(bunifuTextBox3.Text);
 
         }
 
@@ -169,5 +179,98 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Check if UserID is not empty
+                if (string.IsNullOrWhiteSpace(bunifuTextBox3.Text))
+                {
+                    throw new Exception("UserID cannot be empty.");
+                }
+
+                // Check if TypeofFeedback is selected
+                if (bunifuDropdown1.SelectedItem == null)
+                {
+                    throw new Exception("Please select a Type of Feedback.");
+                }
+
+                // Check if RelatedSector is selected
+                if (bunifuDropdown2.SelectedItem == null)
+                {
+                    throw new Exception("Please select a Related Sector.");
+                }
+
+                // Check if Description is not empty
+                if (string.IsNullOrWhiteSpace(bunifuTextBox5.Text))
+                {
+                    throw new Exception("Description cannot be empty.");
+                }
+
+                // Set up connection string
+                string connString = "Server=.\\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+
+                // Set up SQL query with parameter placeholders
+                string sql = "INSERT INTO Feedback (UserID, TypeofFeedback, RelatedSector, Description, CurrentDate) " +
+                             "VALUES (@UserID, @TypeofFeedback, @RelatedSector, @Description, @CurrentDate); " +
+                             "SELECT SCOPE_IDENTITY();";
+
+                // Set up connection and command objects
+                using (SqlConnection conn = new SqlConnection(connString))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Set parameter values
+                    cmd.Parameters.AddWithValue("@UserID", bunifuTextBox3.Text);
+                    cmd.Parameters.AddWithValue("@TypeofFeedback", bunifuDropdown1.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@RelatedSector", bunifuDropdown2.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@Description", bunifuTextBox5.Text);
+                    cmd.Parameters.AddWithValue("@CurrentDate", DateTime.Now);
+
+                    // Open connection and execute query
+                    conn.Open();
+                    int feedbackID = Convert.ToInt32(cmd.ExecuteScalar());
+                    conn.Close();
+
+                    // Display success message to user
+                    MessageBox.Show("Feedback submitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Display error message to user
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /*  //////suggest names in textbox
+         *  
+         *  
+        private void SuggestEmployeeNames(string search)
+        {
+            DataTable dt = new DataTable();
+            string connString = "Server=.\\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                string sql = "SELECT Name FROM Employees WHERE UserID LIKE @search";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            if (dt.Rows.Count > 0)
+            {
+                AutoCompleteStringCollection collection = new AutoCompleteStringCollection();
+                foreach (DataRow row in dt.Rows)
+                {
+                    collection.Add(row["Name"].ToString());
+                }
+                bunifuTextBox3.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                bunifuTextBox3.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                bunifuTextBox3.AutoCompleteCustomSource = collection;
+            }
+        }*/
+
+
     }
 }
