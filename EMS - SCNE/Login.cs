@@ -30,7 +30,7 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             InitializeComponent();
         }
 
-        private void Preloader_Load(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
             bunifuTextBox2.UseSystemPasswordChar = true;
 

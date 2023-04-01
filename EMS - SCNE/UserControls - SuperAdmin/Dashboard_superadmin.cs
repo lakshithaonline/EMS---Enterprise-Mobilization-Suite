@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bunifu.UI.WinForms;
 
 
 namespace EMS___SCNE.UserControls___SuperAdmin
@@ -59,8 +60,8 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 {
                     // Open the connection
                     connection.Open();
-
-                    string query = "SELECT COUNT(*) FROM Feedback WHERE TypeofFeedback IN ('Feedback', 'Complain') AND MONTH(CurrentDate) = MONTH(GETDATE())";
+                    
+                    string query = "SELECT COUNT(*) FROM Feedback WHERE TypeofFeedback = 'Feedback' AND MONTH(CurrentDate) = MONTH(GETDATE())";
                     SqlCommand command = new SqlCommand(query, connection);
                     int feedbackCount = (int)command.ExecuteScalar();
 
@@ -84,6 +85,20 @@ namespace EMS___SCNE.UserControls___SuperAdmin
 
             }
 
+            //display Changes in tables
+            {
+                string connectionString = connString;
+                string query = "SELECT * FROM Changes " +
+                               "WHERE ChangeTime >= DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0) " +
+                               "  AND ChangeTime < DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()) + 1, 0)";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, connectionString);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                bunifuDataGridView1.DataSource = table;
+            }
+
         }
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
@@ -103,21 +118,24 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     SaveFileDialog saveFileDialog = new SaveFileDialog();
-                    saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+                    saveFileDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
                     saveFileDialog.Title = "Export Error Log Data";
-                    saveFileDialog.FileName = "ErrorLog.txt";
+                    saveFileDialog.FileName = "ErrorLog.csv";
                     DialogResult result = saveFileDialog.ShowDialog();
                     if (result == DialogResult.OK)
                     {
                         using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
                         {
+                            // Write header row
+                            writer.WriteLine("ErrorMessage,ErrorDate,ErrorType");
+
                             while (reader.Read())
                             {
                                 string errorMessage = reader.GetString(reader.GetOrdinal("ErrorMessage"));
                                 DateTime errorDate = reader.GetDateTime(reader.GetOrdinal("ErrorDate"));
                                 string errorType = reader.GetString(reader.GetOrdinal("ErrorType"));
 
-                                string line = $"{errorMessage}\t{errorDate}\t{errorType}";
+                                string line = $"{errorMessage},{errorDate},{errorType}";
                                 writer.WriteLine(line);
                             }
                         }
@@ -127,6 +145,7 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 }
             }
         }
+
 
 
         private void bunifuLabel6_Click(object sender, EventArgs e)
@@ -386,6 +405,84 @@ namespace EMS___SCNE.UserControls___SuperAdmin
         }
 
         private void bunifuLabel1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton8_Click(object sender, EventArgs e)
+        {
+            // Filter Feedback records
+            DataTable feedbackTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Feedback WHERE TypeofFeedback = 'Feedback'", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(feedbackTable);
+            }
+
+            // Export Feedback records to CSV
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV file (*.csv)|*.csv";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StringBuilder sb = new StringBuilder();
+                IEnumerable<string> columnNames = feedbackTable.Columns.Cast<DataColumn>().Select(column => column.ColumnName);
+                sb.AppendLine(string.Join(",", columnNames));
+                foreach (DataRow row in feedbackTable.Rows)
+                {
+                    IEnumerable<string> fields = row.ItemArray.Select(field => string.Concat("\"", field.ToString().Replace("\"", "\"\""), "\""));
+                    sb.AppendLine(string.Join(",", fields));
+                }
+                File.WriteAllText(saveFileDialog.FileName, sb.ToString());
+            }
+        }
+
+        private void bunifuButton7_Click(object sender, EventArgs e)
+        {
+            // Filter Complaints records
+            DataTable complaintsTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Feedback WHERE TypeofFeedback = 'Complaint'", connection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(complaintsTable);
+            }
+
+            // Export Complaints records to CSV
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV file (*.csv)|*.csv";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StringBuilder sb = new StringBuilder();
+                IEnumerable<string> columnNames = complaintsTable.Columns.Cast<DataColumn>().Select(column => column.ColumnName);
+                sb.AppendLine(string.Join(",", columnNames));
+                foreach (DataRow row in complaintsTable.Rows)
+                {
+                    IEnumerable<string> fields = row.ItemArray.Select(field => string.Concat("\"", field.ToString().Replace("\"", "\"\""), "\""));
+                    sb.AppendLine(string.Join(",", fields));
+                }
+                File.WriteAllText(saveFileDialog.FileName, sb.ToString());
+            }
+        }
+
+        private void gunaWinCircleProgressIndicator2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuPanel8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

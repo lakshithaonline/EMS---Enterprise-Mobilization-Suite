@@ -23,12 +23,6 @@ namespace EMS___SCNE
 
         private void SuperAdmin_Load(object sender, EventArgs e)
         {   
-            //current date
-            bunifuDatePicker1.Value = DateTime.Now;
-
-            string username = Environment.UserName;
-
-            Debug.WriteLine("Current user: " + username);
 
         }
 
@@ -69,18 +63,18 @@ namespace EMS___SCNE
 
         private void bunifuButton3_Click(object sender, EventArgs e)
         {
-            Settings_Superadmin attendenceUC = new Settings_Superadmin(); // Create an instance of the Attendence_UC user control
-            attendenceUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
-            bunifuPanel10.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
-            bunifuPanel10.Controls.Add(attendenceUC); // Add the Attendence_UC user control to the bunifuPanel7
+            EMSAccess_Superadmin attendenceUC = new EMSAccess_Superadmin(); 
+            attendenceUC.Dock = DockStyle.Fill; 
+            bunifuPanel10.Controls.Clear();
+            bunifuPanel10.Controls.Add(attendenceUC);
         }
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            Dashboard_superadmin attendenceUC = new Dashboard_superadmin(); // Create an instance of the Attendence_UC user control
-            attendenceUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
-            bunifuPanel10.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
-            bunifuPanel10.Controls.Add(attendenceUC); // Add the Attendence_UC user control to the bunifuPanel7
+            Dashboard_superadmin attendenceUC = new Dashboard_superadmin(); 
+            attendenceUC.Dock = DockStyle.Fill;
+            bunifuPanel10.Controls.Clear();
+            bunifuPanel10.Controls.Add(attendenceUC); 
         }
 
         private void bunifuPanel1_Click_1(object sender, EventArgs e)
@@ -95,10 +89,10 @@ namespace EMS___SCNE
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            Employee_superadmin attendenceUC = new Employee_superadmin(); // Create an instance of the Attendence_UC user control
-            attendenceUC.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
-            bunifuPanel10.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
-            bunifuPanel10.Controls.Add(attendenceUC); // Add the Attendence_UC user control to the bunifuPanel7
+            Employee_superadmin attendenceUC = new Employee_superadmin();
+            attendenceUC.Dock = DockStyle.Fill;
+            bunifuPanel10.Controls.Clear();
+            bunifuPanel10.Controls.Add(attendenceUC);
         }
 
         private void bunifuPanel10_Click(object sender, EventArgs e)
@@ -110,5 +104,14 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuButton4_Click_1(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            Login Login = new Login();
+            Login.ShowDialog();
+            this.Close();
+        }
+        
     }
 }

@@ -16,11 +16,11 @@ using System.Net;
 
 namespace EMS___SCNE.UserControls___SuperAdmin
 {
-    public partial class Settings_Superadmin : UserControl
+    public partial class EMSAccess_Superadmin : UserControl
     {
         string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
 
-        public Settings_Superadmin()
+        public EMSAccess_Superadmin()
         {
             InitializeComponent();
         }

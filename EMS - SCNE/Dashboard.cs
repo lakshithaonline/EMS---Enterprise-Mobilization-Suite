@@ -418,5 +418,16 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuButton9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
+        {
+            // Minimize the application
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
