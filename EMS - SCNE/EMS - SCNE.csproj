@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoSCNE.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=3.2.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -309,6 +312,7 @@
     <None Include="Resources\DefaultMaleImage.png" />
     <None Include="Resources\DefaultFemaleImage.png" />
     <None Include="Resources\290289867_2821437328151951_5817885558058486072_n.jpg" />
+    <Content Include="logoSCNE.ico" />
     <Content Include="Resources\construction-workers-sunset.jpg" />
     <None Include="Resources\construction-workers-sunset1.jpg" />
   </ItemGroup>

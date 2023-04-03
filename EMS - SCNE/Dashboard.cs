@@ -108,18 +108,38 @@ namespace EMS___SCNE
             // TODO: This line of code loads data into the '_EMS_SCNEDataSet.Absent_emp' table. You can move, or remove it, as needed.
             this.absent_empTableAdapter.Fill(this._EMS_SCNEDataSet.Absent_emp);
 
-           
+            /*
             Guna.UI2.WinForms.Guna2Elipse elipse = new Guna.UI2.WinForms.Guna2Elipse();
             elipse.BorderRadius = 10;
             elipse.TargetControl = gunaTransfarantPictureBox1;
 
-            Guna.UI2.WinForms.Guna2Elipse elipse1 = new Guna.UI2.WinForms.Guna2Elipse();
-            elipse1.BorderRadius = 10;
-            elipse1.TargetControl = gunaTransfarantPictureBox2;
+             Guna.UI2.WinForms.Guna2Elipse elipse1 = new Guna.UI2.WinForms.Guna2Elipse();
+             elipse1.BorderRadius = 10;
+             elipse1.TargetControl = gunaTransfarantPictureBox2;
 
-            Guna.UI2.WinForms.Guna2Elipse elipse2 = new Guna.UI2.WinForms.Guna2Elipse();
-            elipse2.BorderRadius = 10;
-            elipse2.TargetControl = gunaTransfarantPictureBox3;
+             Guna.UI2.WinForms.Guna2Elipse elipse2 = new Guna.UI2.WinForms.Guna2Elipse();
+             elipse2.BorderRadius = 10;
+             elipse2.TargetControl = gunaTransfarantPictureBox3;
+            */
+
+            // check if bunifuPictureBox2 is not null
+            if (bunifuPictureBox2 != null)
+            {
+                // set the BorderRadius property to 10
+                bunifuPictureBox2.BorderRadius = 10;
+            }
+
+            if (bunifuPictureBox3 != null)
+            {
+                // set the BorderRadius property to 10
+                bunifuPictureBox3.BorderRadius = 10;
+            }
+
+            if (bunifuPictureBox4 != null)
+            {
+                // set the BorderRadius property to 10
+                bunifuPictureBox4.BorderRadius = 10;
+            }
 
             timer1.Start();
 
@@ -157,7 +177,7 @@ namespace EMS___SCNE
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+         //   timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -239,7 +259,7 @@ namespace EMS___SCNE
 
         private void greatingslable_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            //timer1.Start();
         }
 
         private void bunifuPanel2_Click_1(object sender, EventArgs e)
@@ -361,11 +381,6 @@ namespace EMS___SCNE
 
         }
 
-        private void gunaTransfarantPictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void gunaTransfarantPictureBox2_Click(object sender, EventArgs e)
         {
 
@@ -396,7 +411,7 @@ namespace EMS___SCNE
 
         private void labledate_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            //timer1.Start();
         }
 
         private void bunifuPictureBox1_Click(object sender, EventArgs e)
