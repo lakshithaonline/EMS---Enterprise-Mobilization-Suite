@@ -1,8 +1,6 @@
 ![ViewCount](https://views.whatilearened.today/views/github/lakshithaonline/EMS-SCNE.svg)
 ![Organization](https://img.shields.io/badge/organization-DenkNest-blue)
-![Contributors](https://img.shields.io/github/contributors/lakshithaonline?maxAge=86400)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-
 
 
 # EMS Application
