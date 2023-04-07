@@ -2,11 +2,10 @@
 ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-5C2D91?style=flat-square&logo=.net&logoColor=white)
 ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white)
 
-![C#](https://img.shields.io/badge/language-C%23-green)
+![C#](https://img.shields.io/badge/language-C%23-green?logo=c-sharp&logoColor=white)
 ![Build Status](https://img.shields.io/travis/lakshithaonline/EMS-SCNE/main)
 ![Code Coverage](https://img.shields.io/codecov/c/github/lakshithaonline/EMS-SCNE)
 ![License](https://img.shields.io/badge/license-MIT-blue)
-
 
 # EMS Application
 
