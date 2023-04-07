@@ -7,6 +7,8 @@
 ![Code Coverage](https://img.shields.io/codecov/c/github/lakshithaonline/EMS-SCNE)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
+![Build Status](https://img.shields.io/travis/lakshithaonline/EMS-SCNE.svg?style=flat-square)
+
 # EMS Application
 
 The EMS (Employee Management System) Application is a standalone software for managing employees. The software has three main features: attendance management and monitoring, leave management and monitoring, and employee management and monitoring. The application was developed for Southern Construction & Engineering Company (https://www.scnegalle.com/).
