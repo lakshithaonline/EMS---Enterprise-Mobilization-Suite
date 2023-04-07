@@ -3,7 +3,7 @@
 ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white)
 
 ![C#](https://img.shields.io/badge/language-C%23-green?logo=c-sharp&logoColor=white)
-![Build Status](https://img.shields.io/travis/lakshithaonline/EMS-SCNE/main)
+![Build Status](https://img.shields.io/travis/lakshithaonline/EMS-SCNE/master)
 ![Code Coverage](https://img.shields.io/codecov/c/github/lakshithaonline/EMS-SCNE)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
