@@ -1,6 +1,6 @@
 ![ViewCount](https://views.whatilearened.today/views/github/lakshithaonline/EMS-SCNE.svg)
 ![Organization](https://img.shields.io/badge/organization-DenkNest-blue)
-![Contributors](https://img.shields.io/github/contributors/lakshithaonline/EMS-SCNE)
+![Contributors](https://img.shields.io/github/contributors/lakshithaonline/EMS-SCNE?maxAge=86400)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 
@@ -13,9 +13,9 @@ The EMS (Employee Management System) Application is a standalone software for ma
 
 The EMS Application was developed using the following technologies:
 
-- C# programming language ![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white)
-- .NET Framework ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-5C2D91?style=flat-square&logo=.net&logoColor=white)
-- Microsoft SQL Server for the database ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white)
+- C# programming language | ![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=c-sharp&logoColor=white)
+- .NET Framework | ![.NET Framework](https://img.shields.io/badge/.NET%20Framework-5C2D91?style=flat-square&logo=.net&logoColor=white)
+- Microsoft SQL Server for the database | ![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=flat-square&logo=microsoft-sql-server&logoColor=white)
 
 ## Features
 
