@@ -230,32 +230,31 @@ namespace EMS___SCNE.UserControls
             }
 
             //display the employees in gender vice
-            string maleGender = "M";
-            string femaleGender = "F";
-
             try
             {
-                
+                connection.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT Gender, COUNT(*) AS EmployeeCount FROM Employees GROUP BY Gender", connection);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    connection.Open();
-
-                    SqlCommand cmdMale = new SqlCommand("SELECT dbo.GetGenderCount(@gender)", connection);
-                    cmdMale.Parameters.AddWithValue("@gender", maleGender);
-                    int maleCount = (int)cmdMale.ExecuteScalar();
-
-                    SqlCommand cmdFemale = new SqlCommand("SELECT dbo.GetGenderCount(@gender)", connection);
-                    cmdFemale.Parameters.AddWithValue("@gender", femaleGender);
-                    int femaleCount = (int)cmdFemale.ExecuteScalar();
-
-                    bunifuLabel4.Text = "Male: " + maleCount.ToString();
-                    bunifuLabel3.Text = "Female: " + femaleCount.ToString();
-                    connection.Close();
+                    if (reader["Gender"].ToString() == "Male")
+                    {
+                        bunifuLabel4.Text = "Male: " + reader["EmployeeCount"].ToString();
+                    }
+                    else if (reader["Gender"].ToString() == "Female")
+                    {
+                        bunifuLabel3.Text = "Female: " + reader["EmployeeCount"].ToString();
+                    }
                 }
+
+                reader.Close();
+                connection.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-
 
                 // log the error to the database
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -270,32 +269,33 @@ namespace EMS___SCNE.UserControls
                     }
                 }
             }
-            
-           /*
-            // Retrieve the daily attendance count of employees
-
-            {
-                SqlCommand command = new SqlCommand("sp_GetDailyAttendanceCount", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                connection.Open();
-                int attendanceCount = (int)command.ExecuteScalar();
-                connection.Close();
-
-                // Retrieve the total number of employees
-                command = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
-                connection.Open();
-                int employeeCount = (int)command.ExecuteScalar();
-                connection.Close();
 
 
-                // Calculate the percentage of attendance
-                double attendancePercentage = (double)attendanceCount / employeeCount * 100;
+            /*
+             // Retrieve the daily attendance count of employees
 
-                // Display the attendance percentage in BunifuCircleProgress control
-                bunifuCircleProgress1.Value = (int)attendancePercentage;
-                bunifuCircleProgress1.Text = attendancePercentage.ToString("0.00") + "%";
-            }*/
-       
+             {
+                 SqlCommand command = new SqlCommand("sp_GetDailyAttendanceCount", connection);
+                 command.CommandType = CommandType.StoredProcedure;
+                 connection.Open();
+                 int attendanceCount = (int)command.ExecuteScalar();
+                 connection.Close();
+
+                 // Retrieve the total number of employees
+                 command = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
+                 connection.Open();
+                 int employeeCount = (int)command.ExecuteScalar();
+                 connection.Close();
+
+
+                 // Calculate the percentage of attendance
+                 double attendancePercentage = (double)attendanceCount / employeeCount * 100;
+
+                 // Display the attendance percentage in BunifuCircleProgress control
+                 bunifuCircleProgress1.Value = (int)attendancePercentage;
+                 bunifuCircleProgress1.Text = attendancePercentage.ToString("0.00") + "%";
+             }*/
+
 
             //absent table titel
             {
