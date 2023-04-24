@@ -97,7 +97,7 @@ namespace EMS___SCNE
 
         private void bunifuPanel10_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void dashboard_superadmin1_Load(object sender, EventArgs e)
@@ -112,6 +112,13 @@ namespace EMS___SCNE
             Login.ShowDialog();
             this.Close();
         }
-        
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
+        {
+            LeaveHistory_superadmin attendenceUC = new LeaveHistory_superadmin();
+            attendenceUC.Dock = DockStyle.Fill;
+            bunifuPanel10.Controls.Clear();
+            bunifuPanel10.Controls.Add(attendenceUC);
+        }
     }
 }

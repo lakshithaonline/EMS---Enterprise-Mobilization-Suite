@@ -197,6 +197,12 @@
     <Compile Include="UserControls - SuperAdmin\EMSAccess_Superadmin.Designer.cs">
       <DependentUpon>EMSAccess_Superadmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls - SuperAdmin\LeaveHistory_superadmin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls - SuperAdmin\LeaveHistory_superadmin.Designer.cs">
+      <DependentUpon>LeaveHistory_superadmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LeaveHistory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -265,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls - SuperAdmin\EMSAccess_Superadmin.resx">
       <DependentUpon>EMSAccess_Superadmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls - SuperAdmin\LeaveHistory_superadmin.resx">
+      <DependentUpon>LeaveHistory_superadmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Attendence_UC.resx">
       <DependentUpon>Attendence_UC.cs</DependentUpon>

@@ -28,12 +28,6 @@ namespace EMS___SCNE
             bunifuDropdown1.Items.Add("casual_leave");
             bunifuDropdown1.Items.Add("annual_leave");
 
-            bunifuTextBox3.ReadOnly = true;
-            bunifuTextBox2.ReadOnly = true;
-            bunifuTextBox4.ReadOnly = true;
-            bunifuTextBox5.ReadOnly = true;
-
-
         }
 
         private void bunifuDatePicker1_ValueChanged(object sender, EventArgs e)
@@ -117,7 +111,7 @@ namespace EMS___SCNE
                 }
             }
         }
-
+        /*
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
 
@@ -160,23 +154,13 @@ namespace EMS___SCNE
                 MessageBox.Show("Please select a row to delete.");
             }
 
-        }
+        } */
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = bunifuDataGridView1.Rows[e.RowIndex];
-
-                bunifuTextBox3.Text = row.Cells[6].Value.ToString();
-                bunifuTextBox2.Text = row.Cells[5].Value.ToString();
-                bunifuTextBox4.Text = row.Cells[4].Value.ToString();
-                bunifuTextBox5.Text = row.Cells[7].Value.ToString();
-
-                bunifuTextBox3.ReadOnly = true;
-                bunifuTextBox2.ReadOnly = true;
-                bunifuTextBox4.ReadOnly = true;
-                bunifuTextBox5.ReadOnly = true;
 
             }
         }

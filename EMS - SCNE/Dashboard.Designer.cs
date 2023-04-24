@@ -59,7 +59,6 @@
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuPanel7 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.dashboard_UC1 = new EMS___SCNE.UserControls.Dashboard_UC();
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
@@ -71,6 +70,7 @@
             this.labledate = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPictureBox4 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.dashboard_UC1 = new EMS___SCNE.UserControls.Dashboard_UC();
             ((System.ComponentModel.ISupportInitialize)(this._EMS_SCNEDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.absentempBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetTopEmployeesBindingSource)).BeginInit();
@@ -959,14 +959,6 @@
             this.bunifuPanel7.Size = new System.Drawing.Size(1047, 556);
             this.bunifuPanel7.TabIndex = 31;
             // 
-            // dashboard_UC1
-            // 
-            this.dashboard_UC1.Location = new System.Drawing.Point(-3, 0);
-            this.dashboard_UC1.Name = "dashboard_UC1";
-            this.dashboard_UC1.Size = new System.Drawing.Size(1035, 556);
-            this.dashboard_UC1.TabIndex = 0;
-            this.dashboard_UC1.Load += new System.EventHandler(this.dashboard_UC1_Load_5);
-            // 
             // bunifuPanel3
             // 
             this.bunifuPanel3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
@@ -994,7 +986,7 @@
             this.guna2PictureBox2.BorderRadius = 10;
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(3, 14);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(3, 10);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
             this.guna2PictureBox2.Size = new System.Drawing.Size(181, 106);
@@ -1009,7 +1001,7 @@
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkLabel3.Location = new System.Drawing.Point(187, 103);
+            this.linkLabel3.Location = new System.Drawing.Point(187, 99);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(120, 13);
             this.linkLabel3.TabIndex = 12;
@@ -1022,7 +1014,7 @@
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkLabel4.Location = new System.Drawing.Point(187, 83);
+            this.linkLabel4.Location = new System.Drawing.Point(187, 79);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(101, 13);
             this.linkLabel4.TabIndex = 9;
@@ -1038,7 +1030,7 @@
             this.bunifuLabel5.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bunifuLabel5.Location = new System.Drawing.Point(190, 46);
+            this.bunifuLabel5.Location = new System.Drawing.Point(190, 42);
             this.bunifuLabel5.Name = "bunifuLabel5";
             this.bunifuLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel5.Size = new System.Drawing.Size(90, 29);
@@ -1057,7 +1049,7 @@
             this.bunifuLabel6.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel6.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.bunifuLabel6.Location = new System.Drawing.Point(190, 14);
+            this.bunifuLabel6.Location = new System.Drawing.Point(190, 10);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel6.Size = new System.Drawing.Size(427, 33);
@@ -1146,11 +1138,19 @@
             this.bunifuPictureBox4.IsCircle = false;
             this.bunifuPictureBox4.Location = new System.Drawing.Point(0, 0);
             this.bunifuPictureBox4.Name = "bunifuPictureBox4";
-            this.bunifuPictureBox4.Size = new System.Drawing.Size(326, 125);
+            this.bunifuPictureBox4.Size = new System.Drawing.Size(326, 326);
             this.bunifuPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.bunifuPictureBox4.TabIndex = 13;
             this.bunifuPictureBox4.TabStop = false;
-            this.bunifuPictureBox4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Custom;
+            this.bunifuPictureBox4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            // 
+            // dashboard_UC1
+            // 
+            this.dashboard_UC1.Location = new System.Drawing.Point(-3, 0);
+            this.dashboard_UC1.Name = "dashboard_UC1";
+            this.dashboard_UC1.Size = new System.Drawing.Size(1035, 556);
+            this.dashboard_UC1.TabIndex = 0;
+            this.dashboard_UC1.Load += new System.EventHandler(this.dashboard_UC1_Load_5);
             // 
             // Dashboard
             // 
