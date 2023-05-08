@@ -19,6 +19,7 @@ namespace EMS___SCNE.UserControls___SuperAdmin
     public partial class Employee_superadmin : UserControl
     {
         string connectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
+       
 
         public Employee_superadmin()
         {
@@ -120,10 +121,6 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 bunifuDropdown2.SelectedItem = row.Cells[3].Value.ToString();
                 bunifuDropdown3.SelectedItem = row.Cells[4].Value.ToString();
 
-                //byte[] imageData = (byte[])row.Cells[5].Value;
-                //MemoryStream ms = new MemoryStream(imageData);
-                //bunifuPictureBox2.Image = Image.FromStream(ms);
-
                 if (row.Cells[5].Value != null && row.Cells[5].Value != DBNull.Value)
                 {
                     byte[] imageData = (byte[])row.Cells[5].Value;
@@ -134,9 +131,6 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 {
                     bunifuPictureBox2.Image = null;
                 }
-
-
-
 
                 bunifuTextBox10.ReadOnly = true;
                 bunifuTextBox9.ReadOnly = true;
@@ -437,6 +431,19 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             bunifuTextBox8.Clear();
             bunifuTextBox9.Clear();
             bunifuTextBox10.Clear();    
+        }
+
+
+        private void bunifuButton8_Click(object sender, EventArgs e)
+        {
+            AddDependents addDependentsForm = new AddDependents();
+            addDependentsForm.Show();
+        }
+
+        private void bunifuButton9_Click(object sender, EventArgs e)
+        {
+            EmpContact_Information addempcontact = new EmpContact_Information();
+            addempcontact.Show();
         }
     }
 }

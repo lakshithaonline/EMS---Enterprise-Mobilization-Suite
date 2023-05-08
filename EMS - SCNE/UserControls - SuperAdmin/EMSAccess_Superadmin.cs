@@ -108,10 +108,6 @@ namespace EMS___SCNE.UserControls___SuperAdmin
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error occurred while hashing password: " + ex.Message);
-                return "";
-
-
                 // log the error to the database
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -124,6 +120,12 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                         int errorId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
+
+
+                MessageBox.Show("Error occurred while hashing password: " + ex.Message);
+                return "";
+
+                
             }
         }
 

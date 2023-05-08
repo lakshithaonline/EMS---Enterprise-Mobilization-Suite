@@ -105,34 +105,55 @@ namespace EMS___SCNE
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            int userID;
-            if (!int.TryParse(bunifuTextBox1.Text, out userID))
+            if (!int.TryParse(bunifuTextBox1.Text, out int userID))
             {
-                MessageBox.Show("Error: Invalid UserID format.");
+                MessageBox.Show("Invalid user ID entered.");
                 return;
             }
 
-            using (var connection = new SqlConnection(connString))
-            using (var command = new SqlCommand("SELECT Name, Department, Position, UserID, ProfilePicture FROM Employees WHERE UserID = @userID", connection))
+            string phoneNumber = GetPhoneNumber(userID);
+
+            if (phoneNumber != null)
+            {
+                bunifuLabel15.Text = phoneNumber;
+            } else
+            {
+                bunifuLabel15.Text =" ";
+            }
+
+            using (SqlConnection connection = new SqlConnection(connString))
+            using (SqlCommand command = new SqlCommand("SELECT Name, Department, Position, UserID, ProfilePicture, Gender, DOB, Address, Marital_Status FROM Employees WHERE UserID = @userID", connection))
             {
                 command.Parameters.AddWithValue("@userID", userID);
 
                 try
                 {
                     connection.Open();
-                    var reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
-                        bunifuLabel2.Text = reader.GetString(0); // Display Name in bunifuLabel2
-                        bunifuLabel3.Text = reader.GetString(1); //Display Department
-                        bunifuLabel4.Text = reader.GetString(2); //Display Position
-                        bunifuLabel38.Text = reader.GetInt32(3).ToString();
+                        string fullName = reader.GetString(0); // Assuming the name is retrieved from the first column (index 0)
+
+                        // Get the first word of the name
+                        string[] nameParts = fullName.Split(' ');
+                        string firstName = nameParts[0];
+
+                        bunifuLabel2.Text = firstName;
+                        bunifuLabel3.Text = reader.GetString(1); // Display Department
+                        bunifuLabel4.Text = reader.GetString(2); // Display Position
+                        bunifuLabel38.Text = reader.GetInt32(3).ToString(); // Display UserID
+                        bunifuLabel10.Text = reader.GetString(0); // Display full name
+                        bunifuLabel13.Text = reader.GetString(5); // Display Gender
+                        DateTime dateValue = reader.GetDateTime(6);
+                        bunifuLabel12.Text = dateValue.ToShortDateString(); // Display DOB 
+                        bunifuLabel11.Text = reader.GetString(7);
+                        bunifuLabel20.Text = reader.GetString(8);
 
                         // Display Profile Picture in bunifuPictureBox1
                         if (!reader.IsDBNull(4))
                         {
-                            var data = (byte[])reader["ProfilePicture"];
-                            using (var ms = new MemoryStream(data))
+                            byte[] data = (byte[])reader["ProfilePicture"];
+                            using (MemoryStream ms = new MemoryStream(data))
                             {
                                 bunifuPictureBox1.Image = Image.FromStream(ms);
                             }
@@ -141,7 +162,6 @@ namespace EMS___SCNE
                         {
                             // Display default image
                             bunifuPictureBox1.Image = Properties.Resources.user;
-
                         }
                     }
                     else
@@ -152,7 +172,7 @@ namespace EMS___SCNE
                 catch (SqlException ex)
                 {
                     MessageBox.Show("SQL Server Error: " + ex.Message);
-
+                    
                     // log the error to the database
                     using (SqlConnection conn = new SqlConnection(connString))
                     {
@@ -184,6 +204,26 @@ namespace EMS___SCNE
                     }
                 }
             }
+        }
+
+        private string GetPhoneNumber(int userID)
+        {
+            string phoneNumber = null;
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                string query = "SELECT PhoneNumber FROM Employee_Phone WHERE UserID = @UserID";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserID", userID);
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        phoneNumber = result.ToString();
+                    }
+                }
+            }
+            return phoneNumber;
         }
 
 
@@ -282,6 +322,11 @@ namespace EMS___SCNE
                 }
 
             }
+        }
+
+        private void bunifuLabel10_Click(object sender, EventArgs e)
+        {
+
         }
 
         /*  //////suggest names in textbox

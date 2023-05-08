@@ -101,8 +101,20 @@ namespace EMS___SCNE
                     // hardcoded value for monthly leaves
                     int leaveCountformonthly = 1;
 
-                    DateTime date = bunifuDatePicker1.Value;        
+                    DateTime date = bunifuDatePicker1.Value;
 
+                    // Insert a new record into Leave_request_history table
+                    string insertQuery = "INSERT INTO Leaverequest_history (UserID, Leave_Type, Year, Month, From_Date, To_Date, Leave_Count, Reason, Deducted_Date) VALUES ('" + userID + "', '" + leaveType + "', '" + year + "', '" + month + "', '" + date.ToString("yyyy-MM-dd") + "', NULL, '" + leaveCountformonthly + "', '" + reason + "', '" + deductedDate.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+
+                    using (SqlConnection connection = new SqlConnection(connString))
+                    {
+                        using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                        {
+                            connection.Open();
+                            command.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
 
                     string query = "EXEC deduct_leave @UserID = '" + userID + "', @year = '" + year + "', @month = '" + month + "', @leave_type = '" + leaveType + "', @leave_count = '" + leaveCountformonthly + "';";
                     string connectionString = "Server=.\\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
@@ -116,11 +128,19 @@ namespace EMS___SCNE
                             connection.Close();
                         }
                     }
-                    
-                    // Insert a new record into Leave_request_history table
-                    string insertQuery = "INSERT INTO Leaverequest_history (UserID, Leave_Type, Year, Month, From_Date, To_Date, Leave_Count, Reason, Deducted_Date) VALUES ('" + userID + "', '" + leaveType + "', '" + year + "', '" + month + "', '" + date.ToString("yyyy-MM-dd") + "', NULL, '" + leaveCountformonthly + "', '" + reason + "', '" + deductedDate.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    MessageBox.Show("Leave deduction successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (leaveType == "casual_leave" || leaveType == "annual_leave")
+                {
+                    DateTime fromDate = bunifuDatePicker1.Value;           
+                    DateTime toDate = bunifuDatePicker2.Value;
+
+
+                    // Insert a new record into Leave_request_history table
+                    string insertQuery = "INSERT INTO Leaverequest_history (UserID, Leave_Type, Year, Month, From_Date, To_Date, Leave_Count, Reason, Deducted_Date) VALUES ('" + userID + "', '" + leaveType + "', '" + year + "', NULL , '" + fromDate.ToString("yyyy-MM-dd") + "', '" + toDate.ToString("yyyy-MM-dd") + "', '" + Convert.ToInt32(leaveCount) + "', '" + reason + "', '" + deductedDate.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+
+                    using (SqlConnection connection = new SqlConnection(connString))
                     {
                         using (SqlCommand command = new SqlCommand(insertQuery, connection))
                         {
@@ -129,15 +149,6 @@ namespace EMS___SCNE
                             connection.Close();
                         }
                     }
-
-
-                    MessageBox.Show("Leave deduction successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (leaveType == "casual_leave" || leaveType == "annual_leave")
-                {
-                    DateTime fromDate = bunifuDatePicker1.Value;           
-                    DateTime toDate = bunifuDatePicker2.Value;             
-                    
 
                     string query = "EXEC deduct_annual_leave @UserID = '" + userID + "', @year = '" + year + "', @leave_type = '" + leaveType + "', @leave_count = '" + leaveCount + "';";
                     string connectionString = "Server=.\\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
@@ -151,20 +162,7 @@ namespace EMS___SCNE
                             connection.Close();
                         }
                     }
-
                     
-                    // Insert a new record into Leave_request_history table
-                    string insertQuery = "INSERT INTO Leaverequest_history (UserID, Leave_Type, Year, Month, From_Date, To_Date, Leave_Count, Reason, Deducted_Date) VALUES ('" + userID + "', '" + leaveType + "', '" + year + "', NULL , '" + fromDate.ToString("yyyy-MM-dd") + "', '" + toDate.ToString("yyyy-MM-dd") + "', '" + Convert.ToInt32(leaveCount) + "', '" + reason + "', '" + deductedDate.ToString("yyyy-MM-dd HH:mm:ss") + "')";
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        using (SqlCommand command = new SqlCommand(insertQuery, connection))
-                        {
-                            connection.Open();
-                            command.ExecuteNonQuery();
-                            connection.Close();
-                        }
-                    }
 
                     MessageBox.Show("Leave deduction successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -290,7 +288,7 @@ namespace EMS___SCNE
             }
         }
 
-            private void bunifuDataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void bunifuDataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
