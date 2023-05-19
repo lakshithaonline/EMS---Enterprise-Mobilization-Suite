@@ -444,5 +444,13 @@ namespace EMS___SCNE
             // Minimize the application
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void bunifuButton9_Click_1(object sender, EventArgs e)
+        {
+            EmployeeAdd_UC employeeadd = new EmployeeAdd_UC(); // Create an instance of the Attendence_UC user control
+            employeeadd.Dock = DockStyle.Fill; // Dock the user control to fill the parent control
+            bunifuPanel7.Controls.Clear(); // Clear any existing controls in the bunifuPanel7
+            bunifuPanel7.Controls.Add(employeeadd); // Add the Attendence_UC user control to the bunifuPanel7
+        }
     }
 }

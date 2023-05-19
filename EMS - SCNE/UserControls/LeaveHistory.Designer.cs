@@ -44,6 +44,15 @@
             this.bunifuDropdown1 = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuDataGridView1 = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Leave_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.From_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.To_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leaveRequestHistoryDisplayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.eMSSCNEDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._EMS_SCNEDataSet = new EMS___SCNE._EMS_SCNEDataSet();
@@ -55,15 +64,6 @@
             this.employeesTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.EmployeesTableAdapter();
             this.leaveRequest_HistoryDisplayTableAdapter = new EMS___SCNE._EMS_SCNEDataSetTableAdapters.LeaveRequest_HistoryDisplayTableAdapter();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Leave_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Year = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.From_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.To_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveRequestHistoryDisplayBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eMSSCNEDataSetBindingSource)).BeginInit();
@@ -117,7 +117,7 @@
             this.bunifuTextBox1.IconRight = null;
             this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox1.Lines = new string[0];
-            this.bunifuTextBox1.Location = new System.Drawing.Point(41, 30);
+            this.bunifuTextBox1.Location = new System.Drawing.Point(14, 56);
             this.bunifuTextBox1.MaxLength = 32767;
             this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox1.Modified = false;
@@ -183,10 +183,10 @@
             this.bunifuDatePicker1.IconColor = System.Drawing.Color.Black;
             this.bunifuDatePicker1.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.bunifuDatePicker1.LeftTextMargin = 5;
-            this.bunifuDatePicker1.Location = new System.Drawing.Point(353, 30);
+            this.bunifuDatePicker1.Location = new System.Drawing.Point(326, 56);
             this.bunifuDatePicker1.MinimumSize = new System.Drawing.Size(4, 32);
             this.bunifuDatePicker1.Name = "bunifuDatePicker1";
-            this.bunifuDatePicker1.Size = new System.Drawing.Size(183, 32);
+            this.bunifuDatePicker1.Size = new System.Drawing.Size(195, 32);
             this.bunifuDatePicker1.TabIndex = 2;
             this.bunifuDatePicker1.Value = new System.DateTime(2023, 3, 25, 0, 0, 0, 0);
             this.bunifuDatePicker1.ValueChanged += new System.EventHandler(this.bunifuDatePicker1_ValueChanged);
@@ -225,7 +225,7 @@
             this.bunifuDropdown1.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.bunifuDropdown1.ItemHighLightForeColor = System.Drawing.Color.White;
             this.bunifuDropdown1.ItemTopMargin = 3;
-            this.bunifuDropdown1.Location = new System.Drawing.Point(197, 30);
+            this.bunifuDropdown1.Location = new System.Drawing.Point(170, 56);
             this.bunifuDropdown1.Name = "bunifuDropdown1";
             this.bunifuDropdown1.Size = new System.Drawing.Size(150, 32);
             this.bunifuDropdown1.TabIndex = 3;
@@ -281,7 +281,7 @@
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(731, 30);
+            this.bunifuButton1.Location = new System.Drawing.Point(731, 56);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 10;
@@ -315,7 +315,7 @@
             this.bunifuButton1.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton1.OnPressedState.IconLeftImage = null;
             this.bunifuButton1.OnPressedState.IconRightImage = null;
-            this.bunifuButton1.Size = new System.Drawing.Size(150, 32);
+            this.bunifuButton1.Size = new System.Drawing.Size(229, 32);
             this.bunifuButton1.TabIndex = 4;
             this.bunifuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton1.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -391,107 +391,10 @@
             this.bunifuDataGridView1.RowHeadersVisible = false;
             this.bunifuDataGridView1.RowTemplate.Height = 40;
             this.bunifuDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuDataGridView1.Size = new System.Drawing.Size(928, 323);
+            this.bunifuDataGridView1.Size = new System.Drawing.Size(969, 347);
             this.bunifuDataGridView1.TabIndex = 5;
             this.bunifuDataGridView1.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Orange;
             this.bunifuDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bunifuDataGridView1_CellContentClick);
-            // 
-            // leaveRequestHistoryDisplayBindingSource
-            // 
-            this.leaveRequestHistoryDisplayBindingSource.DataMember = "LeaveRequest_HistoryDisplay";
-            this.leaveRequestHistoryDisplayBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
-            // 
-            // eMSSCNEDataSetBindingSource
-            // 
-            this.eMSSCNEDataSetBindingSource.DataSource = this._EMS_SCNEDataSet;
-            this.eMSSCNEDataSetBindingSource.Position = 0;
-            // 
-            // _EMS_SCNEDataSet
-            // 
-            this._EMS_SCNEDataSet.DataSetName = "_EMS_SCNEDataSet";
-            this._EMS_SCNEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // leaveRequestHistoryBindingSource
-            // 
-            this.leaveRequestHistoryBindingSource.DataMember = "LeaveRequest_History";
-            this.leaveRequestHistoryBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
-            // 
-            // bunifuPanel1
-            // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 10;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.bunifuDataGridView1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(52, 184);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(931, 329);
-            this.bunifuPanel1.TabIndex = 6;
-            // 
-            // bunifuDatePicker2
-            // 
-            this.bunifuDatePicker2.BackColor = System.Drawing.Color.White;
-            this.bunifuDatePicker2.BorderRadius = 6;
-            this.bunifuDatePicker2.Color = System.Drawing.Color.Transparent;
-            this.bunifuDatePicker2.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
-            this.bunifuDatePicker2.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
-            this.bunifuDatePicker2.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuDatePicker2.DisplayWeekNumbers = false;
-            this.bunifuDatePicker2.DPHeight = 0;
-            this.bunifuDatePicker2.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.bunifuDatePicker2.FillDatePicker = false;
-            this.bunifuDatePicker2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuDatePicker2.ForeColor = System.Drawing.Color.Black;
-            this.bunifuDatePicker2.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuDatePicker2.Icon")));
-            this.bunifuDatePicker2.IconColor = System.Drawing.Color.Black;
-            this.bunifuDatePicker2.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
-            this.bunifuDatePicker2.LeftTextMargin = 5;
-            this.bunifuDatePicker2.Location = new System.Drawing.Point(542, 30);
-            this.bunifuDatePicker2.MinimumSize = new System.Drawing.Size(4, 32);
-            this.bunifuDatePicker2.Name = "bunifuDatePicker2";
-            this.bunifuDatePicker2.Size = new System.Drawing.Size(183, 32);
-            this.bunifuDatePicker2.TabIndex = 8;
-            this.bunifuDatePicker2.Value = new System.DateTime(2023, 3, 25, 0, 0, 0, 0);
-            this.bunifuDatePicker2.ValueChanged += new System.EventHandler(this.bunifuDatePicker2_ValueChanged);
-            // 
-            // employeesBindingSource
-            // 
-            this.employeesBindingSource.DataMember = "Employees";
-            this.employeesBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
-            // 
-            // leaveRequest_HistoryTableAdapter
-            // 
-            this.leaveRequest_HistoryTableAdapter.ClearBeforeFill = true;
-            // 
-            // employeesTableAdapter
-            // 
-            this.employeesTableAdapter.ClearBeforeFill = true;
-            // 
-            // leaveRequest_HistoryDisplayTableAdapter
-            // 
-            this.leaveRequest_HistoryDisplayTableAdapter.ClearBeforeFill = true;
-            // 
-            // bunifuPanel2
-            // 
-            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
-            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
-            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel2.BorderRadius = 10;
-            this.bunifuPanel2.BorderThickness = 1;
-            this.bunifuPanel2.Controls.Add(this.bunifuTextBox1);
-            this.bunifuPanel2.Controls.Add(this.bunifuDropdown1);
-            this.bunifuPanel2.Controls.Add(this.bunifuButton1);
-            this.bunifuPanel2.Controls.Add(this.bunifuDatePicker1);
-            this.bunifuPanel2.Controls.Add(this.bunifuDatePicker2);
-            this.bunifuPanel2.Location = new System.Drawing.Point(52, 94);
-            this.bunifuPanel2.Name = "bunifuPanel2";
-            this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(931, 82);
-            this.bunifuPanel2.TabIndex = 24;
             // 
             // UserID
             // 
@@ -546,6 +449,104 @@
             this.reasonDataGridViewTextBoxColumn.DataPropertyName = "Reason";
             this.reasonDataGridViewTextBoxColumn.HeaderText = "Reason";
             this.reasonDataGridViewTextBoxColumn.Name = "reasonDataGridViewTextBoxColumn";
+            // 
+            // leaveRequestHistoryDisplayBindingSource
+            // 
+            this.leaveRequestHistoryDisplayBindingSource.DataMember = "LeaveRequest_HistoryDisplay";
+            this.leaveRequestHistoryDisplayBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
+            // 
+            // eMSSCNEDataSetBindingSource
+            // 
+            this.eMSSCNEDataSetBindingSource.DataSource = this._EMS_SCNEDataSet;
+            this.eMSSCNEDataSetBindingSource.Position = 0;
+            // 
+            // _EMS_SCNEDataSet
+            // 
+            this._EMS_SCNEDataSet.DataSetName = "_EMS_SCNEDataSet";
+            this._EMS_SCNEDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // leaveRequestHistoryBindingSource
+            // 
+            this.leaveRequestHistoryBindingSource.DataMember = "LeaveRequest_History";
+            this.leaveRequestHistoryBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
+            // 
+            // bunifuPanel1
+            // 
+            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
+            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel1.BorderRadius = 10;
+            this.bunifuPanel1.BorderThickness = 1;
+            this.bunifuPanel1.Controls.Add(this.bunifuDataGridView1);
+            this.bunifuPanel1.Location = new System.Drawing.Point(35, 180);
+            this.bunifuPanel1.Name = "bunifuPanel1";
+            this.bunifuPanel1.ShowBorders = true;
+            this.bunifuPanel1.Size = new System.Drawing.Size(975, 353);
+            this.bunifuPanel1.TabIndex = 6;
+            // 
+            // bunifuDatePicker2
+            // 
+            this.bunifuDatePicker2.BackColor = System.Drawing.Color.White;
+            this.bunifuDatePicker2.BorderRadius = 6;
+            this.bunifuDatePicker2.Color = System.Drawing.Color.Transparent;
+            this.bunifuDatePicker2.DateBorderThickness = Bunifu.UI.WinForms.BunifuDatePicker.BorderThickness.Thin;
+            this.bunifuDatePicker2.DateTextAlign = Bunifu.UI.WinForms.BunifuDatePicker.TextAlign.Left;
+            this.bunifuDatePicker2.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuDatePicker2.DisplayWeekNumbers = false;
+            this.bunifuDatePicker2.DPHeight = 0;
+            this.bunifuDatePicker2.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.bunifuDatePicker2.FillDatePicker = false;
+            this.bunifuDatePicker2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuDatePicker2.ForeColor = System.Drawing.Color.Black;
+            this.bunifuDatePicker2.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuDatePicker2.Icon")));
+            this.bunifuDatePicker2.IconColor = System.Drawing.Color.Black;
+            this.bunifuDatePicker2.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
+            this.bunifuDatePicker2.LeftTextMargin = 5;
+            this.bunifuDatePicker2.Location = new System.Drawing.Point(527, 56);
+            this.bunifuDatePicker2.MinimumSize = new System.Drawing.Size(4, 32);
+            this.bunifuDatePicker2.Name = "bunifuDatePicker2";
+            this.bunifuDatePicker2.Size = new System.Drawing.Size(198, 32);
+            this.bunifuDatePicker2.TabIndex = 8;
+            this.bunifuDatePicker2.Value = new System.DateTime(2023, 3, 25, 0, 0, 0, 0);
+            this.bunifuDatePicker2.ValueChanged += new System.EventHandler(this.bunifuDatePicker2_ValueChanged);
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this.eMSSCNEDataSetBindingSource;
+            // 
+            // leaveRequest_HistoryTableAdapter
+            // 
+            this.leaveRequest_HistoryTableAdapter.ClearBeforeFill = true;
+            // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
+            // 
+            // leaveRequest_HistoryDisplayTableAdapter
+            // 
+            this.leaveRequest_HistoryDisplayTableAdapter.ClearBeforeFill = true;
+            // 
+            // bunifuPanel2
+            // 
+            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(55)))));
+            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
+            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel2.BorderRadius = 10;
+            this.bunifuPanel2.BorderThickness = 1;
+            this.bunifuPanel2.Controls.Add(this.bunifuTextBox1);
+            this.bunifuPanel2.Controls.Add(this.bunifuDropdown1);
+            this.bunifuPanel2.Controls.Add(this.bunifuButton1);
+            this.bunifuPanel2.Controls.Add(this.bunifuDatePicker1);
+            this.bunifuPanel2.Controls.Add(this.bunifuDatePicker2);
+            this.bunifuPanel2.Location = new System.Drawing.Point(35, 70);
+            this.bunifuPanel2.Name = "bunifuPanel2";
+            this.bunifuPanel2.ShowBorders = true;
+            this.bunifuPanel2.Size = new System.Drawing.Size(975, 104);
+            this.bunifuPanel2.TabIndex = 24;
+            this.bunifuPanel2.Click += new System.EventHandler(this.bunifuPanel2_Click);
             // 
             // LeaveHistory
             // 

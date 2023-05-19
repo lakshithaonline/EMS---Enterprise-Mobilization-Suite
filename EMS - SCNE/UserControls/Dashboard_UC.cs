@@ -309,7 +309,7 @@ namespace EMS___SCNE.UserControls
 
                 SqlCommand cmd1 = new SqlCommand("sp_GetDailyAttendanceCount_ByPlace", connection);
                 cmd1.CommandType = CommandType.StoredProcedure;
-                cmd1.Parameters.AddWithValue("@Place", "lobby");
+                cmd1.Parameters.AddWithValue("@Place", "SIX");
 
                 connection.Open();
                 int lobbyAttendanceCount = (int)cmd1.ExecuteScalar();
@@ -319,17 +319,42 @@ namespace EMS___SCNE.UserControls
 
             }
 
-            // Execute sp_GetDailyAttendanceCount_ByPlace for Main Office  (Use a copy of this same code to excecute another Place, Just mention the place whatever you want in @place, "enter hear")
             {
                 SqlCommand cmd2 = new SqlCommand("sp_GetDailyAttendanceCount_ByPlace", connection);
                 cmd2.CommandType = CommandType.StoredProcedure;
-                cmd2.Parameters.AddWithValue("@Place", "Main Office");
+                cmd2.Parameters.AddWithValue("@Place", "ANNA");
 
                 connection.Open();
                 int mainOfficeAttendanceCount = (int)cmd2.ExecuteScalar();
                 connection.Close();
 
                 bunifuLabel21.Text = "Villa ANNA: " + mainOfficeAttendanceCount.ToString();
+
+            }
+
+            {
+                SqlCommand cmd2 = new SqlCommand("sp_GetDailyAttendanceCount_ByPlace", connection);
+                cmd2.CommandType = CommandType.StoredProcedure;
+                cmd2.Parameters.AddWithValue("@Place", "KAMATHA");
+
+                connection.Open();
+                int mainOfficeAttendanceCount = (int)cmd2.ExecuteScalar();
+                connection.Close();
+
+                bunifuLabel22.Text = "KAMATHA: " + mainOfficeAttendanceCount.ToString();
+
+            }
+
+            {
+                SqlCommand cmd2 = new SqlCommand("sp_GetDailyAttendanceCount_ByPlace", connection);
+                cmd2.CommandType = CommandType.StoredProcedure;
+                cmd2.Parameters.AddWithValue("@Place", "THAMBURU");
+
+                connection.Open();
+                int mainOfficeAttendanceCount = (int)cmd2.ExecuteScalar();
+                connection.Close();
+
+                bunifuLabel23.Text = "THAMBURU: " + mainOfficeAttendanceCount.ToString();
 
             }
 

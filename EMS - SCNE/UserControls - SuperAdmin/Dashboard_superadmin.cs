@@ -12,7 +12,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Bunifu.UI.WinForms;
-
+using Microsoft.Reporting.WinForms;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using PdfSharp.Drawing;
 
 namespace EMS___SCNE.UserControls___SuperAdmin
 {
@@ -483,6 +486,166 @@ namespace EMS___SCNE.UserControls___SuperAdmin
         }
 
         private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bunifuButton11_Click(object sender, EventArgs e)
+        {
+            DateTime fromDate = bunifuDatePicker1.Value;
+            DateTime toDate = bunifuDatePicker2.Value;
+
+            DataTable attendanceData = GetAttendanceData(fromDate, toDate);
+
+            int totalWorkingDays = 0;
+            int totalEmployees = 0;
+            int totalAbsentEmployees = 0;
+            int totalLateArrivals = 0;
+
+            StringBuilder reportBuilder = new StringBuilder();
+
+            // Introduction
+            reportBuilder.AppendLine("Introduction:");
+            reportBuilder.AppendLine($"The following report provides a comprehensive overview of the employee attendance for the month of {fromDate.ToString("MMMM, yyyy")}. The data presented here will aid the top management in making informed decisions related to workforce management and performance evaluation.");
+            reportBuilder.AppendLine();
+
+            // Normal Attendance
+            reportBuilder.AppendLine("Normal Attendance:");
+            reportBuilder.AppendLine("The normal attendance section provides an overview of employee attendance during regular working hours. It includes the total number of working days in the month and the number of employees who attended work on each of those days. This data allows management to assess the overall workforce availability and identify any patterns or trends.");
+            reportBuilder.AppendLine($"Month: {fromDate.ToString("MMMM, yyyy")}");
+
+            reportBuilder.AppendLine("Date | Attendance Count");
+
+            DateTime currentDate = fromDate;
+            while (currentDate <= toDate)
+            {
+                int attendanceCount = GetAttendanceCountForDate(attendanceData, currentDate);
+                reportBuilder.AppendLine($"{currentDate.ToShortDateString()} | {attendanceCount}");
+
+                totalWorkingDays++;
+                totalEmployees += attendanceCount;
+
+                currentDate = currentDate.AddDays(1);
+            }
+            reportBuilder.AppendLine($"Total Working Days: {totalWorkingDays}");
+            reportBuilder.AppendLine($"Total Employees: {totalEmployees}");
+            reportBuilder.AppendLine();
+
+            // Absent Employee Count
+            reportBuilder.AppendLine("Absent Employee Count:");
+            reportBuilder.AppendLine("The absent employee count section highlights the number of employees who were absent during the month. It provides a clear overview of the absenteeism rate and enables management to identify any potential issues or areas that require attention.");
+            reportBuilder.AppendLine($"Month: {fromDate.ToString("MMMM, yyyy")}");
+
+            int absentEmployees = GetAbsentEmployeeCount(attendanceData);
+            reportBuilder.AppendLine($"Total Employees: {totalEmployees}");
+            reportBuilder.AppendLine($"Total Absent Employees: {absentEmployees}");
+            reportBuilder.AppendLine();
+            totalAbsentEmployees = absentEmployees;
+
+            // Late Attendance
+            reportBuilder.AppendLine("Late Attendance:");
+            reportBuilder.AppendLine("The late attendance section focuses on instances where employees arrived late to work during the month. It provides information on the frequency and extent of late arrivals, enabling management to address punctuality concerns and take appropriate measures if necessary.");
+            reportBuilder.AppendLine($"Month: {fromDate.ToString("MMMM, yyyy")}");
+
+            int lateArrivals = GetLateArrivalCount(attendanceData);
+            reportBuilder.AppendLine($"Total Employees: {totalEmployees}");
+            reportBuilder.AppendLine($"Total Late Arrivals: {lateArrivals}");
+            reportBuilder.AppendLine();
+            totalLateArrivals = lateArrivals;
+
+            // Conclusion
+            reportBuilder.AppendLine("Conclusion:");
+            reportBuilder.AppendLine("The Monthly Employee Attendance Summary Report offers a concise overview of normal attendance, absent employee count, and late attendance for the given month. By analyzing this data, the top management can make informed decisions related to workforce planning, employee engagement, and performance evaluation. It is recommended to regularly review such reports to ensure optimal productivity and identify any areas that may require improvement.");
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text Files|*.txt";
+            saveFileDialog.Title = "Save Attendance Report";
+            saveFileDialog.FileName = "AttendanceReport.txt";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    writer.Write(reportBuilder.ToString());
+                }
+
+                MessageBox.Show("Attendance report generated and saved successfully!");
+            }
+        }
+
+        private DataTable GetAttendanceData(DateTime fromDate, DateTime toDate)
+        {
+            DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(connString))
+            {
+                string query = "SELECT * FROM Attendance WHERE Date >= @FromDate AND Date <= @ToDate";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FromDate", fromDate);
+                command.Parameters.AddWithValue("@ToDate", toDate);
+
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                adapter.Fill(dataTable);
+            }
+
+            return dataTable;
+        }
+
+        private int GetAttendanceCountForDate(DataTable attendanceData, DateTime date)
+        {
+            int attendanceCount = 0;
+
+            foreach (DataRow row in attendanceData.Rows)
+            {
+                DateTime rowDate = Convert.ToDateTime(row["Date"]);
+
+                if (rowDate.Date == date.Date)
+                {
+                    attendanceCount++;
+                }
+            }
+
+            return attendanceCount;
+        }
+
+        private int GetAbsentEmployeeCount(DataTable attendanceData)
+        {
+            int absentEmployeeCount = 0;
+
+            foreach (DataRow row in attendanceData.Rows)
+            {
+                int totalHoursWorked = Convert.ToInt32(row["Total_Hours_Worked"]);
+
+                if (totalHoursWorked == 0)
+                {
+                    absentEmployeeCount++;
+                }
+            }
+
+            return absentEmployeeCount;
+        }
+
+        private int GetLateArrivalCount(DataTable attendanceData)
+        {
+            int lateArrivalCount = 0;
+
+            foreach (DataRow row in attendanceData.Rows)
+            {
+                int totalHoursWorked = Convert.ToInt32(row["Total_Hours_Worked"]);
+
+                if (totalHoursWorked < 8 && totalHoursWorked > 2)
+                {
+                    lateArrivalCount++;
+                }
+            }
+
+            return lateArrivalCount;
+        }
+
+        private void saveFileDialog_FileOk(object sender, CancelEventArgs e)
         {
 
         }

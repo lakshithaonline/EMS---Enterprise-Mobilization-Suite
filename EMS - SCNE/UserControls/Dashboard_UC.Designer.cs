@@ -884,9 +884,9 @@ namespace EMS___SCNE.UserControls
             this.bunifuLabel23.Location = new System.Drawing.Point(7, 6);
             this.bunifuLabel23.Name = "bunifuLabel23";
             this.bunifuLabel23.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel23.Size = new System.Drawing.Size(68, 18);
+            this.bunifuLabel23.Size = new System.Drawing.Size(78, 18);
             this.bunifuLabel23.TabIndex = 31;
-            this.bunifuLabel23.Text = "KAMATHA: ";
+            this.bunifuLabel23.Text = "THAMBURU:";
             this.bunifuLabel23.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel23.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 

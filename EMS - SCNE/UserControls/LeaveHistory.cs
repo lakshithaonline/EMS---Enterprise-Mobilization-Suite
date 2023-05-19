@@ -179,5 +179,10 @@ namespace EMS___SCNE
         {
 
         }
+
+        private void bunifuPanel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

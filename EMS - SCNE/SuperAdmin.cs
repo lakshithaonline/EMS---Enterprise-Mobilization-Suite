@@ -120,5 +120,13 @@ namespace EMS___SCNE
             bunifuPanel10.Controls.Clear();
             bunifuPanel10.Controls.Add(attendenceUC);
         }
+
+        private void bunifuButton6_Click(object sender, EventArgs e)
+        {
+          OverviewPanel_superadmin overviewpanel = new OverviewPanel_superadmin();
+          overviewpanel.Dock = DockStyle.Fill;
+          bunifuPanel10.Controls.Clear();
+          bunifuPanel10.Controls.Add(overviewpanel);
+        }
     }
 }
