@@ -15,20 +15,11 @@ namespace MLModel1_ConsoleApp1
         #region model input class
         public class ModelInput
         {
-            [ColumnName(@"UserID")]
-            public float UserID { get; set; }
+            [ColumnName(@"review")]
+            public string Review { get; set; }
 
-            [ColumnName(@"Month")]
-            public float Month { get; set; }
-
-            [ColumnName(@"Days_Worked")]
-            public float Days_Worked { get; set; }
-
-            [ColumnName(@"Total_Working_Days")]
-            public float Total_Working_Days { get; set; }
-
-            [ColumnName(@"Attendance_Percentage")]
-            public float Attendance_Percentage { get; set; }
+            [ColumnName(@"sentiment")]
+            public string Sentiment { get; set; }
 
         }
 
@@ -40,26 +31,20 @@ namespace MLModel1_ConsoleApp1
         #region model output class
         public class ModelOutput
         {
-            [ColumnName(@"UserID")]
-            public float UserID { get; set; }
+            [ColumnName(@"review")]
+            public float[] Review { get; set; }
 
-            [ColumnName(@"Month")]
-            public float Month { get; set; }
-
-            [ColumnName(@"Days_Worked")]
-            public float Days_Worked { get; set; }
-
-            [ColumnName(@"Total_Working_Days")]
-            public float Total_Working_Days { get; set; }
-
-            [ColumnName(@"Attendance_Percentage")]
-            public float Attendance_Percentage { get; set; }
+            [ColumnName(@"sentiment")]
+            public uint Sentiment { get; set; }
 
             [ColumnName(@"Features")]
             public float[] Features { get; set; }
 
+            [ColumnName(@"PredictedLabel")]
+            public string PredictedLabel { get; set; }
+
             [ColumnName(@"Score")]
-            public float Score { get; set; }
+            public float[] Score { get; set; }
 
         }
 

@@ -1130,9 +1130,9 @@
             this.bunifuLabel5.Location = new System.Drawing.Point(190, 42);
             this.bunifuLabel5.Name = "bunifuLabel5";
             this.bunifuLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel5.Size = new System.Drawing.Size(90, 29);
+            this.bunifuLabel5.Size = new System.Drawing.Size(315, 29);
             this.bunifuLabel5.TabIndex = 10;
-            this.bunifuLabel5.Text = "EMS - HR";
+            this.bunifuLabel5.Text = "Employee Management System";
             this.bunifuLabel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuLabel5.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             this.bunifuLabel5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
