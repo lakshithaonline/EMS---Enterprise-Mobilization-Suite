@@ -11,7 +11,7 @@ using Microsoft.ML;
 
 namespace EMS___SCNE
 {
-    public partial class MLModel1
+    public partial class SentimentLeavePredictor
     {
         /// <summary>
         /// Retrains model using the pipeline generated as part of the training process. For more information on how to load data, see aka.ms/loaddata.
@@ -35,10 +35,11 @@ namespace EMS___SCNE
         public static IEstimator<ITransformer> BuildPipeline(MLContext mlContext)
         {
             // Data process configuration with pipeline data transformations
-            var pipeline = mlContext.Transforms.ReplaceMissingValues(new []{new InputOutputColumnPair(@"UserID", @"UserID"),new InputOutputColumnPair(@"Month", @"Month"),new InputOutputColumnPair(@"Days_Worked", @"Days_Worked"),new InputOutputColumnPair(@"Total_Working_Days", @"Total_Working_Days")})      
-                                    .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"UserID",@"Month",@"Days_Worked",@"Total_Working_Days"}))      
-                                    .Append(mlContext.Transforms.NormalizeMinMax(@"Features", @"Features"))      
-                                    .Append(mlContext.Regression.Trainers.FastTreeTweedie(new FastTreeTweedieTrainer.Options(){NumberOfLeaves=21,MinimumExampleCountPerLeaf=3,NumberOfTrees=3863,MaximumBinCountPerFeature=194,FeatureFraction=0.938749176701226,LearningRate=0.0038944452174552,LabelColumnName=@"Attendance_Percentage",FeatureColumnName=@"Features"}));
+            var pipeline = mlContext.Transforms.Text.FeaturizeText(inputColumnName:@"Reason",outputColumnName:@"Reason")      
+                                    .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"Reason"}))      
+                                    .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"Sentiment",inputColumnName:@"Sentiment"))      
+                                    .Append(mlContext.MulticlassClassification.Trainers.OneVersusAll(binaryEstimator:mlContext.BinaryClassification.Trainers.FastForest(new FastForestBinaryTrainer.Options(){NumberOfTrees=28,NumberOfLeaves=11,FeatureFraction=1F,LabelColumnName=@"Sentiment",FeatureColumnName=@"Features"}),labelColumnName:@"Sentiment"))      
+                                    .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"PredictedLabel",inputColumnName:@"PredictedLabel"));
 
             return pipeline;
         }

@@ -8,17 +8,16 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.ML" Version="1.7.1" />
     <PackageReference Include="Microsoft.ML.FastTree" Version="1.7.1" />
-    <PackageReference Include="System.Memory" Version="4.5.5" />
   </ItemGroup>
-  <ItemGroup Label="MLModel1">
-    <None Include="MLModel1.consumption.cs">
-      <DependentUpon>MLModel1.mbconfig</DependentUpon>
+  <ItemGroup Label="MLModel2">
+    <None Include="MLModel2.consumption.cs">
+      <DependentUpon>MLModel2.mbconfig</DependentUpon>
     </None>
-    <None Include="MLModel1.training.cs">
-      <DependentUpon>MLModel1.mbconfig</DependentUpon>
+    <None Include="MLModel2.training.cs">
+      <DependentUpon>MLModel2.mbconfig</DependentUpon>
     </None>
-    <None Include="MLModel1.zip">
-      <DependentUpon>MLModel1.mbconfig</DependentUpon>
+    <None Include="MLModel2.zip">
+      <DependentUpon>MLModel2.mbconfig</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

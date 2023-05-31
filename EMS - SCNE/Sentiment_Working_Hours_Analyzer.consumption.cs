@@ -7,65 +7,56 @@ using System.IO;
 using System.Collections.Generic;
 namespace EMS___SCNE
 {
-    public partial class MLModel1
+    public partial class Sentiment_Working_Hours_Analyzer
     {
         /// <summary>
-        /// model input class for MLModel1.
+        /// model input class for Sentiment_Working_Hours_Analyzer.
         /// </summary>
         #region model input class
         public class ModelInput
         {
-            [ColumnName(@"UserID")]
-            public float UserID { get; set; }
+            [ColumnName(@"col0")]
+            public string Col0 { get; set; }
 
-            [ColumnName(@"Month")]
-            public float Month { get; set; }
+            [ColumnName(@"col1")]
+            public float Col1 { get; set; }
 
-            [ColumnName(@"Days_Worked")]
-            public float Days_Worked { get; set; }
-
-            [ColumnName(@"Total_Working_Days")]
-            public float Total_Working_Days { get; set; }
-
-            [ColumnName(@"Attendance_Percentage")]
-            public float Attendance_Percentage { get; set; }
+            [ColumnName(@"col2")]
+            public float Col2 { get; set; }
 
         }
 
         #endregion
 
         /// <summary>
-        /// model output class for MLModel1.
+        /// model output class for Sentiment_Working_Hours_Analyzer.
         /// </summary>
         #region model output class
         public class ModelOutput
         {
-            [ColumnName(@"UserID")]
-            public float UserID { get; set; }
+            [ColumnName(@"col0")]
+            public uint Col0 { get; set; }
 
-            [ColumnName(@"Month")]
-            public float Month { get; set; }
+            [ColumnName(@"col1")]
+            public float Col1 { get; set; }
 
-            [ColumnName(@"Days_Worked")]
-            public float Days_Worked { get; set; }
-
-            [ColumnName(@"Total_Working_Days")]
-            public float Total_Working_Days { get; set; }
-
-            [ColumnName(@"Attendance_Percentage")]
-            public float Attendance_Percentage { get; set; }
+            [ColumnName(@"col2")]
+            public float Col2 { get; set; }
 
             [ColumnName(@"Features")]
             public float[] Features { get; set; }
 
+            [ColumnName(@"PredictedLabel")]
+            public string PredictedLabel { get; set; }
+
             [ColumnName(@"Score")]
-            public float Score { get; set; }
+            public float[] Score { get; set; }
 
         }
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("MLModel1.zip");
+        private static string MLNetModelPath = Path.GetFullPath("Sentiment_Working_Hours_Analyzer.zip");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 

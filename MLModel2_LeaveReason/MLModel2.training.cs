@@ -5,12 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML.Data;
+using Microsoft.ML.Trainers.FastTree;
 using Microsoft.ML.Trainers;
 using Microsoft.ML;
 
-namespace MLModel1_ConsoleApp1
+namespace MLModel2_LeaveReason
 {
-    public partial class MLModel1
+    public partial class MLModel2
     {
         /// <summary>
         /// Retrains model using the pipeline generated as part of the training process. For more information on how to load data, see aka.ms/loaddata.
@@ -37,8 +38,7 @@ namespace MLModel1_ConsoleApp1
             var pipeline = mlContext.Transforms.Text.FeaturizeText(inputColumnName:@"col1",outputColumnName:@"col1")      
                                     .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"col1"}))      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"col0",inputColumnName:@"col0"))      
-                                    .Append(mlContext.Transforms.NormalizeMinMax(@"Features", @"Features"))      
-                                    .Append(mlContext.MulticlassClassification.Trainers.OneVersusAll(binaryEstimator: mlContext.BinaryClassification.Trainers.LbfgsLogisticRegression(new LbfgsLogisticRegressionBinaryTrainer.Options(){L1Regularization=0.03125F,L2Regularization=14.79092F,LabelColumnName=@"col0",FeatureColumnName=@"Features"}), labelColumnName:@"col0"))      
+                                    .Append(mlContext.MulticlassClassification.Trainers.OneVersusAll(binaryEstimator:mlContext.BinaryClassification.Trainers.FastForest(new FastForestBinaryTrainer.Options(){NumberOfTrees=5,NumberOfLeaves=4,FeatureFraction=0.778274F,LabelColumnName=@"col0",FeatureColumnName=@"Features"}),labelColumnName:@"col0"))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"PredictedLabel",inputColumnName:@"PredictedLabel"));
 
             return pipeline;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ML;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,18 @@ namespace EMS___SCNE
         {
             InitializeComponent();
 
+        }
 
+        // Define your data class
+        public class YourDataClass
+        {
+            public string Col1 { get; set; }
+        }
+
+        // Define your prediction class
+        public class YourPredictionClass
+        {
+            public string Prediction { get; set; }
         }
 
         private void Leave_Load(object sender, EventArgs e)
@@ -201,6 +213,7 @@ namespace EMS___SCNE
                     }
                 }
             }
+
 
         }
 
@@ -473,5 +486,6 @@ namespace EMS___SCNE
         {
 
         }
+
     }
 }

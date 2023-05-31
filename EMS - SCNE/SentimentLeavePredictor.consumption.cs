@@ -5,37 +5,37 @@ using System;
 using System.Linq;
 using System.IO;
 using System.Collections.Generic;
-namespace MLModel1_ConsoleApp1
+namespace EMS___SCNE
 {
-    public partial class MLModel1
+    public partial class SentimentLeavePredictor
     {
         /// <summary>
-        /// model input class for MLModel1.
+        /// model input class for SentimentLeavePredictor.
         /// </summary>
         #region model input class
         public class ModelInput
         {
-            [ColumnName(@"col0")]
-            public string Col0 { get; set; }
+            [ColumnName(@"Sentiment")]
+            public string Sentiment { get; set; }
 
-            [ColumnName(@"col1")]
-            public string Col1 { get; set; }
+            [ColumnName(@"Reason")]
+            public string Reason { get; set; }
 
         }
 
         #endregion
 
         /// <summary>
-        /// model output class for MLModel1.
+        /// model output class for SentimentLeavePredictor.
         /// </summary>
         #region model output class
         public class ModelOutput
         {
-            [ColumnName(@"col0")]
-            public uint Col0 { get; set; }
+            [ColumnName(@"Sentiment")]
+            public uint Sentiment { get; set; }
 
-            [ColumnName(@"col1")]
-            public float[] Col1 { get; set; }
+            [ColumnName(@"Reason")]
+            public float[] Reason { get; set; }
 
             [ColumnName(@"Features")]
             public float[] Features { get; set; }
@@ -50,7 +50,7 @@ namespace MLModel1_ConsoleApp1
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("MLModel1.zip");
+        private static string MLNetModelPath = Path.GetFullPath("SentimentLeavePredictor.zip");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
