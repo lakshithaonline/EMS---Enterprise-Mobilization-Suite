@@ -1,3 +1,5 @@
+# <img src="Project-Contents/ADBMS_EMS_Cover.jpg"> 
+
 ![ViewCount](https://views.whatilearened.today/views/github/lakshithaonline/EMS-SCNE.svg)
 ![Organization](https://img.shields.io/badge/organization-DenkNest-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
