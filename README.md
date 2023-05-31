@@ -3,7 +3,8 @@
 ![ViewCount](https://views.whatilearened.today/views/github/lakshithaonline/EMS-SCNE.svg)
 ![Organization](https://img.shields.io/badge/organization-DenkNest-blue)
 [![Welcome](https://img.shields.io/badge/NSBM%20Green%20University-Welcome-brightgreen)](#) 
-[![Welcome](https://img.shields.io/badge/Advanced%20Database%20Management%20System%20Final%20Project-orange)](#)
+[![Advanced Database Management System Final Project](https://img.shields.io/badge/Advanced%20Database%20Management%20System-Final%20Project-yellow)](#)
+
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 
