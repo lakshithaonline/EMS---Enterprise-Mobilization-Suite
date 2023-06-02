@@ -96,7 +96,7 @@ namespace EMS___SCNE
 
         private void LoadData()
         {
-            // Connect to the database and retrieve data from the LeaveRequest_History table
+          
             using (SqlConnection connection = new SqlConnection("connection string"))
             {
                 connection.Open();
@@ -106,7 +106,7 @@ namespace EMS___SCNE
                     DataTable table = new DataTable();
                     adapter.Fill(table);
 
-                    // Set the data source of the data grid view to the retrieved data
+                    
                     bunifuDataGridView1.DataSource = table;
                 }
             }
