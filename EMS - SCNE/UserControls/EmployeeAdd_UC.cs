@@ -173,7 +173,6 @@ namespace EMS___SCNE
                 {
                     MessageBox.Show("An error occurred while adding the employee to the database. Error message: " + ex.Message);
 
-                    // log the error to the database
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
@@ -367,7 +366,6 @@ namespace EMS___SCNE
             if (bunifuDataGridView1.SelectedRows.Count == 1)
             {
                 DataGridViewRow row = bunifuDataGridView1.SelectedRows[0];
-                //int userID = Convert.ToInt32(row.Cells["UserID"].Value);
                 int userID = int.Parse(row.Cells[0].Value.ToString());
 
                 // Prompt the user to confirm the deletion

@@ -42,17 +42,14 @@ namespace EMS___SCNE.UserControls
         private void Dashboard_Load(object sender, EventArgs e)
         {
 
-            //display absent employee
             SqlConnection connection = new SqlConnection(connectionString);
 
 
             connection.Open();
             DateTime currentDate = DateTime.Today;
 
-            // Create a SQL query to get the absent employees for the current date
             string query = "SELECT UserID, Name, Position, Department FROM Absent_emp WHERE Date = @date";
 
-            // Create a SqlCommand object with the query and parameter
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
                 cmd.Parameters.AddWithValue("@date", currentDate);
@@ -89,22 +86,7 @@ namespace EMS___SCNE.UserControls
 
                 bunifuLabel2.Text = employeeCount.ToString();
             }
-
-            /*
-            //display daily attendence (without absents)
-            {
-                SqlCommand cmd = new SqlCommand("sp_GetDailyAttendanceCount", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                connection.Open();
-
-                int monthlyAttendanceCount = (int)cmd.ExecuteScalar();
-
-                bunifuLabel8.Text = monthlyAttendanceCount.ToString();
-
-                connection.Close();
-            }*/
-
+          
             //display daily attendance (without absents)
             {
                 SqlCommand cmd = new SqlCommand("sp_GetDailyAttendanceCount", connection);
@@ -125,21 +107,6 @@ namespace EMS___SCNE.UserControls
 
                 connection.Close();
             }
-
-            /*
-            //display the daily late attendence
-            {
-                SqlCommand cmd = new SqlCommand("sp_GetDailyLateAttendanceCount", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                connection.Open();
-
-                int lateAttendanceCount = (int)cmd.ExecuteScalar();
-
-                bunifuLabel10.Text = lateAttendanceCount.ToString();
-
-                connection.Close();
-            }*/
 
             //display the daily late attendance
             {
@@ -162,21 +129,6 @@ namespace EMS___SCNE.UserControls
                 connection.Close();
             }
 
-            /*
-            //display the daily Early Check out employees 
-            {
-                SqlCommand cmd = new SqlCommand("sp_GetDailyEarlyCheckOutCount", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                connection.Open();
-                int absentEmployeeCount = (int)cmd.ExecuteScalar();
-                
-
-                bunifuLabel12.Text = absentEmployeeCount.ToString();
-
-                connection.Close();
-            }*/
-
             //display the daily Early Check out employees 
             {
                 SqlCommand cmd = new SqlCommand("sp_GetDailyEarlyCheckOutCount", connection);
@@ -196,7 +148,6 @@ namespace EMS___SCNE.UserControls
 
                 connection.Close();
             }
-
 
 
             //display who has got the annual leave for current date
@@ -412,17 +363,13 @@ namespace EMS___SCNE.UserControls
                 int attendanceCount = (int)command.ExecuteScalar();
                 connection.Close();
 
-                // Retrieve the total number of employees
                 command = new SqlCommand("SELECT COUNT(*) FROM Employees", connection);
                 connection.Open();
                 int employeeCount = (int)command.ExecuteScalar();
                 connection.Close();
 
-
-                // Calculate the percentage of attendance
                 double attendancePercentage = (double)attendanceCount / employeeCount * 100;
 
-                // Display the attendance percentage in BunifuCircleProgress control
                 bunifuCircleProgress1.Value = (int)attendancePercentage;
                 bunifuCircleProgress1.Text = attendancePercentage.ToString("0.00") + "%";
             }
@@ -430,7 +377,6 @@ namespace EMS___SCNE.UserControls
 
             DateTime currentTime = DateTime.Now;
 
-            // Check the time of day and set the label text accordingly
             if (currentTime.Hour >= 5 && currentTime.Hour < 12)
             {
                 // Good morning

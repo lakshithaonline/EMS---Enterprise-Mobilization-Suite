@@ -61,7 +61,7 @@ namespace EMS___SCNE.UserControls___SuperAdmin
 
                 try
                 {
-                    // Open the connection
+                 
                     connection.Open();
                     
                     string query = "SELECT COUNT(*) FROM Feedback WHERE TypeofFeedback = 'Feedback' AND MONTH(CurrentDate) = MONTH(GETDATE())";

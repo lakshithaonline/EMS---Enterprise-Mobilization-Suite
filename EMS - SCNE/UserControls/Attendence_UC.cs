@@ -28,7 +28,6 @@ namespace EMS___SCNE
         {
             InitializeComponent();
 
-            // Set up database connection
             connection = new SqlConnection(dbConnectionString);
             connection.Open();
 
@@ -60,15 +59,12 @@ namespace EMS___SCNE
 
         public void bunifuButton1_Click(object sender, System.EventArgs e)
         {
-            // Show the Open File dialog
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "CSV Files|*.csv";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Get the path to the selected file
                 string csvFilePath = openFileDialog1.FileName;
 
-                // Read the data from the CSV file
                 DataTable dataTable = new DataTable();
                 using (StreamReader reader = new StreamReader(csvFilePath))
                 {
@@ -89,13 +85,11 @@ namespace EMS___SCNE
                     }
                 }
 
-                // Set up the connection to the database and insert the data
                 string dbConnectionString = @"Server=.\SQLEXPRESS;Database=EMS-SCNE;User Id=lakshitha;Password=123456;";
                 using (SqlConnection dbConnection = new SqlConnection(dbConnectionString))
                 {
                     dbConnection.Open();
 
-                    // Loop through the rows of the DataTable and insert each row into the database
                     foreach (DataRow dataRow in dataTable.Rows)
                     {
                         SqlCommand sqlCommand = new SqlCommand();
@@ -104,7 +98,6 @@ namespace EMS___SCNE
                         sqlCommand.CommandText = "INSERT INTO Attendance (UserID, Name, Department, Date, [Check_In_Time], [Check_Out_Time], [Total_Hours_Worked], EnrollID, DeviceID, Place, VerifyMode) " +
                             "VALUES (@UserID, @Name, @Department, @Date, @Check_In_Time, @Check_Out_Time, @Total_Hours_Worked, @EnrollID, @DeviceID, @Place, @VerifyMode)";
 
-                        // Add parameters for the values to insert
                         sqlCommand.Parameters.AddWithValue("@UserID", dataRow["UserID"]);
                         sqlCommand.Parameters.AddWithValue("@Name", dataRow["Name"]);
                         sqlCommand.Parameters.AddWithValue("@Department", dataRow["Department"]);
@@ -120,8 +113,6 @@ namespace EMS___SCNE
                         sqlCommand.ExecuteNonQuery();
                     }
                 }
-
-                // Display a message box to indicate that the import was successful
                 MessageBox.Show("Import complete!");
             }
         }
@@ -163,19 +154,16 @@ namespace EMS___SCNE
         {
             try
             {
-                // Get selected filter values
                 string attendanceType = bunifuDropdown2.SelectedItem?.ToString();
                 DateTime startDate = bunifuDatePicker2.Value.Date;
                 DateTime endDate = bunifuDatePicker1.Value.Date;
                 string employeeID = bunifuTextBox1.Text.Trim();
 
-                // Validate attendanceType
                 if (string.IsNullOrEmpty(attendanceType))
                 {
                     throw new ArgumentException("Please select an attendance type.", nameof(attendanceType));
                 }
 
-                // Set up SQL query based on selected filter values
                 string sqlQuery = "";
                 switch (attendanceType)
                 {
@@ -199,13 +187,13 @@ namespace EMS___SCNE
                         break;
                 }
 
-                // Add employee ID filter if specified
+              
                 if (!string.IsNullOrEmpty(employeeID))
                 {
                     sqlQuery += " AND UserID = @UserID";
                 }
 
-                // Execute query and display results
+          
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
                     command.Parameters.AddWithValue("@StartDate", startDate);
@@ -227,7 +215,6 @@ namespace EMS___SCNE
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // log the error to the database
                 using (SqlConnection conn = new SqlConnection(dbConnectionString))
                 {
                     conn.Open();
@@ -272,32 +259,31 @@ namespace EMS___SCNE
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            // Create a Bitmap object for the DataGridView control
+            
             Bitmap bm = new Bitmap(this.bunifuDataGridView1.Width, this.bunifuDataGridView1.Height);
 
-            // Draw the DataGridView control to the Bitmap object
+           
             this.bunifuDataGridView1.DrawToBitmap(bm, new Rectangle(0, 0, this.bunifuDataGridView1.Width, this.bunifuDataGridView1.Height));
 
-            // Set the origin of the printing area
+            
             Point origin = new Point(100, 100);
 
-            // Draw the Bitmap object to the printing area
+           
             e.Graphics.DrawImage(bm, origin);
         }
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            // Create the PrintDocument and PrintPreviewDialog objects
+          
             PrintDocument pd = new PrintDocument();
             PrintPreviewDialog ppd = new PrintPreviewDialog();
 
-            // Set the PrintPage event handler for the PrintDocument
             pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
 
-            // Set the document to print
+        
             ppd.Document = pd;
 
-            // Display the Print Preview Dialog
+          
             ppd.ShowDialog();
         }
 
