@@ -112,6 +112,16 @@ namespace EMS___SCNE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo {
+            get {
+                object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mc_green {
             get {
                 object obj = ResourceManager.GetObject("mc-green", resourceCulture);
@@ -135,6 +145,16 @@ namespace EMS___SCNE.Properties {
         internal static System.Drawing.Bitmap mc_yellw {
             get {
                 object obj = ResourceManager.GetObject("mc-yellw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap s1 {
+            get {
+                object obj = ResourceManager.GetObject("s1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

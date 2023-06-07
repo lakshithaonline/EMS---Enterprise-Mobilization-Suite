@@ -60,8 +60,8 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 if (bunifuDropdown1.SelectedIndex == 0 && username == "superadmin" && password == "123456")
                 {
                     // Open the SuperAdmin form
-                    new SuperAdmin().ShowDialog();
-                    Close();
+                    new SuperAdmin().Show();
+                    this.Hide();
                 }
                 else if (bunifuDropdown1.SelectedIndex == 1)
                 {
@@ -88,10 +88,10 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                             {
                                 // Open the Dashboard form
                                 Dashboard dashboard = new Dashboard(username); //username variable send to the Dashboard form
-                                dashboard.ShowDialog();
+                                dashboard.Show();
 
                                 // Close the Login form
-                                Close();
+                                this.Hide();
                             }
                             else
                             {

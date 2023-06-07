@@ -250,6 +250,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Startup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Startup.Designer.cs">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls - SuperAdmin\OverviewPanel_superadmin.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -363,6 +369,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_EMS_SCNEDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Startup.resx">
+      <DependentUpon>Startup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls - SuperAdmin\EmpContact_Information.resx">
       <DependentUpon>EmpContact_Information.cs</DependentUpon>
     </EmbeddedResource>
@@ -465,11 +474,18 @@
     <None Include="Resources\mc-yellw.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\s1.jpg" />
+    <Content Include="Resources\Untitled-1.png" />
+    <Content Include="Resources\Untitled-2.png" />
+    <None Include="Resources\s11.jpg" />
+    <Content Include="Resources\s2.jpg" />
+    <None Include="Resources\logo.png" />
     <None Include="Resources\user.png" />
     <None Include="Resources\loginAttempts.txt.txt" />
     <None Include="Resources\DefaultMaleImage.png" />
     <None Include="Resources\DefaultFemaleImage.png" />
     <None Include="Resources\290289867_2821437328151951_5817885558058486072_n.jpg" />
+    <Content Include="logo.png" />
     <Content Include="logoSCNE.ico" />
     <Content Include="Resources\construction-workers-sunset.jpg" />
     <None Include="Resources\construction-workers-sunset1.jpg" />
