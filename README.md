@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 
 
-# EMS Application
+# EMS - Enterprise Mobilization Suite
 
 The EMS (Employee Management System) Application is a standalone software for managing employees. The software has three main features: attendance management and monitoring, leave management and monitoring, and employee management and monitoring. The application was developed for Southern Construction & Engineering Company (https://www.scnegalle.com/).
 
