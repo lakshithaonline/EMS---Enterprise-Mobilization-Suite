@@ -60,9 +60,9 @@
             this.bunifuLabel8.Location = new System.Drawing.Point(379, 66);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel8.Size = new System.Drawing.Size(60, 35);
+            this.bunifuLabel8.Size = new System.Drawing.Size(68, 35);
             this.bunifuLabel8.TabIndex = 16;
-            this.bunifuLabel8.Text = "Sute";
+            this.bunifuLabel8.Text = "Suite";
             this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             this.bunifuLabel8.Click += new System.EventHandler(this.bunifuLabel8_Click);
@@ -148,7 +148,7 @@
             // 
             this.pictureBox1.AllowFocused = false;
             this.pictureBox1.AutoSizeHeight = true;
-            this.pictureBox1.BorderRadius = 0;
+            this.pictureBox1.BorderRadius = 149;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.IsCircle = false;

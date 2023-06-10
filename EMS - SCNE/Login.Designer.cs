@@ -418,7 +418,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(595, 29);
             this.richTextBox1.TabIndex = 9;
-            this.richTextBox1.Text = "Streamline Your Workforce with SC&E\'s Employee Management System";
+            this.richTextBox1.Text = "Streamline Your Workforce with SC&E\'s Enterprise Mobilization Suite";
             // 
             // bunifuCheckBox3
             // 
