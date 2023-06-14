@@ -52,6 +52,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>logoSCNE.ico</ApplicationIcon>
@@ -444,8 +446,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SentimentLeavePredictor.consumption.cs">
+      <DependentUpon>SentimentLeavePredictor.mbconfig</DependentUpon>
+    </None>
     <None Include="SentimentLeavePredictor.mbconfig" />
+    <None Include="SentimentLeavePredictor.training.cs">
+      <DependentUpon>SentimentLeavePredictor.mbconfig</DependentUpon>
+    </None>
+    <None Include="Sentiment_Working_Hours_Analyzer.consumption.cs">
+      <DependentUpon>Sentiment_Working_Hours_Analyzer.mbconfig</DependentUpon>
+    </None>
     <None Include="Sentiment_Working_Hours_Analyzer.mbconfig" />
+    <None Include="Sentiment_Working_Hours_Analyzer.training.cs">
+      <DependentUpon>Sentiment_Working_Hours_Analyzer.mbconfig</DependentUpon>
+    </None>
     <None Include="_EMS_SCNEDataSet.xsc">
       <DependentUpon>_EMS_SCNEDataSet.xsd</DependentUpon>
     </None>
@@ -484,7 +498,6 @@
     <Content Include="Resources\s2.jpg" />
     <None Include="Resources\logo.png" />
     <None Include="Resources\user.png" />
-    <None Include="Resources\loginAttempts.txt.txt" />
     <None Include="Resources\DefaultMaleImage.png" />
     <None Include="Resources\DefaultFemaleImage.png" />
     <None Include="Resources\290289867_2821437328151951_5817885558058486072_n.jpg" />
@@ -504,30 +517,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup Label="SentimentLeavePredictor">
-    <None Include="SentimentLeavePredictor.consumption.cs">
-      <DependentUpon>SentimentLeavePredictor.mbconfig</DependentUpon>
-    </None>
-    <None Include="SentimentLeavePredictor.training.cs">
-      <DependentUpon>SentimentLeavePredictor.mbconfig</DependentUpon>
-    </None>
-    <None Include="SentimentLeavePredictor.zip">
-      <DependentUpon>SentimentLeavePredictor.mbconfig</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup Label="Sentiment_Working_Hours_Analyzer">
-    <None Include="Sentiment_Working_Hours_Analyzer.consumption.cs">
-      <DependentUpon>Sentiment_Working_Hours_Analyzer.mbconfig</DependentUpon>
-    </None>
-    <None Include="Sentiment_Working_Hours_Analyzer.training.cs">
-      <DependentUpon>Sentiment_Working_Hours_Analyzer.mbconfig</DependentUpon>
-    </None>
-    <None Include="Sentiment_Working_Hours_Analyzer.zip">
-      <DependentUpon>Sentiment_Working_Hours_Analyzer.mbconfig</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -251,7 +251,7 @@ namespace EMS___SCNE
             Login Login = new Login();
 
             // Show the Preloader form
-            Login.ShowDialog();
+            Login.Show();
 
             // Close the current form after Preloader form is closed
             this.Close();

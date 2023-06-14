@@ -114,15 +114,6 @@ namespace EMS___SCNE.UserControls___SuperAdmin
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
 
-            // Increment login attempts
-            string path = "loginAttempts.txt";
-            int loginAttempts = File.Exists(path) ? int.Parse(File.ReadAllText(path)) : 0;
-            loginAttempts++;
-            File.WriteAllText(path, loginAttempts.ToString());
-
-            // Display login attempts on label
-            logincount = $"Login Attempts: {loginAttempts}";
-
         }
 
 

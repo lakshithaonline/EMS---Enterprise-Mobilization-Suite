@@ -168,19 +168,19 @@ namespace EMS___SCNE
                 switch (attendanceType)
                 {
                     case "Late Check In":
-                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND Check_In_Time > '09:00:00'";
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time FROM Attendance_View_Late_Attendance WHERE Date BETWEEN @StartDate AND @EndDate";
                         break;
                     case "Early Check-Out":
-                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Date BETWEEN @StartDate AND @EndDate AND (Total_Hours_Worked < 8 AND Total_Hours_Worked > 1)";
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_Out_Time, Total_Hours_Worked FROM Attendance_View_EarlyCheckOut_Attendance WHERE Date BETWEEN @StartDate AND @EndDate";
                         break;
                     case "Absent":
-                        sqlQuery = "SELECT UserID, Name, Department, Date, Position FROM Absent_emp WHERE Date BETWEEN @StartDate AND @EndDate ";
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Position FROM Attendance_View_Absent_Attendance WHERE Date BETWEEN @StartDate AND @EndDate ";
                         break;
                     case "Normal Attendence":
-                        sqlQuery = "SELECT UserID, Name, Department, Date, Total_Hours_Worked FROM Attendance WHERE Total_Hours_Worked >= 8 AND UserID NOT IN (SELECT UserID FROM Absent_emp) AND Date BETWEEN @StartDate AND @EndDate";
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Total_Hours_Worked FROM Attendance_View_Normal_Attendance WHERE Date BETWEEN @StartDate AND @EndDate";
                         break;
                     case "Must be monitored":
-                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time, Check_Out_Time, Total_Hours_Worked FROM Attendance WHERE Check_In_Time > '09:00:00' AND Total_Hours_Worked >= 1 AND Total_Hours_Worked < 8 AND Date BETWEEN @StartDate AND @EndDate";
+                        sqlQuery = "SELECT UserID, Name, Department, Date, Check_In_Time, Check_Out_Time, Total_Hours_Worked FROM Attendance_View_MustBeMonitored_Attendance WHERE Date BETWEEN @StartDate AND @EndDate";
                         break;
                     default:
                         sqlQuery = "";
